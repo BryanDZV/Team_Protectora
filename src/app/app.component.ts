@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-
+import { CommonModule } from '@angular/common';
 import { GaleriaComponent } from './Pages/galeria/galeria.component';
 
 
@@ -19,7 +19,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-root',
   standalone: true,
 
-
+  imports: [RouterOutlet,GaleriaComponent,CommonModule],
 
   imports: [
     RouterOutlet,
@@ -31,7 +31,6 @@ import { CommonModule } from '@angular/common';
     LoginComponent,
     EleccionComponent,
     HomeComponent,
-  GaleriaComponent
   ],
 
   templateUrl: './app.component.html',
