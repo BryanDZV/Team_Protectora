@@ -1,0 +1,39 @@
+.home {
+  position: relative;
+  width: 375px;
+  top: 0;
+  left: 24px;
+}
+
+.usuario {
+  position: relative;
+  font-size: 25px;
+  width: 124px;
+  color: rgb(1, 116, 142);
+  left: 34px;
+}
+
+.novedades {
+  position: relative;
+  color: rgb(1, 116, 142);
+  font-size: 16px;
+  width: 79px;
+  left: 34px;
+}
+
+.gallery {
+  position: relative;
+  border: 3px solid rgb(250, 156, 147);
+  border-radius: 4px;
+  margin: 10px;
+  width: 334px;
+  left: 24px;
+  background-color: rgb(250, 156, 147);
+
+  & p {
+    color: white;
+    height: 10px;
+    font-size: 18px;
+    text-align: center;
+  }
+}

@@ -1,0 +1,28 @@
+<!-- <p>galeria works!</p>
+<h1>ANIMALES EN ADOPCION</h1> -->
+<app-buscador [filteredResults]="filteredResults" (filteredBuscador)="showFilteredBuscador($event)"></app-buscador>
+
+ <!-- <div>
+<app-filtro-modal (filtersApplied)="aplicarFiltros($event)" [animalesLista]="animalesLista"></app-filtro-modal>
+</div> -->
+
+<H1>Mis Mascotas</H1>
+<p>Accede al perfil de tus mascotas</p>
+
+
+<div>
+ <p>Estado de la Adopcion</p>
+</div>
+
+<div>
+ <p>Animales en Adopcion</p><button (click)="openFilter()"> Abrir Filtros</button>
+</div>
+
+
+@for (animal of filteredResults; track $index) {
+  <div>
+     <h3>{{animal.name}}</h3>
+     <img src="{{animal.image}}" alt="{{animal.name}}">
+     <p>Status:{{animal.status}}</p>
+  </div>}
+

@@ -1,0 +1,8 @@
+<div>
+  <label for="especie">Selecciona la especie:</label>
+  <select id="especie" [(ngModel)]="especieSeleccionada" (change)="filtrarPorEspecie()">
+    <option value="Human">Humano</option>
+    <option value="Alien">Alien</option>
+  </select>
+</div>
+

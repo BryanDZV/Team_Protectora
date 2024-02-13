@@ -1,0 +1,24 @@
+<img src="../../assets/login_logo/logo@3x.png" alt="Logo pequeño">
+<h2>¡Hola! para continuar, inicia sesión o crea cuenta</h2>
+<form (ngSubmit)="onSubmit()"[formGroup]="contactForm">
+<fieldset>
+    <label class="block">
+      <input type="mail" formControlName="mail" placeholder="Email"/>
+    </label>
+    <app-form-errors [errors]="isSubmitted && contactForm.get('mail')?.errors"></app-form-errors>
+  <p>
+    <label class="block">
+      <input type="password" formControlName="password" placeholder="Contraseña" id="passwordInput">
+      <button type="button" class="btn btn-light" (click)="showPassword()">
+        <img src="../../assets/primary_icons/little_icons_primary/ojo_little/ojo@3x.png">
+      </button>
+    </label>
+    
+    <app-form-errors [errors]="isSubmitted && contactForm.get('password')?.errors"></app-form-errors>
+    
+  </p>
+<p>¿Has olvidado tu contraseña?</p>
+
+<button>Iniciar sesión</button>
+<button>Crear cuenta</button>
+</fieldset>
