@@ -1,0 +1,24 @@
+.navContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+
+  position: fixed;
+  bottom: 0vh;
+  left: 0vw;
+
+  width: 100%;
+
+  background-color: white;
+
+  .navCard {
+    max-height: 50px;
+    max-width: 50px;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}
