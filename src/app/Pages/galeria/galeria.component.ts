@@ -13,7 +13,7 @@ import {MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialo
 @Component({
   selector: 'app-galeria',
   standalone: true,
-  imports: [BuscadorComponent,CommonModule,MatDialogModule],
+  imports: [BuscadorComponent,CommonModule,MatDialogModule,],
   templateUrl: './galeria.component.html',
   styleUrl: './galeria.component.scss'
 })
@@ -29,13 +29,17 @@ export class GaleriaComponent {
 
 
   ngOnInit(): void {
-    this.servicio.getAnimales().subscribe((data: any) => {
-      this.animalesLista = data.results;
-      this.filteredResults = [...this.animalesLista]; // Inicializamos los resultados filtrados
-
-      // Abre el modal y se suscribe al evento filtersApplied
-      this.openFilter();
-    });
+    this.servicio.getAnimales().subscribe(
+      (data: any) => {
+        this.animalesLista = data;
+        console.log('Datos recibidos:', this.animalesLista); // Aquí se muestra la data recibida
+        this.filteredResults = [...this.animalesLista]; // Inicializamos los resultados filtrados
+        this.openFilter();
+      },
+      (error: any) => {
+        console.error('Error al obtener animales:', error);
+      }
+    );
   }
 
   openFilter() {

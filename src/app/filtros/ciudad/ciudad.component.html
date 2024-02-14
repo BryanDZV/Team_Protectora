@@ -1,7 +1,28 @@
 <div>
   <label for="ciudad">Selecciona la ciudad:</label>
-  <select id="ciudad" [(ngModel)]="ciudadSeleccionado" (change)="filtrarPorCiudad()">
-    <option value="Madrid">Madrid</option>
-    <option value="Valencia">Valencia</option>
-  </select>
+  <mat-form-field appearance="fill">
+    <mat-label>Ciudad</mat-label>
+    <mat-select [(ngModel)]="ciudadSeleccionado" (selectionChange)="filtrarPorCiudad()">
+      <mat-option value="Madrid">
+        <mat-icon>location_city</mat-icon> <!-- Icono de ciudad -->
+        Madrid
+      </mat-option>
+      <mat-option value="Barcelona">
+        <mat-icon>location_city</mat-icon> <!-- Icono de ciudad -->
+        Barcelona
+      </mat-option>
+      <mat-option value="Valencia">
+        <mat-icon>location_city</mat-icon> <!-- Icono de ciudad -->
+        Valencia
+      </mat-option>
+      <mat-option value="Sevilla">
+        <mat-icon>location_city</mat-icon> <!-- Icono de ciudad -->
+        Sevilla
+      </mat-option>
+      <mat-option value="Málaga">
+        <mat-icon>location_city</mat-icon> <!-- Icono de ciudad -->
+        Málaga
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 </div>

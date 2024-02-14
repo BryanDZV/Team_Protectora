@@ -17,11 +17,16 @@ export class EdadComponent {
   constructor(private servicio: ApiService) {}
 
   filtrarPorEdad() {
-    this.servicio
-      .filtrarAnimalesPorEdad(this.edadSeleccionado)
-      .subscribe((data: any) => {
-        this.resultadosE = data.results;
-        this.filtradoEdad.emit(this.resultadosE);
-      });
+    // Verifica que la edad seleccionada esté dentro del rango antes de filtrar
+    if (this.edadSeleccionado && this.edadSeleccionado >= 1 && this.edadSeleccionado <= 30) {
+      this.servicio
+        .filtrarAnimalesPorEdad(this.edadSeleccionado.toString()) // Convierte a string
+        .subscribe((data: any) => {
+          this.resultadosE = data;
+          this.filtradoEdad.emit(this.resultadosE);
+        });
+    } else {
+      console.error('La edad seleccionada no es válida. Debe ser un número entre 1 y 30.');
+    }
   }
 }

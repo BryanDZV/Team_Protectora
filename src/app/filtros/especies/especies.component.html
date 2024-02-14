@@ -1,8 +1,32 @@
 <div>
   <label for="especie">Selecciona la especie:</label>
-  <select id="especie" [(ngModel)]="especieSeleccionada" (change)="filtrarPorEspecie()">
-    <option value="Human">Humano</option>
-    <option value="Alien">Alien</option>
-  </select>
+  <mat-form-field appearance="fill">
+    <mat-label>Especie</mat-label>
+    <mat-select [(ngModel)]="especieSeleccionada" (selectionChange)="filtrarPorEspecie()">
+      <mat-option value="Pez">
+        <mat-icon>pets</mat-icon> <!-- Icono de pez -->
+        Pez
+      </mat-option>
+      <mat-option value="Gato">
+        <mat-icon>cat</mat-icon> <!-- Icono de gato -->
+        Gato
+      </mat-option>
+      <mat-option value="Perro">
+        <mat-icon>dog</mat-icon> <!-- Icono de perro -->
+        Perro
+      </mat-option>
+      <mat-option value="Tortuga">
+        <mat-icon>turtle</mat-icon> <!-- Icono de tortuga -->
+        Tortuga
+      </mat-option>
+      <mat-option value="Conejo">
+        <mat-icon>rabbit</mat-icon> <!-- Icono de conejo -->
+        Conejo
+      </mat-option>
+      <mat-option value="Pájaro">
+        <mat-icon>bird</mat-icon> <!-- Icono de pájaro -->
+        Pájaro
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 </div>
-

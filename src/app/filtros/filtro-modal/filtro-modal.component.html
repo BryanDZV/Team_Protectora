@@ -1,18 +1,39 @@
-<!-- <div class="modal">
-  <div class="modal_body"> -->
-    <h2>Filtros</h2>
-
-
-    <app-especies
-      (filtradoEspecies)="showFilteredEspecie($event)"
-    ></app-especies>
-    <app-sexo (filtradoSexo)="showFilteredSexo($event)"></app-sexo>
-    <app-size (filtradoSize)="showFilteredSize($event)"></app-size>
-    <app-edad (filtradoEdad)="showFilteredEdad($event)"></app-edad>
-    <app-ciudad (filtradoCiudad)="showFilteredCiudad($event)"></app-ciudad>
-
-    <button (click)="borrarFiltros()">borre filtros</button>
-    <button (click)="aplicarFiltros()">aplique filtros</button>
-    <button (click)="cerrarFiltro()">Cerrar</button>
-  <!-- </div>
-</div> -->
+<div>
+  <label for="especie">Especie:</label>
+  <input type="text" id="especie" [(ngModel)]="especie">
+</div>
+<div>
+  <label for="edad">Edad:</label>
+  <select id="edad" [(ngModel)]="edad">
+    <option value="" disabled selected>Selecciona la edad</option>
+    <option value="1">1 año</option>
+    <option value="2">2 años</option>
+    <option value="3">3 años</option>
+    <!-- Agrega más opciones según necesites -->
+  </select>
+</div>
+<div>
+  <label for="genero">Género:</label>
+  <input type="text" id="genero" [(ngModel)]="genero">
+  <!-- Aquí podrías mostrar iconos según el género seleccionado -->
+</div>
+<div>
+  <label for="ciudad">Ciudad:</label>
+  <select id="ciudad" [(ngModel)]="ciudad">
+    <option value="" disabled selected>Selecciona la ciudad</option>
+    <option *ngFor="let ciudad of ciudades" [value]="ciudad">{{ ciudad }}</option>
+  </select>
+</div>
+<div>
+  <label for="tamaño">Tamaño:</label>
+  <select id="tamaño" [(ngModel)]="size">
+    <option value="" disabled selected>Selecciona el size</option>
+    <option *ngFor="let size of sizes" [value]="size">{{ size }}</option>
+  </select>*ngFor="let size of sizes" [value]="size"
+  <!-- Aquí podrías mostrar iconos según el tamaño seleccionado -->
+</div>
+<div>
+  <label for="nombre">Nombre:</label>
+  <input type="text" id="nombre" [(ngModel)]="nombre">
+</div>
+<button (click)="aplicarFiltros()">Aplicar Filtros</button>
