@@ -6,52 +6,61 @@ import { Injectable } from '@angular/core';
 })
 //mi servicio
 export class ApiService {
-  public baseUrl: string = 'https://rickandmortyapi.com/api'; //funciones que quiero que exista en toda mi api
-  public animalesUrl: string = `${this.baseUrl}/character`; //endpoint
+  public baseUrl: string = 'http://localhost:5000'; //funciones que quiero que exista en toda mi api
+  public animalesUrl: string = `${this.baseUrl}/animales`; //endpoint
 
   constructor(private http: HttpClient) {}
-  //por filtro, genero
-  public filtrarAnimalesPorGenero(gender: string) {
-    return this.http.get(`${this.animalesUrl}/?gender=${gender}`);
+
+  // Filtrar por género
+  public filtrarAnimalesPorGenero(genero: string) {
+    return this.http.get(`${this.animalesUrl}/?genero=${genero}`);
   }
-  //por edad
-  public filtrarAnimalesPorEdad(edad: string) {
+
+  // Filtrar por edad
+  public filtrarAnimalesPorEdad(edad: number) {
     return this.http.get(`${this.animalesUrl}/?edad=${edad}`);
   }
-  //por ciudad
-  public filtrarAnimalesPorCiudad(Ciudad: string) {
-    return this.http.get(`${this.animalesUrl}/?Ciudad=${Ciudad}`);
-  }
-  //por especie
-  public filtrarAnimalesPorEspecie(species: string) {
-    return this.http.get(`${this.animalesUrl}/?species=${species}`);
-  }
-  //por Tamaño
-  public filtrarAnimalesPorSize(size: string) {
-    return this.http.get(`${this.animalesUrl}/?size=${size}`);
+
+  // Filtrar por ciudad
+  public filtrarAnimalesPorCiudad(ciudad: string) {
+    return this.http.get(`${this.animalesUrl}/?ciudad=${ciudad}`);
   }
 
+  // Filtrar por especie
+  public filtrarAnimalesPorEspecie(especie: string) {
+    return this.http.get(`${this.animalesUrl}/?especie=${especie}`);
+  }
 
-  //lista
+  // Filtrar por tamaño
+  public filtrarAnimalesPorSize(tamaño: string) {
+    return this.http.get(`${this.animalesUrl}/?tamaño=${tamaño}`);
+  }
+
+  // Obtener todos los animales
   public getAnimales() {
     return this.http.get(this.animalesUrl);
   }
-  //por id
+
+  // Obtener animal por ID
   public getAnimalbyId(id: string) {
     return this.http.get(`${this.animalesUrl}/${id}`);
   }
-  public postAnimal(Animal: any) {
-    return this.http.post(this.animalesUrl, Animal);
+
+  // Agregar un nuevo animal
+  public postAnimal(animal: any) {
+    return this.http.post(this.animalesUrl, animal);
   }
-  putAnimal(id: string, animal: any) {
+
+  // Actualizar un animal existente
+  public putAnimal(id: string, animal: any) {
     return this.http.put(`${this.animalesUrl}/${id}`, animal);
   }
 
+  // Eliminar un animal
   public borrarAnimal(id: string) {
     return this.http.delete(`${this.animalesUrl}/${id}`);
   }
 }
-
 
 
 

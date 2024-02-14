@@ -12,13 +12,16 @@ import { LoginComponent } from './login/login.component';
 import { EleccionComponent } from './eleccion/eleccion.component';
 import { HomeComponent } from './home/home.component';
 import { CommonModule } from '@angular/common';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatIconModule} from '@angular/material/icon';
+
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
 
-  
+
 
   imports: [
     GaleriaComponent,
@@ -31,6 +34,9 @@ import { CommonModule } from '@angular/common';
     LoginComponent,
     EleccionComponent,
     HomeComponent,
+    MatDialogModule,
+    MatIconModule
+
   ],
 
   templateUrl: './app.component.html',

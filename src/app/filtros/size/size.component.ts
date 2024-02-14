@@ -20,7 +20,7 @@ export class SizeComponent {
     this.servicio
       .filtrarAnimalesPorSize(this.sizeSeleccionado)
       .subscribe((data: any) => {
-        this.resultadosS = data.results;
+        this.resultadosS = data;
         this.filtradoSize.emit(this.resultadosS);
       });
   }

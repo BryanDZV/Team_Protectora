@@ -22,7 +22,7 @@ this.servicio
 .filtrarAnimalesPorGenero(this.sexoSelecionado)
 .subscribe((data:any)=>{
   console.log("soy genero",data);
-  this.resultadosG=data.results;
+  this.resultadosG=data;
 
   this.filtradoSexo.emit(this.resultadosG)
 })
