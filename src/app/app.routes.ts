@@ -8,7 +8,8 @@ import { LoginComponent } from './login/login.component';
 import { EleccionComponent } from './eleccion/eleccion.component';
 import { HomeComponent } from './home/home.component';
 import { GaleriaComponent } from './Pages/galeria/galeria.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './Pages/profile/profile.component';
+import { OptionComponent } from './Pages/option/option.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'portada', pathMatch: 'full' },
@@ -21,6 +22,7 @@ export const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'galeria', component: GaleriaComponent },
   { path: 'perfil', component: ProfileComponent },
+  { path: 'opciones', component: OptionComponent },
 ];
 
 export class AppRoutingModule {}
