@@ -1,12 +1,4 @@
-// 4 perros 
-// 4 gatos
-// 3 aves
-// 1  tarantula
-// 2 reptiles
-// 1 tortuga
-
-
-const animals = [
+[
     {
         "especie": "Perro",
         "edad": "Adulto",
