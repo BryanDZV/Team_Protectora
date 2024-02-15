@@ -50,14 +50,6 @@ export class ApiService {
 }
 
 
-
-
-
-
-
-
-
-
   // // Filtrar por género
   // public filtrarAnimalesPorGenero(genero: string) {
   //   return this.http.get(`${this.animalesUrl}/?genero=${genero}`);

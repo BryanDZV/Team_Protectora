@@ -41,7 +41,7 @@ const getAnimales = async (req, res) => {
 const getAnimalById = async (req, res) => {
   try {
     const { id } = req.params;
-    const animal = await Animal.findOne({ id: id }); // Buscar por la propiedad id
+    const animal = await Animal.findById( id ); // Buscar por la propiedad id
 
     if (!animal) {
       return res.status(404).json({ message: "No se encontró ningún animal con ese ID" });
@@ -92,6 +92,5 @@ const deleteAnimal = async (req, res) => {
     return res.status(500).json(error);
   }
 };
-
 
 module.exports = { getAnimales, getAnimalById, postAnimal, putAnimal, deleteAnimal };

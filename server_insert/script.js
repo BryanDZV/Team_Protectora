@@ -3,10 +3,9 @@ const dotenv = require("dotenv");
 dotenv.config();
 const axios = require("axios");
 const PORT = process.env.PORT;
-const { connect } = require("./utils/db");
+const { connect } = require("./hola/db");
 const cors = require('cors');
 const bodyParser = require('body-parser')
-
 
 
 // nos tenemos que traer nuestra función connect que hemos exportando anteriormente

@@ -30,12 +30,14 @@ textoBusqueda=''
   constructor(private apiService: ApiService, private dialog: MatDialog) {}
   ngOnInit(): void {
 
+
     this.apiService.getAnimales().subscribe((data:any) => {
       console.log("llegó a galeria datos:",data);
       this.animalesBase=data
       // Asi veo todos los animales al inicio
       this.resultados = this.animalesBase;
     });
+
   }
 
   buscar(texto:any) {
