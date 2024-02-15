@@ -14,6 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DetalleComponent {
   id!:any;
+  animalDetalle!:any;
   constructor(private servicio: ApiService, private rutaActivada: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -24,8 +25,9 @@ export class DetalleComponent {
 
     this.servicio.getAnimalbyId(this.id).subscribe((data:any)=>{
       console.log(data);
-    }
-    )
+      this.animalDetalle=data
+    })
+
   }
 
   handleShareClick() {
