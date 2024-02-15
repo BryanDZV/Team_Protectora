@@ -1,4 +1,3 @@
-
 import { BuscadorComponent } from '../../filtros/buscador/buscador.component';
 import { ApiService } from './../../servicios/api.service';
 import { Component } from '@angular/core';
@@ -6,9 +5,6 @@ import { FiltroModalComponent } from '../../filtros/filtro-modal/filtro-modal.co
 import { CommonModule } from '@angular/common';
 import {MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
-
-
-
 
 
 @Component({
@@ -33,12 +29,42 @@ textoBusqueda=''
 
   constructor(private apiService: ApiService, private dialog: MatDialog) {}
   ngOnInit(): void {
+<<<<<<< HEAD
+    this.servicio.getAnimales().subscribe(
+      (data: any) => {
+        this.animalesLista = data;
+        console.log('Datos recibidos:', this.animalesLista); // Aquí se muestra la data recibida
+        this.filteredResults = [...this.animalesLista]; // Inicializamos los resultados filtrados
+        this.openFilter();
+      },
+      (error: any) => {
+        console.error('Error al obtener animales:', error);
+      }
+    );
+  }
+
+  openFilter() {
+    this.dialogRef = this.dialog.open(FiltroModalComponent, {
+      width: '100%',
+      height: '100%',
+      data: this.filteredResults
+    });
+
+    // this.dialogRef.componentInstance.filtersApplied.subscribe((filtersAplicados: any[]) => {
+    //   if (filtersAplicados && filtersAplicados.length > 0) {
+    //     this.aplicarFiltros(filtersAplicados);
+    //   } else {
+    //     this.filteredResults = [...this.animalesLista]; // Restauramos la lista original si no hay filtros aplicados
+    //   }
+    // });
+=======
     this.apiService.getAnimales().subscribe((data:any) => {
       console.log("llegó a galeria datos:",data);
       this.animalesBase=data
       // Asi veo todos los animales al inicio
       this.resultados = this.animalesBase;
     });
+>>>>>>> c02c579539cfa07501692e6d43178ac14a366d77
   }
 
   buscar(texto:any) {

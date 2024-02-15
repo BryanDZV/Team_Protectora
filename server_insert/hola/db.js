@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 const Animal = require("../back/models/animalModel")
 const DB_URL =process.env.DB_URL;// mongodb+srv://usuario:contraseña@cluster0.zqnzqqp.mongodb.net/nombredevuestroproyecto
 

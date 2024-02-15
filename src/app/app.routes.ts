@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { GaleriaComponent } from './Pages/galeria/galeria.component';
 import { ProfileComponent } from './Pages/profile/profile.component';
 import { OptionComponent } from './Pages/option/option.component';
+import { DetalleComponent } from './Pages/detalle/detalle.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'portada', pathMatch: 'full' },
@@ -23,6 +24,10 @@ export const routes: Routes = [
   { path: 'galeria', component: GaleriaComponent },
   { path: 'perfil', component: ProfileComponent },
   { path: 'opciones', component: OptionComponent },
+  { path: 'detalle', component: DetalleComponent },
+  { path: 'gallery', component: GaleriaComponent },
+
+
 ];
 
 export class AppRoutingModule {}
