@@ -32,7 +32,7 @@ export class ApiService {
     return this.http.get(this.animalesUrl);
   }
 
-  public getAnimalbyId(id: string) {
+  public getAnimalbyId(id: any) {
     return this.http.get(`${this.animalesUrl}/${id}`);
   }
 

@@ -5,13 +5,14 @@ import { FiltroModalComponent } from '../../filtros/filtro-modal/filtro-modal.co
 import { CommonModule } from '@angular/common';
 import {MatDialog, MatDialogModule,} from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 
 
 @Component({
   selector: 'app-galeria',
   standalone: true,
-  imports: [BuscadorComponent,CommonModule,MatDialogModule,FiltroModalComponent,FormsModule],
+  imports: [BuscadorComponent,CommonModule,MatDialogModule,FiltroModalComponent,FormsModule, RouterLink],
   templateUrl: './galeria.component.html',
   styleUrl: './galeria.component.scss'
 })
