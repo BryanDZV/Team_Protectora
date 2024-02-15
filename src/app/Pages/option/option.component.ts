@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
+import { AuthServiceService } from '../../servicios/auth.service.service';
 
 @Component({
   selector: 'app-option',
@@ -9,4 +10,13 @@ import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
   templateUrl: './option.component.html',
   styleUrl: './option.component.scss',
 })
-export class OptionComponent {}
+export class OptionComponent {
+  // Injectamos el servicio de autenticación para pasar la información de que estmaos logados y habilitar el renderizado condicional
+  authService = inject(AuthServiceService);
+
+  logout(): void {
+    console.log('logout');
+    localStorage.setItem('token', '');
+    this.authService.currentUserSig.set(null);
+  }
+}
