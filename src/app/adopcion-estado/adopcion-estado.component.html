@@ -1,0 +1,39 @@
+<p>adopcion-estado works!</p>
+<div>
+  <input
+    type="text"
+    [(ngModel)]="textoBusqueda"
+    (input)="buscar(textoBusqueda)"
+    placeholder="Buscar..."
+  />
+</div>
+<div>
+  <button mat-button (click)="abrirModal()">Abrir Filtro</button>
+</div>
+
+<div *ngIf="resultados.length > 0">
+  <div *ngFor="let animal of resultados; let i = index" class="animal-item">
+    <div>
+      <div>
+        <h1>Adopcion de {{ animal.nombre }}</h1>
+      </div>
+      <div>
+        <p>{{ animal.adoptionState }}</p>
+      </div>
+    </div>
+    <div>
+      <div class="imagen-container">
+        <img class="imagen" src="{{ animal.foto }}" alt="foto" />
+      </div>
+
+      <div>
+        <p>Nombre:{{ animal.nombre }}</p>
+        <p>Ciudad:{{ animal.ciudad }}</p>
+        <p>Sexo:{{ animal.genero }}</p>
+      </div>
+    </div>
+  </div>
+    <div *ngIf="resultados.length === 0">
+    <p>No se encontraron resultados.</p>
+  </div>
+</div>

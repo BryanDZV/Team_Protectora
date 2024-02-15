@@ -1,37 +1,135 @@
-<div>
-  <label for="especie">Especie:</label>
-  <input type="text" id="especie" [(ngModel)]="especie">
-</div>
-<div>
-  <label for="genero">genero:</label>
-  <select id="genero" [(ngModel)]="genero">
-    <option value="" disabled selected>Selecciona la genero</option>
-    <option value="Hembra">Hembra</option>
-    <option value="Macho">Macho</option>
+<div *ngIf="contexto === 'galeria'">
+  <div class="modal-content">
+    <h2>Filtro de animales</h2>
 
-  </select>
-</div>
-<div>
-  <label for="edad">Edad:</label>
-  <input type="number" [(ngModel)]="edad">
-</div>
-<div>
-  <label for="ciudad">Ciudad:</label>
-  <select id="ciudad" [(ngModel)]="ciudad">
-    <option value="" disabled selected>Selecciona la ciudad</option>
-    <option *ngFor="let ciudad of ciudades" [value]="ciudad">{{ ciudades }}</option>
-  </select>
-</div>
-<div>
-  <label for="size">Tamaño:</label>
-  <select id="size" [(ngModel)]="size">
-    <option value="" disabled selected>Selecciona el tamaño</option>
-    <option *ngFor="let size of sizes" [value]="size">{{ size }}</option>
-  </select>
+    <div class="input-field">
+      <label for="ciudad">Ciudad:</label>
+      <select id="ciudad" [(ngModel)]="ciudad">
+        <option value="" disabled selected>Selecciona la ciudad</option>
+        <option *ngFor="let ciudad of ciudades" [value]="ciudad">
+          {{ ciudad }}
+        </option>
+      </select>
+    </div>
+
+    <div class="input-field">
+      <label for="especie">Especie:</label>
+      <button mat-icon-button (click)="selectEspecie('Perro')" [ngClass]="especie === 'Perro' ? 'filtro-seleccionado' : ''" >
+        <img
+          src="../../../assets/filtros/Captura de pantalla 2024-02-15 165748.png"
+          alt="Pequeño"
+        />
+      </button>
+      <button mat-icon-button (click)="selectEspecie('Gato')" [ngClass]="especie === 'Gato' ? 'filtro-seleccionado' : ''">
+        <img
+          src="../../../assets/filtros/Captura de pantalla 2024-02-15 165748.png"
+          alt="Pequeño"
+        />
+      </button>
+      <button mat-icon-button (click)="selectEspecie('Tortuga')" [ngClass]="especie === 'Tortuga' ? 'filtro-seleccionado' : ''">
+        <img
+          src="../../../assets/filtros/Captura de pantalla 2024-02-15 165748.png"
+          alt="Pequeño"
+        />
+      </button>
+      <button mat-icon-button (click)="selectEspecie('Arácnido')" [ngClass]="especie === 'Arácnido' ? 'filtro-seleccionado' : ''">
+        <img
+          src="../../../assets/filtros/Captura de pantalla 2024-02-15 165748.png"
+          alt="Pequeño"
+        />
+      </button>
+      <button mat-icon-button (click)="selectEspecie('Ave')" [ngClass]="especie === 'Ave' ? 'filtro-seleccionado' : ''">
+        <img
+          src="../../../assets/filtros/Captura de pantalla 2024-02-15 165748.png"
+          alt="Pequeño"
+        />
+      </button>
+      <button mat-icon-button (click)="selectEspecie('Reptil')" [ngClass]="especie === 'Reptil' ? 'filtro-seleccionado' : ''">
+        <img
+          src="../../../assets/filtros/Captura de pantalla 2024-02-15 165748.png"
+          alt="Pequeño"
+        />
+      </button>
+    </div>
+
+    <div class="input-field">
+      <label for="edad">Edad:</label>
+      <select id="edad" [(ngModel)]="edad">
+        <option value="">Selecciona la edad</option>
+        <option value="Cachorro">Cachorro</option>
+        <option value="Joven">Joven</option>
+        <option value="Adulto">Adulto</option>
+      </select>
+    </div>
+    <div class="input-field">
+      <label for="genero">Genero:</label>
+      <button mat-icon-button (click)="selectGenero('Hembra')" [ngClass]="genero === 'Hembra' ? 'filtro-seleccionado' : ''">
+        <img
+          src="../../../assets/filtros/Captura de pantalla 2024-02-15 165748.png"
+          alt="Pequeño"
+        />
+      </button>
+      <button mat-icon-button (click)="selectGenero('Macho')" [ngClass]="genero === 'Macho' ? 'filtro-seleccionado' : ''">
+        <img
+          src="../../../assets/filtros/Captura de pantalla 2024-02-15 165748.png"
+          alt="Pequeño"
+        />
+      </button>
+    </div>
+
+    <div class="input-field">
+      <label for="size">Tamaño:</label>
+      <button mat-icon-button (click)="selectSize('Pequeño')" [ngClass]="size === 'Pequeño' ? 'filtro-seleccionado' : ''">
+        <img
+          src="../../../assets/filtros/Captura de pantalla 2024-02-15 165748.png"
+          alt="Pequeño"
+        />
+      </button>
+      <button mat-icon-button (click)="selectSize('Mediano')" [ngClass]="size === 'Mediano' ? 'filtro-seleccionado' : ''">
+        <img
+          src="../../../assets/filtros/Captura de pantalla 2024-02-15 165748.png"
+          alt="Pequeño"
+        />
+      </button>
+      <button mat-icon-button (click)="selectSize('Grande')" [ngClass]="size === 'Grande' ? 'filtro-seleccionado' : ''">
+        <img
+          src="../../../assets/filtros/Captura de pantalla 2024-02-15 165748.png"
+          alt="Pequeño"
+        />
+      </button>
+    </div>
+    <div *ngIf="noResultados" class="no-results">
+      <p>No hay animales con esos filtros.</p>
+    </div>
+
+    <div class="buttons">
+      <button mat-button (click)="aplicarFiltros()">Aplicar Filtros</button>
+      <button mat-button (click)="borrarFiltros()">Borrar Filtros</button>
+      <button mat-button (click)="cerrarModal()">Cerrar</button>
+    </div>
+  </div>
 </div>
 
-<div>
-  <button (click)="aplicarFiltros()">Aplicar Filtros</button>
-  <button (click)="borrarFiltros()">Borrar Filtros</button>
-  <button (click)="cerrarModal()">Cerrar</button>
+<div *ngIf="contexto === 'adopcion'">
+  <div class="input-field">
+    <label for="adoptionState">Estado:</label>
+    <button mat-icon-button (click)="selectEstadoAdopcion('Completo')" [ngClass]="estadoAdopcion === 'Completo' ? 'filtro-seleccionado' : ''">
+      <img src="../../../assets/filtros/Captura de pantalla 2024-02-15 165748.png" alt="Pequeño" />
+    </button>
+    <button mat-icon-button (click)="selectEstadoAdopcion('Proceso')" [ngClass]="estadoAdopcion === 'Proceso' ? 'filtro-seleccionado' : ''">
+      <img src="../../../assets/filtros/Captura de pantalla 2024-02-15 165748.png" alt="Pequeño" />
+    </button>
+    <button mat-icon-button (click)="selectEstadoAdopcion('Rechazado')" [ngClass]="estadoAdopcion === 'Rechazado' ? 'filtro-seleccionado' : ''">
+      <img src="../../../assets/filtros/Captura de pantalla 2024-02-15 165748.png" alt="Pequeño" />
+    </button>
+    <div *ngIf="noResultados" class="no-results">
+      <p>No hay animales con esos filtros.</p>
+    </div>
+    <div class="buttons">
+      <button mat-button (click)="aplicarFiltros()">Aplicar Filtros</button>
+      <button mat-button (click)="borrarFiltros()">Borrar Filtros</button>
+      <button mat-button (click)="cerrarModal()">Cerrar</button>
+    </div>
+  </div>
 </div>
+

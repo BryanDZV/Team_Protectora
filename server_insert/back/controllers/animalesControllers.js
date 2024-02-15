@@ -66,7 +66,7 @@ const postAnimal = async (req, res) => {
 const putAnimal = async (req, res) => {
   try {
     const { id } = req.params;
-    const updatedAnimal = await Animal.findOneAndUpdate({ id: id }, req.body, { new: true });
+const updatedAnimal = await Animal.findOneAndUpdate({_id:id}, req.body, { new: true });
 
     if (!updatedAnimal) {
       return res.status(404).json({ message: "No tenemos ningún animal con ese ID" });
