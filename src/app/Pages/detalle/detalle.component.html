@@ -1,28 +1,37 @@
+<button (click)="handleShareClick()" class="buttonShare">
+  <img src="../../../assets/primary_icons/comms_icons_standOut/share_little_standOut/compartir@3x.png" alt="Compartir"/>
+  Compartir
+</button>
+
+<button (click)="handleLikeClick()" class="buttonLike">
+  <img src="../../../assets/primary_icons/little_icons_standOut/favoritos_little_standOut/favoritos@3x.png" alt="Me gusta"/>
+  Me gusta
+</button>
+
 <mat-tab-group>
     <mat-tab label="Datos">
-        
         <div className="imagen.filtro">
             <div className="detalil">
 
                 <div className='detail2'>
                     <div className="detail2-line">
-                        <div><img src="" alt="" /> <span>Especie</span></div>
+                        <div><img src="../../../assets/primary_icons/listStyle_icon/pawprint@3x.png" alt="" /> <span>Especie</span></div>
                         <div><span>animals.especie</span></div>
                     </div>
                     <div className="detail2-line">
-                        <div><img src="" alt="" /> <span>Fecha de nacimiento</span></div>
+                        <div><img src="../../../assets/primary_icons/listStyle_icon/pawprint@3x.png" alt="" /> <span>Fecha de nacimiento</span></div>
                         <div><span>animals.fechaDeNacimiento</span></div>
                     </div>
                     <div className="detail2-line">
-                        <div><img src="" alt="" /> <span>Sexo</span></div>
+                        <div><img src="../../../assets/primary_icons/listStyle_icon/pawprint@3x.png" alt="" /> <span>Sexo</span></div>
                         <div><span>animals.genero</span></div>
                     </div>
                     <div className="detail2-line">
-                        <div><img src="" alt="" /> <span>Tamaño</span></div>
+                        <div><img src="../../../assets/primary_icons/listStyle_icon/pawprint@3x.png" alt="" /> <span>Tamaño</span></div>
                         <div><span>animal.size</span></div>
                     </div>
                     <div className="detail2-line">
-                        <div><img src="" alt="" /> <span>Peso</span></div>
+                        <div><img src="../../../assets/primary_icons/listStyle_icon/pawprint@3x.png" alt="" /> <span>Peso</span></div>
                         <div><span>animals.peso</span></div>
                     </div>
                 </div>
@@ -46,14 +55,57 @@
                 </div>
             </div>
         </div>
-    
+
     </mat-tab>
 
+    <mat-tab label="Salud">
+        <div className="imagen.filtro">
+            <div className='detail2'>
+              <div className="detail2-line"> <div><img src="../../../assets/primary_icons/listStyle_icon/pawprint@3x.png" alt="" /> <span>Vacunado</span></div> <div><span>animals.vacunado</span></div> </div>
+              <div className="detail2-line"> <div><img src="../../../assets/primary_icons/listStyle_icon/pawprint@3x.png" alt="" /> <span>Desparasitado</span></div> <div><span>animals.desparasitado</span></div> </div>
+              <div className="detail2-line"> <div><img src="../../../assets/primary_icons/listStyle_icon/pawprint@3x.png" alt="" /> <span>Sano</span></div> <div><span>animals.sano</span></div> </div>
+              <div className="detail2-line"> <div><img src="../../../assets/primary_icons/listStyle_icon/pawprint@3x.png" alt="" /> <span>Esterilizado</span></div> <div><span>animals.esterilizado</span></div> </div>
+              <div className="detail2-line"> <div><img src="../../../assets/primary_icons/listStyle_icon/pawprint@3x.png" alt="" /> <span>Identificado</span></div> <div><span>animals.identificado</span></div> </div>
+              <div className="detail2-line"> <div><img src="../../../assets/primary_icons/listStyle_icon/pawprint@3x.png" alt="" /> <span>Microchip</span></div> <div><span>animals.microchip</span></div> </div>
+            </div>
 
-    <mat-tab label="Salud"></mat-tab>
+            <div className="detail4">
+              <div className='detail4-title'><p>Tienes que saber que</p></div>
+              <div className='detail4-text'>
+                <p>animals.aSaber</p>
+              </div>
+            </div>
+          </div>
+    </mat-tab>
 
-    <mat-tab label="Adopción"></mat-tab>
+    <mat-tab label="Adopción">
+        <div className="imagen.filtro">
+            <div className="detail4">
+              <div className='detail4-title'><p>Requisitos adopción</p></div>
+              <div className='detail4-text'>
+                <p>animals.requisitosAdopcion</p>
+              </div>
+            </div>
+
+            <div className="detail4">
+              <div className='detail4-title'><span>Tasa de adopción</span> <img onClick="" src="../../../assets/primary_icons/little_icons_standOut/help_little_standOut/ayuda@3x.png" alt="" /></div>
+              <div className='detail4-text'>
+                <p>animals.tasaAdopcion</p>
+              </div>
+            </div>
+
+            <div className="detail4">
+              <div className='detail4-title'><p>¿Se envía a otra ciudad?</p></div>
+              <div className='detail4-text'>
+                <p>animals.seEnvia</p>
+              </div>
+            </div>
+
+          </div>
+        
+    </mat-tab>
 </mat-tab-group>
+
 
 <div className="buttonAnimals">
     <div className="buttonAnimals2"><button onClick="" className="buttonAnimals3"> Apadrinar </button></div>
