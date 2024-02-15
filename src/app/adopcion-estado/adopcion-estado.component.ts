@@ -1,22 +1,20 @@
-import { BuscadorComponent } from '../../filtros/buscador/buscador.component';
-import { ApiService } from './../../servicios/api.service';
+import { ApiService } from './../servicios/api.service';
 import { Component } from '@angular/core';
-import { FiltroModalComponent } from '../../filtros/filtro-modal/filtro-modal.component';
+import { FiltroModalComponent } from '../filtros/filtro-modal/filtro-modal.component';
 import { CommonModule } from '@angular/common';
 import {MatDialog, MatDialogModule,} from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
 
 
 
 @Component({
-  selector: 'app-galeria',
+  selector: 'app-adopcion-estado',
   standalone: true,
-  imports: [BuscadorComponent,CommonModule,MatDialogModule,FiltroModalComponent,FormsModule, RouterLink],
-  templateUrl: './galeria.component.html',
-  styleUrl: './galeria.component.scss'
+  imports: [CommonModule,MatDialogModule,FiltroModalComponent,FormsModule],
+  templateUrl: './adopcion-estado.component.html',
+  styleUrl: './adopcion-estado.component.scss'
 })
-export class GaleriaComponent {
+export class AdopcionEstadoComponent {
   public animalesBase: any[] = [];
   public resultados: any[] = [];
   public textoBusqueda = '';
@@ -39,21 +37,15 @@ export class GaleriaComponent {
   abrirModal(): void {
     const dialogRef = this.dialog.open(FiltroModalComponent, {
       width: '400px',
-      data:{animales: this.animalesBase, contexto: 'galeria'} // Pasar todos los animales para aplicar filtros sobre ellos
+      data: { animales: this.animalesBase, contexto: 'adopcion' }
     });
 
-
-// Actualizar la lista de resultados con los filtrados
     dialogRef.afterClosed().subscribe((resultados: any[]) => {
       if (resultados && resultados.length > 0) {
         this.resultados = resultados;
       }
     });
   }
-
-
-
-
 
 }
 

@@ -13,8 +13,12 @@ import { CommonModule } from '@angular/common';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { DetalleComponent } from './Pages/detalle/detalle.component';
+
 import { AuthServiceService } from './servicios/auth.service.service';
 import { HttpClient } from '@angular/common/http';
+
+import { AdopcionEstadoComponent } from './adopcion-estado/adopcion-estado.component';
+
 
 @Component({
   selector: 'app-root',
@@ -34,6 +38,9 @@ import { HttpClient } from '@angular/common/http';
     MatDialogModule,
     MatIconModule,
     DetalleComponent,
+
+
+    AdopcionEstadoComponent
   ],
 
   templateUrl: './app.component.html',
