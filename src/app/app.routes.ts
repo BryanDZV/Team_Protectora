@@ -11,6 +11,7 @@ import { GaleriaComponent } from './Pages/galeria/galeria.component';
 import { ProfileComponent } from './Pages/profile/profile.component';
 import { OptionComponent } from './Pages/option/option.component';
 import { DetalleComponent } from './Pages/detalle/detalle.component';
+import { AdopcionEstadoComponent } from './adopcion-estado/adopcion-estado.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -26,6 +27,7 @@ export const routes: Routes = [
   { path: 'detalle', component: DetalleComponent },
   { path: 'detalle/:id', component: DetalleComponent },
   { path: 'gallery', component: GaleriaComponent },
+  { path: 'adopcion', component: AdopcionEstadoComponent },
 
 
 ];

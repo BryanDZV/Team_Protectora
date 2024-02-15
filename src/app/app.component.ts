@@ -12,6 +12,8 @@ import { CommonModule } from '@angular/common';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatIconModule} from '@angular/material/icon';
 import { DetalleComponent } from './Pages/detalle/detalle.component';
+import { AdopcionEstadoComponent } from './adopcion-estado/adopcion-estado.component';
+
 
 
 
@@ -33,7 +35,9 @@ import { DetalleComponent } from './Pages/detalle/detalle.component';
     HomeComponent,
     MatDialogModule,
     MatIconModule,
-    DetalleComponent
+    DetalleComponent,
+    AdopcionEstadoComponent
+
   ],
 
   templateUrl: './app.component.html',

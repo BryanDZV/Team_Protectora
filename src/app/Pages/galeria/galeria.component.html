@@ -1,22 +1,20 @@
 <div>
-  <input type="text" [(ngModel)]="textoBusqueda" (input)="buscar(textoBusqueda)" placeholder="Buscar...">
+  <input type="text" [(ngModel)]="textoBusqueda"  (input)="buscar(textoBusqueda)" placeholder="Buscar...">
+</div>
+<div>
+  <button mat-button (click)="abrirModal()">Abrir Filtro</button>
 </div>
 
-<div>
-  @for (animal of resultados; track $index) {
-  <div>
+<div *ngIf="resultados.length > 0">
+  <div *ngFor="let animal of resultados; let i = index" class="animal-item">
     <h1>{{ animal.nombre }}</h1>
     <div class="imagen-container">
       <img class="imagen" src="{{ animal.foto }}" alt="foto" />
     </div>
   </div>
-
-  }
 </div>
-<div>
-  <button mat-button (click)="abrirModal()">Abrir Filtro</button>
-
+<div *ngIf="resultados.length === 0">
+  <p>No se encontraron resultados.</p>
 </div>
 
-<!-- <button (click)="abrirModalFiltros()">Abrir Filtros</button> -->
-<!-- <app-filtro-modal></app-filtro-modal> -->
+
