@@ -1,4 +1,5 @@
-<section class="profContainer">
+<section class="profContainer" *ngIf="authService.currentUserSig()">
+  {{ authService.currentUserSig()?.name }}
   <div class="container-photo">
     <img src="../../assets/placeholder/photo_placeholder.jpg" alt="icono" />
   </div>
@@ -83,3 +84,5 @@
   </ul>
   <app-nav-bar></app-nav-bar>
 </section>
+
+<p *ngIf="authService.currentUserSig() === null">No estas logado</p>
