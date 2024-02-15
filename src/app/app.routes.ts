@@ -25,6 +25,7 @@ export const routes: Routes = [
   { path: 'perfil', component: ProfileComponent },
   { path: 'opciones', component: OptionComponent },
   { path: 'detalle', component: DetalleComponent },
+  { path: 'detalle/:id', component: DetalleComponent },
   { path: 'gallery', component: GaleriaComponent },
 
 
