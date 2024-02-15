@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-
 import { GaleriaComponent } from './Pages/galeria/galeria.component';
-
-
 import { PortadaComponent } from './portada/portada.component';
 import { Slide1Component } from './slide1/slide1.component';
 import { Slide2Component } from './slide2/slide2.component';
@@ -14,13 +11,13 @@ import { HomeComponent } from './home/home.component';
 import { CommonModule } from '@angular/common';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatIconModule} from '@angular/material/icon';
+import { DetalleComponent } from './Pages/detalle/detalle.component';
 
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-
 
 
   imports: [
@@ -35,8 +32,8 @@ import {MatIconModule} from '@angular/material/icon';
     EleccionComponent,
     HomeComponent,
     MatDialogModule,
-    MatIconModule
-
+    MatIconModule,
+    DetalleComponent
   ],
 
   templateUrl: './app.component.html',

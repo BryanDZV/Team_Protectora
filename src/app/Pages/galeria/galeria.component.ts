@@ -1,13 +1,9 @@
-
 import { BuscadorComponent } from '../../filtros/buscador/buscador.component';
 import { ApiService } from './../../servicios/api.service';
 import { Component } from '@angular/core';
 import { FiltroModalComponent } from '../../filtros/filtro-modal/filtro-modal.component';
 import { CommonModule } from '@angular/common';
 import {MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
-
-
-
 
 
 @Component({
@@ -49,13 +45,13 @@ export class GaleriaComponent {
       data: this.filteredResults
     });
 
-    this.dialogRef.componentInstance.filtersApplied.subscribe((filtersAplicados: any[]) => {
-      if (filtersAplicados && filtersAplicados.length > 0) {
-        this.aplicarFiltros(filtersAplicados);
-      } else {
-        this.filteredResults = [...this.animalesLista]; // Restauramos la lista original si no hay filtros aplicados
-      }
-    });
+    // this.dialogRef.componentInstance.filtersApplied.subscribe((filtersAplicados: any[]) => {
+    //   if (filtersAplicados && filtersAplicados.length > 0) {
+    //     this.aplicarFiltros(filtersAplicados);
+    //   } else {
+    //     this.filteredResults = [...this.animalesLista]; // Restauramos la lista original si no hay filtros aplicados
+    //   }
+    // });
   }
 
   aplicarFiltros(filtersAplicados: any[]) {
