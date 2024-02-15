@@ -3,12 +3,13 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon'
 import { ApiService } from '../../servicios/api.service';
 import { ActivatedRoute } from '@angular/router';
+import { PopUpComponent } from '../../pop-up/pop-up.component';
 
 
 @Component({
   selector: 'app-detalle',
   standalone: true,
-  imports: [MatTabsModule, MatIconModule,],
+  imports: [MatTabsModule, MatIconModule, PopUpComponent],
   templateUrl: './detalle.component.html',
   styleUrl: './detalle.component.scss'
 })
@@ -46,6 +47,12 @@ export class DetalleComponent {
     // Lógica para manejar el clic en el botón "Me gusta"
     console.log('¡Me gusta!');
     // Puedes agregar aquí la lógica adicional, como enviar una solicitud al servidor, actualizar la interfaz de usuario, etc.
+  }
+
+  mostrarVentanaEmergente: boolean = false;
+
+  abrirVentanaEmergente() {
+    this.mostrarVentanaEmergente = true;
   }
 
 }

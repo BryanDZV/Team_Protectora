@@ -55,7 +55,6 @@
                 </div>
             </div>
         </div>
-
     </mat-tab>
 
     <mat-tab label="Salud">
@@ -100,14 +99,12 @@
                 <p>animals.seEnvia</p>
               </div>
             </div>
-
           </div>
-        
     </mat-tab>
 </mat-tab-group>
 
-
 <div className="buttonAnimals">
-    <div className="buttonAnimals2"><button onClick="" className="buttonAnimals3"> Apadrinar </button></div>
-    <div className="buttonAnimals2"><button onClick="" className="buttonAnimals4"> Adoptar </button></div>
+    <div className="buttonAnimals2"><button onClick="" className="buttonAnimals3">Apadrinar</button></div>
+    <button (click)="abrirVentanaEmergente()">Adoptar</button>
+    <app-pop-up ngIf="mostrarVentanaEmergente"></app-pop-up>
 </div>
