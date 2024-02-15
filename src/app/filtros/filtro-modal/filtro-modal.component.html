@@ -3,37 +3,36 @@
   <input type="text" id="especie" [(ngModel)]="especie">
 </div>
 <div>
-  <label for="edad">Edad:</label>
-  <select id="edad" [(ngModel)]="edad">
-    <option value="" disabled selected>Selecciona la edad</option>
-    <option value="1">1 año</option>
-    <option value="2">2 años</option>
-    <option value="3">3 años</option>
-    <!-- Agrega más opciones según necesites -->
+  <label for="genero">genero:</label>
+  <select id="genero" [(ngModel)]="genero">
+    <option value="" disabled selected>Selecciona la genero</option>
+    <option value="Hembra">Hembra</option>
+    <option value="Macho">Macho</option>
+
+
   </select>
 </div>
 <div>
-  <label for="genero">Género:</label>
-  <input type="text" id="genero" [(ngModel)]="genero">
-  <!-- Aquí podrías mostrar iconos según el género seleccionado -->
+  <label for="edad">Edad:</label>
+  <input type="number" [(ngModel)]="edad">
 </div>
 <div>
   <label for="ciudad">Ciudad:</label>
   <select id="ciudad" [(ngModel)]="ciudad">
     <option value="" disabled selected>Selecciona la ciudad</option>
-    <option *ngFor="let ciudad of ciudades" [value]="ciudad">{{ ciudad }}</option>
+    <option *ngFor="let ciudad of ciudades" [value]="ciudad">{{ ciudades }}</option>
   </select>
 </div>
 <div>
-  <label for="tamaño">Tamaño:</label>
-  <select id="tamaño" [(ngModel)]="size">
-    <option value="" disabled selected>Selecciona el size</option>
+  <label for="size">Tamaño:</label>
+  <select id="size" [(ngModel)]="size">
+    <option value="" disabled selected>Selecciona el tamaño</option>
     <option *ngFor="let size of sizes" [value]="size">{{ size }}</option>
-  </select>*ngFor="let size of sizes" [value]="size"
-  <!-- Aquí podrías mostrar iconos según el tamaño seleccionado -->
+  </select>
 </div>
+
 <div>
-  <label for="nombre">Nombre:</label>
-  <input type="text" id="nombre" [(ngModel)]="nombre">
+  <button (click)="aplicarFiltros()">Aplicar Filtros</button>
+  <button (click)="borrarFiltros()">Borrar Filtros</button>
+  <button (click)="cerrarModal()">Cerrar</button>
 </div>
-<button (click)="aplicarFiltros()">Aplicar Filtros</button>

@@ -4,27 +4,32 @@ import { Component } from '@angular/core';
 import { FiltroModalComponent } from '../../filtros/filtro-modal/filtro-modal.component';
 import { CommonModule } from '@angular/common';
 import {MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-galeria',
   standalone: true,
-  imports: [BuscadorComponent,CommonModule,MatDialogModule,],
+  imports: [BuscadorComponent,CommonModule,MatDialogModule,FiltroModalComponent,FormsModule],
   templateUrl: './galeria.component.html',
   styleUrl: './galeria.component.scss'
 })
 export class GaleriaComponent {
-  //los datos que reciba los voy a guardar aqui array
-  public animalesLista:any[]=[]
-  //  public filteredAnimals: any[] = [];
-  public filteredResults: any[] = [];
-  public dialogRef!: MatDialogRef<FiltroModalComponent>;
+  animalesLista: any[] = [
+    { nombre: 'Perro', genero: 'Macho', edad: 3, ciudad: 'Madrid', especie: 'Perro', tamaño: 'Mediano' },
+    { nombre: 'Gato', genero: 'Hembra', edad: 2, ciudad: 'Barcelona', especie: 'Gato', tamaño: 'Pequeño' },
+    { nombre: 'Pájaro', genero: 'Macho', edad: 1, ciudad: 'Valencia', especie: 'Pájaro', tamaño: 'Pequeño' }
+  ];
+//variable para guardar aniamles peticion 1 peticion
+  animalesBase: any[]=[];
+  //variable para guardar datos de usar el buscador
+resultados:any[]=[]
+//variable que registra el nmodel al escribir
+textoBusqueda=''
 
-// llammo mi servicio
-  constructor(private servicio:ApiService,public dialog: MatDialog){}
-
-
+  constructor(private apiService: ApiService, private dialog: MatDialog) {}
   ngOnInit(): void {
+<<<<<<< HEAD
     this.servicio.getAnimales().subscribe(
       (data: any) => {
         this.animalesLista = data;
@@ -52,15 +57,44 @@ export class GaleriaComponent {
     //     this.filteredResults = [...this.animalesLista]; // Restauramos la lista original si no hay filtros aplicados
     //   }
     // });
+=======
+    this.apiService.getAnimales().subscribe((data:any) => {
+      console.log("llegó a galeria datos:",data);
+      this.animalesBase=data
+      // Asi veo todos los animales al inicio
+      this.resultados = this.animalesBase;
+    });
+>>>>>>> c02c579539cfa07501692e6d43178ac14a366d77
   }
 
-  aplicarFiltros(filtersAplicados: any[]) {
-    // Aplicar los filtros y actualizar los resultados filtrados
-    // Aquí deberías implementar la lógica para aplicar los filtros según tus requerimientos
-    this.filteredResults =filtersAplicados
-  }
+  buscar(texto:any) {
+    this.resultados = this.animalesBase.filter(animal =>
+      animal.nombre.toLowerCase().includes(texto.toLowerCase()));
+      console.log(this.resultados);
 
-  showFilteredBuscador(filteredBuscador: any[]) {
-    this.filteredResults = filteredBuscador;
+      if (this.textoBusqueda==="") {
+        this.animalesBase
+
+      }else{this.resultados}
+
+
+}
+
+      //abri el modal
+      abrirModal():void{
+        const dialogRef=this.dialog.open(FiltroModalComponent,{
+          width:'400px', //ancho del modal puedo poner mas como alto ...
+        //método open para abrir el modal,
+        //puedes pasar datos utilizando la opción data.Aquí puedes pasar los datos que necesites al modal
+        data:this.resultados
+
+      });
+
+     // Puedes suscribirte al evento afterClosed para realizar acciones después de cerrar el modal si lo necesitas
+     dialogRef.afterClosed().subscribe((resultados: any[]) => {
+      console.log('Resultados del modal:', resultados);
+      // Aquí puedes realizar acciones con los resultados recibidos, como actualizar la lista de animales
+    });
   }
 }
+
