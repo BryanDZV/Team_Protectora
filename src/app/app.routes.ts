@@ -13,7 +13,7 @@ import { OptionComponent } from './Pages/option/option.component';
 import { DetalleComponent } from './Pages/detalle/detalle.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'portada', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'slide1', component: Slide1Component },
   { path: 'slide2', component: Slide2Component },
   { path: 'slide3', component: Slide3Component },
@@ -21,7 +21,6 @@ export const routes: Routes = [
   { path: 'eleccion', component: EleccionComponent },
   { path: 'portada', component: PortadaComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'galeria', component: GaleriaComponent },
   { path: 'perfil', component: ProfileComponent },
   { path: 'opciones', component: OptionComponent },
   { path: 'detalle', component: DetalleComponent },
