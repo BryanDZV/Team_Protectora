@@ -1,3 +1,4 @@
+import { UserComponent } from './user/user.component';
 import { FormAdComponent } from './Pages/form-ad/form-ad.component';
 import { User } from './interface/user';
 import { Component, inject } from '@angular/core';
@@ -40,7 +41,7 @@ import { AdopcionEstadoComponent } from './adopcion-estado/adopcion-estado.compo
     MatIconModule,
     DetalleComponent,
     FormAdComponent,
-
+    UserComponent,
     AdopcionEstadoComponent
   ],
 
