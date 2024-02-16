@@ -4,18 +4,19 @@ import { MatIconModule } from '@angular/material/icon'
 import { ApiService } from '../../servicios/api.service';
 import { ActivatedRoute } from '@angular/router';
 import { PopUpComponent } from '../../pop-up/pop-up.component';
+import { FormAdopcionComponent } from '../../form-adopcion/form-adopcion.component';
 
 
 @Component({
   selector: 'app-detalle',
   standalone: true,
-  imports: [MatTabsModule, MatIconModule, PopUpComponent],
+  imports: [MatTabsModule, MatIconModule, PopUpComponent, FormAdopcionComponent,],
   templateUrl: './detalle.component.html',
   styleUrl: './detalle.component.scss'
 })
 export class DetalleComponent {
   id!:any;
-  animalDetalle!:any;
+  animals!:any;
   constructor(private servicio: ApiService, private rutaActivada: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -27,9 +28,8 @@ export class DetalleComponent {
 
     this.servicio.getAnimalbyId(this.id).subscribe((data:any)=>{
       console.log("Soy datos",data);
-      this.animalDetalle=data
+      this.animals=data
     })
-
   }
 
   handleShareClick() {

@@ -1,3 +1,4 @@
+import { FormAdComponent } from './Pages/form-ad/form-ad.component';
 import { User } from './interface/user';
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
@@ -38,7 +39,7 @@ import { AdopcionEstadoComponent } from './adopcion-estado/adopcion-estado.compo
     MatDialogModule,
     MatIconModule,
     DetalleComponent,
-
+    FormAdComponent,
 
     AdopcionEstadoComponent
   ],

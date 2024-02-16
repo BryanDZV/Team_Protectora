@@ -11,15 +11,12 @@ const connect = async () => {
   } catch (error) {
     console.log("hemos tenido un error al conectar a la BBDD", error);
   }
-
   Animal.find({})
   .then(animales => {
     // console.log("Animales encontrados:", animales);
   })
   .catch(err => {
-    console.error("Error al obtener animales:", err);
+    console.error("Error al obtener datoso:", err);
   });
-
 };
-
 module.exports = {connect};

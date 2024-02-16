@@ -6,8 +6,9 @@ import { Injectable } from '@angular/core';
 })
 //mi servicio
 export class ApiService {
-  public baseUrl: string = 'http://localhost:5002';
+  public baseUrl: string = 'http://localhost:5000';
   public animalesUrl: string = `${this.baseUrl}/animales`;
+  public formUrl: string = `${this.baseUrl}/form`;
 
   constructor(private http: HttpClient) {}
 
@@ -47,8 +48,33 @@ export class ApiService {
   public borrarAnimal(id: string) {
     return this.http.delete(`${this.animalesUrl}/${id}`);
   }
+
+
+getFormConURL(url: string) {
+  return this.http.get(url);
 }
 
+
+public getform() {
+  return this.http.get(this.formUrl);
+}
+
+public getFormById(_id: any) {
+  return this.http.get(`${this.formUrl}/${_id}`);
+}
+
+public postForm(form: any) {
+  return this.http.post(this.formUrl, form);
+}
+
+public putForm(id: string, form: any) {
+  return this.http.put(`${this.formUrl}/${id}`, form);
+}
+
+public borrarForm(id: string) {
+  return this.http.delete(`${this.formUrl}/${id}`);
+}
+}
 
   // // Filtrar por género
   // public filtrarAnimalesPorGenero(genero: string) {
