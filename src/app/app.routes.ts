@@ -15,6 +15,7 @@ import { DetalleComponent } from './Pages/detalle/detalle.component';
 import { RegisterComponent } from './register/register.component';
 
 import { AdopcionEstadoComponent } from './adopcion-estado/adopcion-estado.component';
+import { FormAdComponent } from './Pages/form-ad/form-ad.component';
 
 
 export const routes: Routes = [
@@ -31,6 +32,7 @@ export const routes: Routes = [
   { path: 'detalle', component: DetalleComponent },
   { path: 'gallery/:id', component: DetalleComponent },
   { path: 'gallery', component: GaleriaComponent },
+  { path: 'formAd', component: FormAdComponent },
 
   { path: 'register', component: RegisterComponent },
 
