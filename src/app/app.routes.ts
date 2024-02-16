@@ -14,7 +14,9 @@ import { DetalleComponent } from './Pages/detalle/detalle.component';
 
 import { RegisterComponent } from './register/register.component';
 
-import { AdopcionEstadoComponent } from './adopcion-estado/adopcion-estado.component';
+import { AdopcionEstadoComponent } from './Pages/adopcion-estado/adopcion-estado.component';
+import { AdopcionDetalleComponent } from './Pages/adopcion-detalle/adopcion-detalle.component';
+
 
 
 export const routes: Routes = [
@@ -28,13 +30,21 @@ export const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'perfil', component: ProfileComponent },
   { path: 'opciones', component: OptionComponent },
+{ path: 'register', component: RegisterComponent },
+
   { path: 'detalle', component: DetalleComponent },
   { path: 'gallery/:id', component: DetalleComponent },
   { path: 'gallery', component: GaleriaComponent },
 
-  { path: 'register', component: RegisterComponent },
 
+
+  { path: 'adopcion/:id', component: AdopcionDetalleComponent },
   { path: 'adopcion', component: AdopcionEstadoComponent },
+  { path: 'adopciondetalle', component: AdopcionDetalleComponent },
+
+
+
+
 
 
 
