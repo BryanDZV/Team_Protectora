@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 //mi servicio
 export class ApiService {
-  public baseUrl: string = 'http://localhost:5001';
+  public baseUrl: string = 'http://localhost:5002';
   public animalesUrl: string = `${this.baseUrl}/animales`;
 
   constructor(private http: HttpClient) {}
@@ -32,8 +32,8 @@ export class ApiService {
     return this.http.get(this.animalesUrl);
   }
 
-  public getAnimalbyId(id: any) {
-    return this.http.get(`${this.animalesUrl}/${id}`);
+  public getAnimalbyId(_id: any) {
+    return this.http.get(`${this.animalesUrl}/${_id}`);
   }
 
   public postAnimal(animal: any) {

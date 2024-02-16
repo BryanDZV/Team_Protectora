@@ -25,6 +25,8 @@ export class GaleriaComponent {
 
   ngOnInit(): void {
     this.apiService.getAnimales().subscribe((data: any) => {
+      console.log("soy data en galeria",data);
+
       this.animalesBase = data;
       this.resultados = this.animalesBase; // Inicialmente muestra todos los animales
     });
@@ -45,6 +47,8 @@ export class GaleriaComponent {
 
 // Actualizar la lista de resultados con los filtrados
     dialogRef.afterClosed().subscribe((resultados: any[]) => {
+      console.log("soy resultadosen galeria",resultados);
+
       if (resultados && resultados.length > 0) {
         this.resultados = resultados;
       }

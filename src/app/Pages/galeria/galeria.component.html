@@ -9,7 +9,7 @@
   <div *ngFor="let animal of resultados; let i = index" class="animal-item">
     <h1>{{ animal.nombre }}</h1>
     <div class="imagen-container">
-      <img class="imagen" src="{{ animal.foto }}" alt="foto" routerLink="/gallery/{{animal.id}}" />
+      <img class="imagen" src="{{ animal.foto }}" alt="foto" routerLink="/gallery/{{animal._id}}" />
     </div>
   </div>
 </div>

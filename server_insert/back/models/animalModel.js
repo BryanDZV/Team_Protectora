@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 // Definición del esquema
 const animalSchema = new mongoose.Schema({
-  id:{type:Number, unique:true},
+
   especie: { type: String, required: true },
   edad: { type: String, required: true },
   fechaDeNacimiento: { type: Date, required: true },

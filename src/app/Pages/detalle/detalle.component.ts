@@ -20,16 +20,16 @@ export class DetalleComponent {
 
   ngOnInit(): void {
     this.rutaActivada.paramMap.subscribe(params => {
-      // console.log(params);
-           this.id = Number(params.get("id"))
-     console.log("Soy Id",Number(params.get("id")));
+      //console.log(params);
+           this.id = params.get("id")
+     console.log("Soy Id",params.get("id"));
     })
 
     this.servicio.getAnimalbyId(this.id).subscribe((data:any)=>{
       console.log("Soy datos",data);
       this.animalDetalle=data
     })
-    
+
   }
 
   handleShareClick() {
