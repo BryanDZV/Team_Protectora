@@ -11,7 +11,11 @@ import { GaleriaComponent } from './Pages/galeria/galeria.component';
 import { ProfileComponent } from './Pages/profile/profile.component';
 import { OptionComponent } from './Pages/option/option.component';
 import { DetalleComponent } from './Pages/detalle/detalle.component';
+
+import { RegisterComponent } from './register/register.component';
+
 import { AdopcionEstadoComponent } from './adopcion-estado/adopcion-estado.component';
+
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -27,7 +31,11 @@ export const routes: Routes = [
   { path: 'detalle', component: DetalleComponent },
   { path: 'gallery/:id', component: DetalleComponent },
   { path: 'gallery', component: GaleriaComponent },
+
+  { path: 'register', component: RegisterComponent },
+
   { path: 'adopcion', component: AdopcionEstadoComponent },
+
 
 
 ];
