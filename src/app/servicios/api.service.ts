@@ -8,28 +8,43 @@ import { Injectable } from '@angular/core';
 export class ApiService {
   public baseUrl: string = 'http://localhost:5000';
   public animalesUrl: string = `${this.baseUrl}/animales`;
+
   public formUrl: string = `${this.baseUrl}/form`;
   public userUrl: string = `${this.baseUrl}/form`;
+
 
   constructor(private http: HttpClient) {}
 
 
-  // getAnimalesFiltrados(filtros: any) {
-  //   console.log('Filtros recibidos en ApiService:', filtros);
-  //   let params = new HttpParams();
-  //   for (const filtro in filtros) {
-  //     if (filtros[filtro]) {
-  //       params = params.append(filtro, filtros[filtro]);
-  //     }
-  //   }
-  //   return this.http.get(this.animalesUrl, { params: params });
-  // }
+  
+  //para subir imagenes
+  SubirImagen(imageFile: File) {
+    const imagenCliente = new FormData();
+    imagenCliente.append('image', imageFile, imageFile.name);
+    return this.http.post(`${this.baseUrl}`, imagenCliente);
+  }
+
+
+  //me creo una funcion para recoger los datos de imagenes y cheking y cuando pulse enviar los envie estan guardados en data
+  enviarDatos(data: any) {
+    return this.http.post(`${this.baseUrl}/aqui tengo q pone mi base da datos el edppoint q le de en db.js`, data);
+  }
+
+
+
+
+
+  //CRUD PARA INTERACTUAR CON BASE DE DATOS
+  getAnimalesConURL(url: string) {
+    return this.http.get(url);
+  }
 
 
   //animals
   getAnimalesConURL(url: string) {
     return this.http.get(url);
   }
+
   public getAnimales() {
     return this.http.get(this.animalesUrl);
   }
@@ -87,43 +102,3 @@ public borrarUser(id: string) {
 }
 
 }
-
-
-  // // Filtrar por género
-  // public filtrarAnimalesPorGenero(genero: string) {
-  //   return this.http.get(`${this.animalesUrl}/?genero=${genero}`);
-  // }
-
-  // // Filtrar por edad
-  // public filtrarAnimalesPorEdad(edad: number) {
-  //   return this.http.get(`${this.animalesUrl}/?edad=${edad}`);
-  // }
-
-  // // Filtrar por ciudad
-  // public filtrarAnimalesPorCiudad(ciudad: string) {
-  //   return this.http.get(`${this.animalesUrl}/?ciudad=${ciudad}`);
-  // }
-
-  // // Filtrar por especie
-  // public filtrarAnimalesPorEspecie(especie: string) {
-  //   return this.http.get(`${this.animalesUrl}/?especie=${especie}`);
-  // }
-
-  // // Filtrar por tamaño
-  // public filtrarAnimalesPorSize(tamaño: string) {
-  //   return this.http.get(`${this.animalesUrl}/?tamaño=${tamaño}`);
-  // }
-
-
-
-
-
-
-
-
-//por paginado
-  //  public getAnimalesP(page: number, limit: number = 10){
-  //    const apiUrl = `${this.animalesUrl}?page=${page}&limit=${limit}`;
-  //    console.log('API URL:', apiUrl);
-  //    return this.http.get(apiUrl)
-  //  }

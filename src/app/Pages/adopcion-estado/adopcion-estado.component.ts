@@ -1,16 +1,17 @@
-import { ApiService } from './../servicios/api.service';
+import { ApiService } from '../../servicios/api.service';
 import { Component } from '@angular/core';
-import { FiltroModalComponent } from '../filtros/filtro-modal/filtro-modal.component';
+import { FiltroModalComponent } from '../../filtros/filtro-modal/filtro-modal.component';
 import { CommonModule } from '@angular/common';
 import {MatDialog, MatDialogModule,} from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 
 
 @Component({
   selector: 'app-adopcion-estado',
   standalone: true,
-  imports: [CommonModule,MatDialogModule,FiltroModalComponent,FormsModule],
+  imports: [CommonModule,MatDialogModule,FiltroModalComponent,FormsModule,RouterLink],
   templateUrl: './adopcion-estado.component.html',
   styleUrl: './adopcion-estado.component.scss'
 })

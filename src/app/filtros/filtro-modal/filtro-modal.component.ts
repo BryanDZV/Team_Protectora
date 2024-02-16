@@ -12,11 +12,11 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './filtro-modal.component.scss'
 })
 export class FiltroModalComponent {
-  // Variable para controlar la visibilidad del mensaje
+  // PARA GUARDAR SINO HAY FILTROS
 noResultados: boolean = false;
 
 especieSeleccionada: string = ''
-    // Definir propiedades para almacenar los filtros
+    // variables que me creo para guardar  los filtros que se seleccione
     especie: string = '';
     edad: string | null = null;
     genero: string = '';
@@ -24,25 +24,35 @@ especieSeleccionada: string = ''
     size: string = '';
     nombre: string = '';
     estadoAdopcion: string = '';
-    contexto: string = ''; // Variable para almacenar el contexto
+    contexto: string = ''; // Variable para el contexto=== al componente que quiero usar en el modal FUNCION QUE TE DA EL MODAL PARA PASAR INFORMACION
+    mensaje:string="NO HAY ANIMALES" //PARA MANDAR MENSAJE
+    mensaje1:string="mira tus animales"
+    // resultadosFiltrados!:any
 
-    // Definir arrays de opciones para los selects
+    // Definir arrays de opciones para los selects y iterar y tener el desplegable
     ciudades: string[] = ['Barcelona', 'Madrid', 'Valencia','Sevilla'];
 
     edades: string[] = ['Cachorro', 'Joven', 'Adulto'];
     estadosAdopcion: string[] = ['Disponible', 'Rechazado', 'Completo'];
 
     constructor(
+      //aqui importo el modal CON MATDIALORef se utiliza para interactuar con el modal desde el componente. Puedes cerrar el modal, obtener
+      //información sobre él, etc.ademas con@inject puedo pasar datos en el modal en funcion del contexto
+      //que me viene de galeria componente
       public dialogRef: MatDialogRef<FiltroModalComponent>,
       @Inject(MAT_DIALOG_DATA) public data: any
+      //es un decorador para inyectar los datos que se pasan al modal desde el componente
+      //que lo abre==GAleria en mi caso. MAT_DIALOG_DATA
+      //decoradores en Angular incluyen @Component, @Injectable, @NgModule, @Input, @Output
     ) {
+      //puedo cambiar el tamaño del modal
       dialogRef.updateSize('100%', '100%');
       this.contexto = data.contexto; // Asigna el valor del contexto recibido
     }
-
+//FUNCIONES PARA CONTRROLAR las SELECCIONES
     selectEspecie(especie: string): void {
       this.especie = especie;
-       // Actualiza la propiedad especieSeleccionada
+
     }
 
   selectGenero(genero: string): void {
@@ -59,36 +69,48 @@ especieSeleccionada: string = ''
 
   // Método para aplicar los filtros y cerrar el modal con los resultados
   aplicarFiltros(): void {
+    //no sabia que datos era no me llegaba
     console.log('Tipo de datos de this.data:', typeof this.data);
 console.log('Contenido de this.data:', this.data);
 
-    // Implementa la lógica para filtrar los datos según el contexto
+    // para filtrar los datos según el CONTEXTOEN FUNCION DE EL ME FILTRA 1 U OTROS
     const resultadosFiltrados = this.data.animales.filter((animal: any) => {
       if (this.contexto === 'galeria') {
-        // Filtrar según los filtros de la galería
+        // Filtrar según los filtros de la gaLERIA
         return (!this.especie || animal.especie.toLowerCase() === this.especie.toLowerCase()) &&
                (!this.edad || animal.edad.toLowerCase() === this.edad.toLowerCase()) &&
                (!this.genero || animal.genero.toLowerCase() === this.genero.toLowerCase()) &&
                (!this.ciudad || animal.ciudad.toLowerCase() === this.ciudad.toLowerCase()) &&
                (!this.size || animal.size.toLowerCase() === this.size.toLowerCase());
       } else if (this.contexto === 'adopcion') {
-        // Filtrar según el filtro de adopción
+        // según el filtro de aDOPCION
         return !this.estadoAdopcion || animal.adoptionState.toLowerCase() === this.estadoAdopcion.toLowerCase();
       }
-      return false; // siempre debo trar todas las sRUTAS POSIBLES Y DARLES VALOR
+      return false; // siempre debo traer todas las sRUTAS POSIBLES Y DARLES VALOR
     });
 
-    // Actualiza la visibilidad del mensaje no hay animal
+    // visibilidad del mensaje sI no hay animal
     this.noResultados = resultadosFiltrados.length === 0;
 
     // Cierra el modal y devuelve los resultados filtrados si hay resultados
     if (resultadosFiltrados.length > 0) {
+      //USO EL CLOSE DEL MODAL
       this.dialogRef.close(resultadosFiltrados);
+      this.mensaje1
+      console.log("hay filtros");
+
+
+
     } else {
-      this.dialogRef.close(this.data.animales); // Cierra el modal sin aplicar ningún filtro y me da los datos base
-    }
+      this.mensaje
+      // Si no hay resultados, muestra el mensaje
+
+    };
+
+
 }
 
+///FUNCION PARA CERRAR Y BORRAR FILTROS
   borrarFiltros(): void {
     // Reiniciar todas las propiedades de filtro
     this.especie = '';
@@ -102,9 +124,13 @@ console.log('Contenido de this.data:', this.data);
   }
 
   cerrarModal(): void {
-    // Devuelve todos los animales base al cerrar el modal sin realizar ninguna acción
-    this.dialogRef.close(this.data.animales);
+    if (this.noResultados) {
+      this.dialogRef.close(this.data.animales);
+
   }
+
+
+}
 }
 
 
@@ -113,34 +139,3 @@ console.log('Contenido de this.data:', this.data);
 
 
 
-
-// constructor() {}
-
-//   aplicarFiltros(): void {
-//     const filtros = {
-//       especie: this.especie,
-//       edad: this.edad,
-//       genero: this.genero,
-//       ciudad: this.ciudad,
-//       tamaño: this.size,
-//       nombre: this.nombre
-//     };
-//     console.log('Filtros seleccionados:', filtros); // Para verificar en la consola
-//     this.filtrosSeleccionados.emit(filtros);
-//     this.dialogRef.close();
-//   }
-
-
-//   borrarFiltros(): void {
-//     // Resetea todos los filtros
-//     this.especie = '';
-//     this.edad = null;
-//     this.genero = '';
-//     this.ciudad = '';
-//     this.size = '';
-//     this.nombre = '';
-//   }
-
-//   cerrarModal(): void {
-//     this.dialogRef.close();
-//   }

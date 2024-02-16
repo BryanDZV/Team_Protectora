@@ -1,4 +1,8 @@
-<div *ngIf="contexto === 'galeria'">
+   @if (contexto==='galeria'){
+    <div >
+
+
+
   <div class="modal-content">
     <h2>Filtro de animales</h2>
 
@@ -6,45 +10,75 @@
       <label for="ciudad">Ciudad:</label>
       <select id="ciudad" [(ngModel)]="ciudad">
         <option value="" disabled selected>Selecciona la ciudad</option>
-        <option *ngFor="let ciudad of ciudades" [value]="ciudad">
-          {{ ciudad }}
+
+        @for (ciudad of ciudades; track $index) {
+        <option>
+          <div>
+            {{ ciudad }}
+          </div>
         </option>
+
+        }
       </select>
     </div>
 
     <div class="input-field">
       <label for="especie">Especie:</label>
-      <button mat-icon-button (click)="selectEspecie('Perro')" [ngClass]="especie === 'Perro' ? 'filtro-seleccionado' : ''" >
+      <button
+        mat-icon-button
+        (click)="selectEspecie('Perro')"
+        [ngClass]="especie === 'Perro' ? 'filtro-seleccionado' : ''"
+      >
         <img
           src="../../../assets/filtros/Captura de pantalla 2024-02-15 165748.png"
           alt="Pequeño"
         />
       </button>
-      <button mat-icon-button (click)="selectEspecie('Gato')" [ngClass]="especie === 'Gato' ? 'filtro-seleccionado' : ''">
+      <button
+        mat-icon-button
+        (click)="selectEspecie('Gato')"
+        [ngClass]="especie === 'Gato' ? 'filtro-seleccionado' : ''"
+      >
         <img
           src="../../../assets/filtros/Captura de pantalla 2024-02-15 165748.png"
           alt="Pequeño"
         />
       </button>
-      <button mat-icon-button (click)="selectEspecie('Tortuga')" [ngClass]="especie === 'Tortuga' ? 'filtro-seleccionado' : ''">
+      <button
+        mat-icon-button
+        (click)="selectEspecie('Tortuga')"
+        [ngClass]="especie === 'Tortuga' ? 'filtro-seleccionado' : ''"
+      >
         <img
           src="../../../assets/filtros/Captura de pantalla 2024-02-15 165748.png"
           alt="Pequeño"
         />
       </button>
-      <button mat-icon-button (click)="selectEspecie('Arácnido')" [ngClass]="especie === 'Arácnido' ? 'filtro-seleccionado' : ''">
+      <button
+        mat-icon-button
+        (click)="selectEspecie('Arácnido')"
+        [ngClass]="especie === 'Arácnido' ? 'filtro-seleccionado' : ''"
+      >
         <img
           src="../../../assets/filtros/Captura de pantalla 2024-02-15 165748.png"
           alt="Pequeño"
         />
       </button>
-      <button mat-icon-button (click)="selectEspecie('Ave')" [ngClass]="especie === 'Ave' ? 'filtro-seleccionado' : ''">
+      <button
+        mat-icon-button
+        (click)="selectEspecie('Ave')"
+        [ngClass]="especie === 'Ave' ? 'filtro-seleccionado' : ''"
+      >
         <img
           src="../../../assets/filtros/Captura de pantalla 2024-02-15 165748.png"
           alt="Pequeño"
         />
       </button>
-      <button mat-icon-button (click)="selectEspecie('Reptil')" [ngClass]="especie === 'Reptil' ? 'filtro-seleccionado' : ''">
+      <button
+        mat-icon-button
+        (click)="selectEspecie('Reptil')"
+        [ngClass]="especie === 'Reptil' ? 'filtro-seleccionado' : ''"
+      >
         <img
           src="../../../assets/filtros/Captura de pantalla 2024-02-15 165748.png"
           alt="Pequeño"
@@ -63,13 +97,21 @@
     </div>
     <div class="input-field">
       <label for="genero">Genero:</label>
-      <button mat-icon-button (click)="selectGenero('Hembra')" [ngClass]="genero === 'Hembra' ? 'filtro-seleccionado' : ''">
+      <button
+        mat-icon-button
+        (click)="selectGenero('Hembra')"
+        [ngClass]="genero === 'Hembra' ? 'filtro-seleccionado' : ''"
+      >
         <img
           src="../../../assets/filtros/Captura de pantalla 2024-02-15 165748.png"
           alt="Pequeño"
         />
       </button>
-      <button mat-icon-button (click)="selectGenero('Macho')" [ngClass]="genero === 'Macho' ? 'filtro-seleccionado' : ''">
+      <button
+        mat-icon-button
+        (click)="selectGenero('Macho')"
+        [ngClass]="genero === 'Macho' ? 'filtro-seleccionado' : ''"
+      >
         <img
           src="../../../assets/filtros/Captura de pantalla 2024-02-15 165748.png"
           alt="Pequeño"
@@ -79,28 +121,41 @@
 
     <div class="input-field">
       <label for="size">Tamaño:</label>
-      <button mat-icon-button (click)="selectSize('Pequeño')" [ngClass]="size === 'Pequeño' ? 'filtro-seleccionado' : ''">
+      <button
+        mat-icon-button
+        (click)="selectSize('Pequeño')"
+        [ngClass]="size === 'Pequeño' ? 'filtro-seleccionado' : ''"
+      >
         <img
           src="../../../assets/filtros/Captura de pantalla 2024-02-15 165748.png"
           alt="Pequeño"
         />
       </button>
-      <button mat-icon-button (click)="selectSize('Mediano')" [ngClass]="size === 'Mediano' ? 'filtro-seleccionado' : ''">
+      <button
+        mat-icon-button
+        (click)="selectSize('Mediano')"
+        [ngClass]="size === 'Mediano' ? 'filtro-seleccionado' : ''"
+      >
         <img
           src="../../../assets/filtros/Captura de pantalla 2024-02-15 165748.png"
           alt="Pequeño"
         />
       </button>
-      <button mat-icon-button (click)="selectSize('Grande')" [ngClass]="size === 'Grande' ? 'filtro-seleccionado' : ''">
+      <button
+        mat-icon-button
+        (click)="selectSize('Grande')"
+        [ngClass]="size === 'Grande' ? 'filtro-seleccionado' : ''"
+      >
         <img
           src="../../../assets/filtros/Captura de pantalla 2024-02-15 165748.png"
           alt="Pequeño"
         />
       </button>
     </div>
-    <div *ngIf="noResultados" class="no-results">
+    @if (noResultados) {
+    <div class="no-results">
       <p>No hay animales con esos filtros.</p>
-    </div>
+    </div>}
 
     <div class="buttons">
       <button mat-button (click)="aplicarFiltros()">Aplicar Filtros</button>
@@ -109,22 +164,46 @@
     </div>
   </div>
 </div>
-
-<div *ngIf="contexto === 'adopcion'">
+}
+@if (contexto === 'adopcion') {
+<div >
   <div class="input-field">
     <label for="adoptionState">Estado:</label>
-    <button mat-icon-button (click)="selectEstadoAdopcion('Completo')" [ngClass]="estadoAdopcion === 'Completo' ? 'filtro-seleccionado' : ''">
-      <img src="../../../assets/filtros/Captura de pantalla 2024-02-15 165748.png" alt="Pequeño" />
+    <button
+      mat-icon-button
+      (click)="selectEstadoAdopcion('Completo')"
+      [ngClass]="estadoAdopcion === 'Completo' ? 'filtro-seleccionado' : ''"
+    >
+      <img
+        src="../../../assets/filtros/Captura de pantalla 2024-02-15 165748.png"
+        alt="Pequeño"
+      />
     </button>
-    <button mat-icon-button (click)="selectEstadoAdopcion('Proceso')" [ngClass]="estadoAdopcion === 'Proceso' ? 'filtro-seleccionado' : ''">
-      <img src="../../../assets/filtros/Captura de pantalla 2024-02-15 165748.png" alt="Pequeño" />
+    <button
+      mat-icon-button
+      (click)="selectEstadoAdopcion('Proceso')"
+      [ngClass]="estadoAdopcion === 'Proceso' ? 'filtro-seleccionado' : ''"
+    >
+      <img
+        src="../../../assets/filtros/Captura de pantalla 2024-02-15 165748.png"
+        alt="Pequeño"
+      />
     </button>
-    <button mat-icon-button (click)="selectEstadoAdopcion('Rechazado')" [ngClass]="estadoAdopcion === 'Rechazado' ? 'filtro-seleccionado' : ''">
-      <img src="../../../assets/filtros/Captura de pantalla 2024-02-15 165748.png" alt="Pequeño" />
+    <button
+      mat-icon-button
+      (click)="selectEstadoAdopcion('Rechazado')"
+      [ngClass]="estadoAdopcion === 'Rechazado' ? 'filtro-seleccionado' : ''"
+    >
+      <img
+        src="../../../assets/filtros/Captura de pantalla 2024-02-15 165748.png"
+        alt="Pequeño"
+      />
     </button>
-    <div *ngIf="noResultados" class="no-results">
+    @if (noResultados) {
+    <div class="no-results">
       <p>No hay animales con esos filtros.</p>
     </div>
+    }
     <div class="buttons">
       <button mat-button (click)="aplicarFiltros()">Aplicar Filtros</button>
       <button mat-button (click)="borrarFiltros()">Borrar Filtros</button>
@@ -132,4 +211,4 @@
     </div>
   </div>
 </div>
-
+}
