@@ -4,20 +4,24 @@ import { MatIconModule } from '@angular/material/icon'
 import { ApiService } from '../../servicios/api.service';
 import { ActivatedRoute } from '@angular/router';
 import { PopUpComponent } from '../../pop-up/pop-up.component';
+import {MatDialog, MatDialogModule,} from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
 
 
 @Component({
   selector: 'app-detalle',
   standalone: true,
-  imports: [MatTabsModule, MatIconModule, PopUpComponent],
+  imports: [MatTabsModule, MatIconModule, PopUpComponent, FormsModule, CommonModule],
   templateUrl: './detalle.component.html',
   styleUrl: './detalle.component.scss'
 })
 export class DetalleComponent {
   id!:any;
-  animalDetalle!:any;
-  constructor(private servicio: ApiService, private rutaActivada: ActivatedRoute) { }
-
+  animals!:any;
+  constructor(private servicio: ApiService, private rutaActivada: ActivatedRoute, private dialog: MatDialog) { }
+  
   ngOnInit(): void {
     this.rutaActivada.paramMap.subscribe(params => {
       //console.log(params);
@@ -27,9 +31,8 @@ export class DetalleComponent {
 
     this.servicio.getAnimalbyId(this.id).subscribe((data:any)=>{
       console.log("Soy datos",data);
-      this.animalDetalle=data
+      this.animals=data
     })
-
   }
 
   handleShareClick() {
@@ -52,10 +55,12 @@ export class DetalleComponent {
     // Puedes agregar aquí la lógica adicional, como enviar una solicitud al servidor, actualizar la interfaz de usuario, etc.
   }
 
-  mostrarVentanaEmergente: boolean = false;
-
-  abrirVentanaEmergente() {
-    this.mostrarVentanaEmergente = true;
+  abrirVentanaEmergente(): void {
+    const dialogRef = this.dialog.open(PopUpComponent, {
+      width: '400px',
+      data:{animales: this.abrirVentanaEmergente, contexto: 'galeria'}
+    });
+ 
   }
 
 }

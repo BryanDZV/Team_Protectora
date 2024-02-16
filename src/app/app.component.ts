@@ -1,3 +1,5 @@
+import { UserComponent } from './user/user.component';
+import { FormAdComponent } from './Pages/form-ad/form-ad.component';
 import { User } from './interface/user';
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
@@ -40,8 +42,14 @@ import { MatNativeDateModule } from '@angular/material/core';
     DetalleComponent,
 
 
+
     AdopcionEstadoComponent,
     MatNativeDateModule
+
+    FormAdComponent,
+    UserComponent,
+    AdopcionEstadoComponent
+
   ],
 
   templateUrl: './app.component.html',

@@ -1,3 +1,4 @@
+import { UserComponent } from './user/user.component';
 import { Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PortadaComponent } from './portada/portada.component';
@@ -14,8 +15,13 @@ import { DetalleComponent } from './Pages/detalle/detalle.component';
 
 import { RegisterComponent } from './register/register.component';
 
+
 import { AdopcionEstadoComponent } from './Pages/adopcion-estado/adopcion-estado.component';
 import { AdopcionDetalleComponent } from './Pages/adopcion-detalle/adopcion-detalle.component';
+
+
+import { AdopcionEstadoComponent } from './adopcion-estado/adopcion-estado.component';
+import { FormAdComponent } from './Pages/form-ad/form-ad.component';
 
 
 
@@ -35,6 +41,8 @@ export const routes: Routes = [
   { path: 'detalle', component: DetalleComponent },
   { path: 'gallery/:id', component: DetalleComponent },
   { path: 'gallery', component: GaleriaComponent },
+  { path: 'formAd', component: FormAdComponent },
+  { path: 'user', component: UserComponent },
 
 
 
