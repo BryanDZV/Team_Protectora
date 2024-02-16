@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 //mi servicio
 export class ApiService {
-  public baseUrl: string = 'http://localhost:5000';
+  public baseUrl: string = 'http://localhost:5002';
   public animalesUrl: string = `${this.baseUrl}/animales`;
 
   public formUrl: string = `${this.baseUrl}/form`;
@@ -16,7 +16,7 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
 
-  
+
   //para subir imagenes
   SubirImagen(imageFile: File) {
     const imagenCliente = new FormData();
@@ -40,10 +40,6 @@ export class ApiService {
   }
 
 
-  //animals
-  getAnimalesConURL(url: string) {
-    return this.http.get(url);
-  }
 
   public getAnimales() {
     return this.http.get(this.animalesUrl);

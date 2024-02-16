@@ -20,7 +20,7 @@ import { AdopcionEstadoComponent } from './Pages/adopcion-estado/adopcion-estado
 import { AdopcionDetalleComponent } from './Pages/adopcion-detalle/adopcion-detalle.component';
 
 
-import { AdopcionEstadoComponent } from './adopcion-estado/adopcion-estado.component';
+
 import { FormAdComponent } from './Pages/form-ad/form-ad.component';
 
 

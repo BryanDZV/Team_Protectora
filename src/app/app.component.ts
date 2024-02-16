@@ -44,7 +44,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 
 
     AdopcionEstadoComponent,
-    MatNativeDateModule
+    MatNativeDateModule,
 
     FormAdComponent,
     UserComponent,

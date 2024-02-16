@@ -20,7 +20,7 @@ const register = async(req, res, next) => {
             res.status(400).send({code:400, message:'Duplicated Email'})
             return next();
         }
-        newUser.password = bcrypt.hashSync(newUser.password, 10);   
+        newUser.password = bcrypt.hashSync(newUser.password, 10);
         const createdUser = await newUser.save();
         return res.status(200).json(createdUser);
     } catch (error) {
@@ -77,7 +77,7 @@ const postFav = async(req, res, next) => {
         console.log("new fav", user);
         const updatedUser = await User.findByIdAndUpdate(user._id, user, {new: true}).populate("pets favPets inProcessPets");
         console.log("new favorites", user);
-        
+
         res.status(201).json(updatedUser)
     } catch (error) {
         return res.status(500).json(error);
@@ -91,7 +91,7 @@ const postAdoption = async(req, res, next) => {
         console.log("new adoption", user);
         const updatedUser = await User.findByIdAndUpdate(user._id, user, {new: true}).populate("pets favPets inProcessPets");
         console.log("new favorites", user);
-        
+
         res.status(201).json(updatedUser)
     } catch (error) {
         return res.status(500).json(error);
@@ -100,11 +100,11 @@ const postAdoption = async(req, res, next) => {
 
 
 module.exports = {
-    register, 
+    register,
     login,
-    checkSession, 
+    checkSession,
     postFav,
     postAdoption,
-    // getUsers, 
+    // getUsers,
     getUserById
 }
