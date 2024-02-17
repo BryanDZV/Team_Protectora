@@ -11,9 +11,7 @@ import { GaleriaComponent } from './Pages/galeria/galeria.component';
 import { ProfileComponent } from './Pages/profile/profile.component';
 import { OptionComponent } from './Pages/option/option.component';
 import { DetalleComponent } from './Pages/detalle/detalle.component';
-
 import { RegisterComponent } from './register/register.component';
-
 import { AdopcionEstadoComponent } from './adopcion-estado/adopcion-estado.component';
 import { FormAdComponent } from './Pages/form-ad/form-ad.component';
 
@@ -33,9 +31,7 @@ export const routes: Routes = [
   { path: 'gallery/:id', component: DetalleComponent },
   { path: 'gallery', component: GaleriaComponent },
   { path: 'formAd', component: FormAdComponent },
-
   { path: 'register', component: RegisterComponent },
-
   { path: 'adopcion', component: AdopcionEstadoComponent },
 
 

@@ -1,15 +1,27 @@
-<h1>Register</h1>
+<div class="container">
+  <img src="../../assets/login_logo/logo@3x.png" alt="Logo pequeño" class="logo" />
+
+<h2>¡Hola! create una  cuenta para comenzar</h2>
 <form (ngSubmit)="onSubmit()" [formGroup]="contactForm">
-  <div>
-    <input type="text" placeholder="Username" formControlName="username" />
+  <fieldset>
+    <label class="block">
+      <input type="text"  placeholder="Nombre" />
+    </label>
+    <label class="block">
+      <input type="text" formControlName="email" placeholder="Email" />
+  </label>
+  <div class="contraseña-ojo">
+      <label class="block">
+          <input type="password" formControlName="password" placeholder="Contraseña" id="passwordInput" class="input-password" />
+     
+      <button type="button" class="btn btn-light ojo" (click)="showPassword()">
+          <img src="../../assets/primary_icons/little_icons_primary/ojo_little/ojo@3x.png" class="ojo"/>
+      </button>
+    </label>
   </div>
+</fieldset>
+
   <div>
-    <input type="text" placeholder="Email" formControlName="email" />
-  </div>
-  <div>
-    <input type="password" placeholder="Password" formControlName="password" />
-  </div>
-  <div>
-    <button type="submit">Sign Up</button>
+    <button type="submit" class="submit">Registrarse</button>
   </div>
 </form>
