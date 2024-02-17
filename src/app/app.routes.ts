@@ -14,19 +14,13 @@ import { OptionComponent } from './Pages/option/option.component';
 import { DetalleComponent } from './Pages/detalle/detalle.component';
 import { RegisterComponent } from './register/register.component';
 
-
-
 import { AdopcionEstadoComponent } from './Pages/adopcion-estado/adopcion-estado.component';
 import { AdopcionDetalleComponent } from './Pages/adopcion-detalle/adopcion-detalle.component';
 
-
-
 import { FormAdComponent } from './Pages/form-ad/form-ad.component';
 
-
-
 export const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'portada', pathMatch: 'full' },
   { path: 'slide1', component: Slide1Component },
   { path: 'slide2', component: Slide2Component },
   { path: 'slide3', component: Slide3Component },
@@ -36,29 +30,19 @@ export const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'perfil', component: ProfileComponent },
   { path: 'opciones', component: OptionComponent },
-{ path: 'register', component: RegisterComponent },
+  { path: 'register', component: RegisterComponent },
 
   { path: 'detalle', component: DetalleComponent },
   { path: 'gallery/:id', component: DetalleComponent },
   { path: 'gallery', component: GaleriaComponent },
   { path: 'formAd', component: FormAdComponent },
 
-
   { path: 'user', component: UserComponent },
-
-
 
   { path: 'adopcion/:id', component: AdopcionDetalleComponent },
 
   { path: 'adopcion', component: AdopcionEstadoComponent },
   { path: 'adopciondetalle', component: AdopcionDetalleComponent },
-
-
-
-
-
-
-
 ];
 
 export class AppRoutingModule {}
