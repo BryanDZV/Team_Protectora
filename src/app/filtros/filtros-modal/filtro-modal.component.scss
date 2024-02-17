@@ -83,15 +83,35 @@ button img {
 .buttons button:hover {
   background-color: rgba(250, 156, 147, 0.8); /* Color RGB con transparencia */
 }
-@media (min-width: 768px) {
-  .modal-content {
-    width: 70%;
-  }
-}
 
-@media (min-width: 992px) {
-  .modal-content {
-    width: 50%;
-  }
-}
+//para pantallas se aplica
+//min-width: 200px,  significa que los
+// estilos dentro de esta regla se aplicarán
+//cuando el ancho de la ventana del navegador
+// sea de al menos 200 píxeles.
+ @media (min-width: 200px) {
+   .modal-content {
+    left: 0px;
+    top: 0px;
+    height: min-content;
+    position: fixed;
+   }
+ }
 
+ //para patanllas grandes
+ @media (min-width: 992px) {
+   .modal-content {
+    left: 0px;
+    top: 0px;
+    height: min-content;
+    position: fixed;
+   }
+ }
+
+
+//  .modal .modal-content {
+//    max-height: max-content;
+//    background-color: #ffffff; /* Color de fondo del cuerpo del modal */
+//  max-width: max-content;
+//    border-radius: 10px; /* Radio de borde del cuerpo del modal */
+//  }

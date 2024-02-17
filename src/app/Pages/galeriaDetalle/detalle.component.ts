@@ -64,17 +64,17 @@ export class DetalleComponent {
     });
 
 
-  info: boolean = false;
-  openInfo() {
-    this.info = true;
-  }
-  closeInfo() {
-    this.info = false;
-  }
-  
-  boolToWord(bool: boolean): string {
-    return bool ? 'Si' : 'No';
-  }
+  // info: boolean = false;
+  // openInfo() {
+  //   this.info = true;
+  // }
+  // closeInfo() {
+  //   this.info = false;
+  // }
+
+  // boolToWord(bool: boolean): string {
+  //   return bool ? 'Si' : 'No';
+  // }
 
 
 
