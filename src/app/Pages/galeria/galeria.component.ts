@@ -1,16 +1,19 @@
 
 import { ApiService } from './../../servicios/api.service';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FiltroModalComponent } from '../../filtros/filtros-modal/filtro-modal.component';
 import { CommonModule } from '@angular/common';
 import {MatDialog, MatDialogModule,} from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import Animal from '../../../../animal.interface';
+import { MatIconModule } from '@angular/material/icon';
+
 
 @Component({
   selector: 'app-galeria',
   standalone: true,
-  imports: [CommonModule,MatDialogModule,FiltroModalComponent,FormsModule, RouterLink],
+  imports: [CommonModule,MatDialogModule,FiltroModalComponent,FormsModule, RouterLink,MatIconModule],
   templateUrl: './galeria.component.html',
   styleUrl: './galeria.component.scss'
 })
@@ -20,14 +23,20 @@ export class GaleriaComponent {
   public resultados: any[] = [];//lo uso para el resultado el buscador guardar sus resutlados o mostrar los animales base
   public textoBusqueda = '';//inicar el buscador con 0
 
+
   constructor(private apiService: ApiService, private dialog: MatDialog) {}
+
 
   ngOnInit(): void {
     this.apiService.getAnimales().subscribe((data: any) => {
       console.log("soy data en galeria",data);
+      this.resultados = data;
 
-      this.animalesBase = data;
-      this.resultados = this.animalesBase; // Inicialmente muestra todos los animales
+      // Recuperar los animales favoritos y actualizar el estado de favorito en la galería
+      const animalesFavoritos = this.apiService.obtenerAnimalesFavoritos();
+      this.resultados.forEach(animal => {
+        animal.favorito = animalesFavoritos.some(favorito => favorito._id === animal._id);
+      });
     });
   }
 //BUSCADOR
@@ -56,9 +65,21 @@ export class GaleriaComponent {
     });
   }
 
+  marcarFavorito(animal: Animal): void {
+
+
+    animal.favorito = !animal.favorito;
+    if (animal.favorito) {
+      console.log("estas marcado animal");
+      this.apiService.agregarAnimalFavorito(animal);
+    } else {
+      this.apiService.eliminarAnimalFavorito(animal);
+      console.log("estas quitando animal");
+    }
+  }
+
 
 
 
 
 }
-

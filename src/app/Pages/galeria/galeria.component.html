@@ -1,5 +1,8 @@
 
 <button routerLink="/perfil">VOLVER</button>
+<button routerLink="/favoritos">ir a a favoritos </button>
+
+<h1>Animales en Adopción</h1>
 <div>
   <input type="text" [(ngModel)]="textoBusqueda"  (input)="buscar(textoBusqueda)" placeholder="Buscar...">
 </div>
@@ -14,9 +17,14 @@
     <h1>{{ animal.nombre }}</h1>
     <div class="imagen-container">
       <img class="imagen" src="{{ animal.foto }}" alt="foto" routerLink="/gallery/{{animal._id}}" />
-    </div>}
+    </div>
+    <button mat-icon-button (click)="marcarFavorito(animal)">
+      <mat-icon>{{ animal.favorito ? 'favorite' : 'favorite_border' }}</mat-icon>
+    </button>}
 
   </div>
+
+
 </div>
 }
 

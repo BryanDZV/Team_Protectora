@@ -1,5 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import Animal from '../../../animal.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -12,8 +13,25 @@ export class ApiService {
   public formUrl: string = `${this.baseUrl}/form`;
   public userUrl: string = `${this.baseUrl}/form`;
 
-
+  private animalesFavoritos: Animal[] = []; //PARA GUARDAR LOS NIMALES FAVORITOS Y PASARLOS AL COMPONENTE
   constructor(private http: HttpClient) {}
+
+  //PARA COMPONENTE FAVORITOSSSSS
+  //  obtener los animales favoritos
+  public obtenerAnimalesFavoritos(): Animal[] {
+    return this.animalesFavoritos;
+  }
+  // agregar un animal a la lista de favoritos
+  public agregarAnimalFavorito(animal: Animal): void {
+    this.animalesFavoritos.push(animal);
+  }
+  // eliminar un animal de la lista de favoritos
+  public eliminarAnimalFavorito(animal: Animal): void {
+    const index = this.animalesFavoritos.findIndex(a => a._id === animal._id);
+    if (index !== -1) {
+      this.animalesFavoritos.splice(index, 1);
+    }
+  }
 
 
 
