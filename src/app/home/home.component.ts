@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { NavBarComponent } from '../components/nav-bar/nav-bar.component';
 
 @Component({
@@ -9,4 +9,8 @@ import { NavBarComponent } from '../components/nav-bar/nav-bar.component';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {}
+export class HomeComponent {
+  constructor(private router:Router) {}
+
+ 
+}
