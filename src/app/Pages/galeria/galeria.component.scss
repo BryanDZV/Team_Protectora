@@ -107,6 +107,8 @@
   border: 2px solid #3cc1c360;
   margin-bottom: 20px;
 
+  border-radius: 30px;
+  justify-content: center;
 
 }
 
@@ -119,8 +121,14 @@
 
 .input_buscador{
   width: 50%;
-  border: 2px solid #3cc1c360;
+border: none;
 
+}
+.buscador {
+  border: 2px solid #3cc1c360;
+  border-radius: 50px; /* Ajusta el valor según lo necesites para lograr el efecto deseado */
+  padding: 5px; /* Ajusta el relleno según sea necesario */
+  width:70%;
 }
 .modalAbrir{
 
