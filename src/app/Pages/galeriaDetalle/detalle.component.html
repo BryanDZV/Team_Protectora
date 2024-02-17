@@ -1,9 +1,18 @@
+
 <button routerLink="/gallery">VOLVER</button>
 
 <div *ngIf="animals">
   <div className="cabeceraImg">
     <div><img className="cabeceraImg-foto" src={{animals.foto}} alt="" ></div>
     <div className="cabeceraImg-name"></div> 
+
+</div>
+</div>
+<div className="cajaCabecera">
+  <div className='cajaCabecera2'>
+    <div *ngIf="animals">
+Cabecera2-city"><p>{{animals.nombre}}</p> <p>{{animals.ciudad}}</p></div>
+
   </div>
   </div>
   <div className="cajaCabecera">
@@ -53,6 +62,7 @@
                       </div>
                     </div>
                   </div>
+
   
                   <div className="c__navbar--data2">
                       <div className='detail3-title'><span>Personalidad</span></div>
@@ -71,6 +81,24 @@
                       </div>
                       </div>
                   </div>
+
+            </div>
+        </div>
+    </mat-tab>
+
+    <mat-tab label="Salud">
+        <div className="imagen.filtro">
+            <div className='detail2'>
+              <div *ngIf="animals">
+
+            </div>
+            </div>
+            <div className="detail4">
+              <div *ngIf="animals">
+              <div className='detail4-title'><p>Tienes que saber que</p></div>
+              <div className='detail4-text'>
+                <p>{{animals.aSaber}}</p>
+
               </div>
           </div>
       </mat-tab>
@@ -86,6 +114,7 @@
                 <div className="detail2-line"> <div><img src="../../../assets/primary_icons/listStyle_icon/pawprint@3x.png" alt="" /> <span>Identificado</span></div> <div><span>{{boolToWord(animals.identificado)}}</span></div> </div>
                 <div className="detail2-line"> <div><img src="../../../assets/primary_icons/listStyle_icon/pawprint@3x.png" alt="" /> <span>Microchip</span></div> <div><span>{{boolToWord(animals.microchip)}}</span></div> </div>
               </div>
+
               </div>
               <div className="detail4">
                 <div *ngIf="animals">
@@ -125,6 +154,15 @@
                     </div>
                   </div>
                 </div>
+
+            </div>
+
+
+            <div className="detail4">
+              <div className='detail4-title'><p>¿Se envía a otra ciudad?</p></div>
+              <div className='detail4-text'>
+                <p>{{animals.seEnvia}}</p>
+
               </div>
               
               

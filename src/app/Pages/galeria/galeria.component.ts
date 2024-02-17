@@ -45,6 +45,7 @@ export class GaleriaComponent {
 
       console.log("soy data en galeria",data);
       this.resultados = data;
+      this.animalesBase=this.resultados
 
 
       // Recuperar los animales favoritos y actualizar el estado de favorito en la galería

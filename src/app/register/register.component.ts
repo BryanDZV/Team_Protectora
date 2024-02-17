@@ -28,7 +28,7 @@ export class RegisterComponent {
 
   constructor(private formBuilder: FormBuilder) {
     this.contactForm = this.formBuilder.group({
-      username: ['', Validators.required],
+      name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
     });
@@ -52,10 +52,10 @@ export class RegisterComponent {
       })
       .subscribe((response) => {
         console.log('response', response);
-        localStorage.setItem('token', response.user.token);
-        this.authService.currentUserSig.set(response.user);
         this.router.navigateByUrl('/login');
         alert('Usuario registrado correctamente');
+
+
       });
   }
 }
