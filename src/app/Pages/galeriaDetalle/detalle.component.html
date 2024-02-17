@@ -1,10 +1,10 @@
-
+<!--
 
 
 <div *ngIf="animals">
   <div className="cabeceraImg">
     <div><img className="cabeceraImg-foto" src={{animals.foto}} alt="" ></div>
-    <div className="cabeceraImg-name"></div> 
+    <div className="cabeceraImg-name"></div>
 
 </div>
 </div>
@@ -22,22 +22,22 @@ Cabecera2-city"><p>{{animals.nombre}}</p> <p>{{animals.ciudad}}</p></div>
       <div className="cajaCabecera2-city"><p>{{animals.nombre}}</p> <p>{{animals.ciudad}}</p></div>
     </div>
     </div>
-  
+
   <button (click)="handleShareClick()" class="buttonShare">
     <img src="../../../assets/primary_icons/comms_icons_standOut/share_little_standOut/compartir@3x.png" alt="Compartir"/>
     Compartir
   </button>
-  
+
   <button (click)="handleLikeClick()" class="buttonLike">
     <img src="../../../assets/primary_icons/little_icons_standOut/favoritos_little_standOut/favoritos@3x.png" alt="Me gusta"/>
     Me gusta
   </button>
-  
+
   <mat-tab-group>
       <mat-tab label="Datos">
           <div className="imagen.filtro">
               <div className="detalil">
-  
+
                   <div className='detail2'>
                     <div *ngIf="animals">
                       <div className="detail2-line">
@@ -63,14 +63,14 @@ Cabecera2-city"><p>{{animals.nombre}}</p> <p>{{animals.ciudad}}</p></div>
                     </div>
                   </div>
 
-  
+
                   <div className="c__navbar--data2">
                       <div className='detail3-title'><span>Personalidad</span></div>
                       <div className='detail3-father'>
-            
+
                       </div>
                   </div>
-  
+
                   <div className="detail4">
                     <div *ngIf="animals">
                       <div className='detail4-title'>
@@ -102,7 +102,7 @@ Cabecera2-city"><p>{{animals.nombre}}</p> <p>{{animals.ciudad}}</p></div>
               </div>
           </div>
       </mat-tab>
-  
+
       <mat-tab label="Salud">
           <div className="imagen.filtro">
               <div className='detail2'>
@@ -126,7 +126,7 @@ Cabecera2-city"><p>{{animals.nombre}}</p> <p>{{animals.ciudad}}</p></div>
             </div>
           </div>
       </mat-tab>
-  
+
       <mat-tab label="Adopción">
         <div *ngIf="animals">
           <div className="imagen.filtro">
@@ -136,10 +136,10 @@ Cabecera2-city"><p>{{animals.nombre}}</p> <p>{{animals.ciudad}}</p></div>
                   <p>{{animals.requisitosAdopcion}}</p>
                 </div>
               </div>
-  
+
               <div class="detail4">
                 <div class='detail4-title'>
-                  <span>Tasa de adopción</span> 
+                  <span>Tasa de adopción</span>
                   <img (click)="openInfo()" src="../../../assets/primary_icons/little_icons_standOut/help_little_standOut/ayuda@3x.png" alt="" />
                 </div>
                 <div class='detail4-text'>
@@ -164,9 +164,9 @@ Cabecera2-city"><p>{{animals.nombre}}</p> <p>{{animals.ciudad}}</p></div>
                 <p>{{animals.seEnvia}}</p>
 
               </div>
-              
-              
-  
+
+
+
               <div className="detail4">
                 <div className='detail4-title'><p>¿Se envía a otra ciudad?</p></div>
                 <div className='detail4-text'>
@@ -177,10 +177,11 @@ Cabecera2-city"><p>{{animals.nombre}}</p> <p>{{animals.ciudad}}</p></div>
             </div>
       </mat-tab>
   </mat-tab-group>
-  
+
   <div className="buttonAnimals">
       <div className="buttonAnimals2"><button onClick="" className="buttonAnimals3">Apadrinar</button></div>
-  
+
       <button (click)="abrirVentanaEmergente()">Adoptar</button>
-      <!-- <app-pop-up *ngIf="mostrarVentanaEmergente()"></app-pop-up> -->
-  </div>
+
+  </div> -->
+  <!-- <app-pop-up *ngIf="mostrarVentanaEmergente()"></app-pop-up> -->
