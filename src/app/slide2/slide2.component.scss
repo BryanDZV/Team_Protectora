@@ -29,7 +29,7 @@ img {
 h3 {
     margin-top: 35px;
     text-size-adjust:  100%;
-    color: #c91616;
+    color: var(--color-primary-blue);
 }
 
 p{
@@ -43,13 +43,13 @@ p{
     display: inline-block; 
     margin-top: 35px; 
     margin-right: 20px; 
-    color: #c91616;
+    color: var(--color-stand-out-red);
     margin-left: 20px;
 
 }
 
 .x { position: absolute; top: 10px; right: 10px; 
 margin-top: 3%;
-color: #c91616;
+color: var(--color-primary-blue);
 }
 

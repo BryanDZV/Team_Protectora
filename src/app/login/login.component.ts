@@ -33,7 +33,9 @@ export class LoginComponent {
       password: ['', [Validators.required, Validators.minLength(8)]],
     });
   }
-
+  register(){
+    this.router.navigate(['/register']);
+  }
   showPassword(): void {
     const passwordInput = document.getElementById(
       'passwordInput'

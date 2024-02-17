@@ -33,6 +33,16 @@ export class RegisterComponent {
       password: ['', [Validators.required, Validators.minLength(8)]],
     });
   }
+  showPassword(): void {
+    const passwordInput = document.getElementById(
+      'passwordInput'
+    ) as HTMLInputElement;
+    if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+    } else {
+      passwordInput.type = 'password';
+    }
+  }
 
   onSubmit(): void {
     // this.isSubmitted = true;
