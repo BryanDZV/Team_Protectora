@@ -47,7 +47,7 @@ export class RegisterComponent {
   onSubmit(): void {
     // this.isSubmitted = true;
     this.http
-      .post<{ user: User }>('https://api.realworld.io/api/users', {
+      .post<{ user: User }>('http://localhost:5002/user/register/', {
         user: this.contactForm.getRawValue(),
       })
       .subscribe((response) => {

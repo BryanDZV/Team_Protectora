@@ -1,4 +1,5 @@
 
+
 <button routerLink="/perfil">VOLVER</button>
 <button routerLink="/favoritos">ir a a favoritos </button>
 
@@ -10,10 +11,11 @@
   <button mat-button (click)="abrirModal()">Abrir Filtro</button>
 </div>
 
-@if (resultados.length > 0) {
-<div >
-  <div >
+
+  @if (resultados.length > 0) {
+  <div class="image-container">
     @for (animal of resultados; track $index) {
+
     <h1>{{ animal.nombre }}</h1>
     <div class="imagen-container">
       <img class="imagen" src="{{ animal.foto }}" alt="foto" routerLink="/gallery/{{animal._id}}" />
@@ -28,9 +30,24 @@
 </div>
 }
 
-@if (resultados.length === 0) {
-<div >
-  <p>No se encontraron resultados.</p>
-</div>
-}
+    <div class="image-card">
+      <img
+        class="img"
+        src="{{ animal.foto }}"
+        alt="foto"
+        routerLink="/gallery/{{ animal._id }}"
+      />
+    </div>
+    <h2>{{ animal.nombre }}</h2>
 
+    }</div>
+ 
+
+
+  } @if (resultados.length === 0) {
+  <div>
+    <p>No se encontraron resultados.</p>
+  </div>
+  }
+
+<!-- <app-nav-bar></app-nav-bar> -->
