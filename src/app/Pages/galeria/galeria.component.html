@@ -1,26 +1,35 @@
-<div>
-  <input type="text" [(ngModel)]="textoBusqueda"  (input)="buscar(textoBusqueda)" placeholder="Buscar...">
-</div>
-<div>
-  <button mat-button (click)="abrirModal()">Abrir Filtro</button>
-</div>
-
-@if (resultados.length > 0) {
-<div >
-  <div >
-    @for (animal of resultados; track $index) {
-    <h1>{{ animal.nombre }}</h1>
-    <div class="imagen-container">
-      <img class="imagen" src="{{ animal.foto }}" alt="foto" routerLink="/gallery/{{animal._id}}" />
-    </div>}
-
+<section class="gallery">
+  <div>
+    <input
+      type="text"
+      [(ngModel)]="textoBusqueda"
+      (input)="buscar(textoBusqueda)"
+      placeholder="Buscar..."
+    />
   </div>
-</div>
-}
+  <div>
+    <button mat-button (click)="abrirModal()">Abrir Filtro</button>
+  </div>
 
-@if (resultados.length === 0) {
-<div >
-  <p>No se encontraron resultados.</p>
-</div>
-}
+  @if (resultados.length > 0) {
+  <div class="image-container">
+    @for (animal of resultados; track $index) {
+    <div class="image-card">
+      <img
+        class="img"
+        src="{{ animal.foto }}"
+        alt="foto"
+        routerLink="/gallery/{{ animal._id }}"
+      />
+    </div>
+    <h2>{{ animal.nombre }}</h2>
+    }
+  </div>
 
+  } @if (resultados.length === 0) {
+  <div>
+    <p>No se encontraron resultados.</p>
+  </div>
+  }
+</section>
+<!-- <app-nav-bar></app-nav-bar> -->
