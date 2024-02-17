@@ -1,6 +1,6 @@
 import { ApiService } from './../../servicios/api.service';
 import { Component } from '@angular/core';
-import { FiltroModalComponent } from '../../filtros/filtro-modal/filtro-modal.component';
+import { FiltroModalComponent } from '../../filtros/filtros-modal/filtro-modal.component';
 import { CommonModule } from '@angular/common';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';

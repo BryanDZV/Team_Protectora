@@ -1,4 +1,6 @@
 <p>adopcion-estado works!</p>
+
+<button routerLink="/perfil">VOLVER</button>
 <div>
   <input
     type="text"
@@ -11,8 +13,11 @@
   <button mat-button (click)="abrirModal()">Abrir Filtro</button>
 </div>
 
-<div *ngIf="resultados.length > 0">
-  <div *ngFor="let animal of resultados; let i = index" class="animal-item">
+
+@if (resultados.length > 0) {
+  <div>
+  @for (animal of resultados; track $index) {
+    <div  class="animal-item">
     <div>
       <div>
         <h1>Adopcion de {{ animal.nombre }}</h1>
@@ -33,7 +38,13 @@
       </div>
     </div>
   </div>
-    <div *ngIf="resultados.length === 0">
+  }
+
+
+@if (resultados.length === 0) {
+  <div >
     <p>No se encontraron resultados.</p>
-  </div>
-</div>
+  </div>}
+
+</div>}
+

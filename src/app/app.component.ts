@@ -14,7 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { CommonModule } from '@angular/common';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
-import { DetalleComponent } from './Pages/detalle/detalle.component';
+import { DetalleComponent } from './Pages/galeriaDetalle/detalle.component';
 
 import { AuthServiceService } from './servicios/auth.service.service';
 import { HttpClient } from '@angular/common/http';

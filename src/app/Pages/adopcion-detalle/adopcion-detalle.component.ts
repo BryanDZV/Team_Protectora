@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ApiService } from '../../servicios/api.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { CommonModule } from '@angular/common';
@@ -27,6 +27,7 @@ import { AdopcionModalComponent } from '../../filtros/adopcion-modal/adopcion-mo
     MatDatepickerModule,
     MatFormFieldModule,
     MatInputModule,
+    RouterLink
   ],
   templateUrl: './adopcion-detalle.component.html',
   styleUrl: './adopcion-detalle.component.scss',

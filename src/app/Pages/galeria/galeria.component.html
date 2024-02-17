@@ -1,15 +1,13 @@
-<section class="gallery">
-  <div>
-    <input
-      type="text"
-      [(ngModel)]="textoBusqueda"
-      (input)="buscar(textoBusqueda)"
-      placeholder="Buscar..."
-    />
-  </div>
-  <div>
-    <button mat-button (click)="abrirModal()">Abrir Filtro</button>
-  </div>
+
+
+<button routerLink="/perfil">VOLVER</button>
+<div>
+  <input type="text" [(ngModel)]="textoBusqueda"  (input)="buscar(textoBusqueda)" placeholder="Buscar...">
+</div>
+<div>
+  <button mat-button (click)="abrirModal()">Abrir Filtro</button>
+</div>
+
 
   @if (resultados.length > 0) {
   <div class="image-container">
@@ -23,13 +21,14 @@
       />
     </div>
     <h2>{{ animal.nombre }}</h2>
-    }
-  </div>
+
+    }</div>
+ 
 
   } @if (resultados.length === 0) {
   <div>
     <p>No se encontraron resultados.</p>
   </div>
   }
-</section>
+
 <!-- <app-nav-bar></app-nav-bar> -->
