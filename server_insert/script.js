@@ -19,7 +19,7 @@ app.use(cors());
 
 // nos vamos a traer nuestro router que esta ahora mismo exportado en nuestra carpeta de routes
 
-// const userRouter = require ('./Back/routes/userRoutes');
+const userRouter = require ('./Back/routes/userRoutes');
 const formsRouter = require ('./Back/routes/formsRoutes');
 const animalesRoutes = require("./back/routes/animalesRoutes");
 // const Animal = require("./back/models/animalModel");
@@ -36,8 +36,8 @@ app.use(
 )
 
 app.use("/animales", animalesRoutes);
-app.use('/form',formsRouter)
-// app.use('/user',userRouter)
+app.use("/form",formsRouter)
+app.use("/user",userRouter)
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
