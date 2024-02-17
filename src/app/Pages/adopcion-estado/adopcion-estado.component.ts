@@ -5,13 +5,14 @@ import { CommonModule } from '@angular/common';
 import {MatDialog, MatDialogModule,} from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
 @Component({
   selector: 'app-adopcion-estado',
   standalone: true,
-  imports: [CommonModule,MatDialogModule,FiltroModalComponent,FormsModule,RouterLink],
+  imports: [CommonModule,MatDialogModule,FiltroModalComponent,FormsModule,RouterLink,MatIconModule],
   templateUrl: './adopcion-estado.component.html',
   styleUrl: './adopcion-estado.component.scss'
 })
