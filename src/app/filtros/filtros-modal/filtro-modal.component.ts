@@ -47,7 +47,7 @@ especieSeleccionada: string = ''
       //decoradores en Angular incluyen @Component, @Injectable, @NgModule, @Input, @Output
     ) {
       //puedo cambiar el tamaño del modal
-      dialogRef.updateSize('100%', '100%');
+      // dialogRef.updateSize('100%', '100%');
 
       this.contexto = data.contexto; // paso los datos del valor del contexto recibido
       //guardo los animales aqui para usar
