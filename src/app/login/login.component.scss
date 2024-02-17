@@ -78,18 +78,40 @@ input[type="password"] {
 }
 
 .contraseña-ojo {
-  position: relative;
-
+  display: flex;
   align-items: center;
-}
-
-.contraseña-ojo .ojo {
   position: relative;
-  right: 0px; /* Ajustamos el botón al final del input */
-  cursor: pointer;
 }
 
-.input-password {
-  width: calc(100% - 32px);
-  padding-right: 32px;
+.contraseña-ojo .eye-btn {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  margin: 0%;
+  padding: 0%;
+  display: inline;
+  width: 60px;
+  top: 2px
+}
+
+.contraseña-ojo input-password {
+  width: 100%;
+}
+.ojo{
+  height: 50px;
+  width: auto;
+  top: -50%;
+}
+.label-contraseña{
+  position: relative;
+  width: 100%;
+}
+.adopcion{
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
