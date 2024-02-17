@@ -6,6 +6,7 @@
     "role":"user"
 },
 {
+    "user": "",
     "name": "Juan",
     "email": "juan@gmail.com",
     "password": "12345678",
