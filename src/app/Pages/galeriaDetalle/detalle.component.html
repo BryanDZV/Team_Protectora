@@ -1,20 +1,12 @@
-
 <button routerLink="/gallery">VOLVER</button>
 
 <div *ngIf="animals">
   <div className="cabeceraImg">
     <div><img className="cabeceraImg-foto" src={{animals.foto}} alt="" ></div>
     <div className="cabeceraImg-name"></div> 
-
 </div>
 </div>
-<div className="cajaCabecera">
-  <div className='cajaCabecera2'>
-    <div *ngIf="animals">
-Cabecera2-city"><p>{{animals.nombre}}</p> <p>{{animals.ciudad}}</p></div>
 
-  </div>
-  </div>
   <div className="cajaCabecera">
     <div className='cajaCabecera2'>
       <div *ngIf="animals">
@@ -101,7 +93,6 @@ Cabecera2-city"><p>{{animals.nombre}}</p> <p>{{animals.ciudad}}</p></div>
 
               </div>
           </div>
-      </mat-tab>
   
       <mat-tab label="Salud">
           <div className="imagen.filtro">
@@ -175,8 +166,6 @@ Cabecera2-city"><p>{{animals.nombre}}</p> <p>{{animals.ciudad}}</p></div>
                 </div>
               </div>
             </div>
-      </mat-tab>
-  </mat-tab-group>
   
   <div className="buttonAnimals">
       <div className="buttonAnimals2"><button onClick="" className="buttonAnimals3">Apadrinar</button></div>

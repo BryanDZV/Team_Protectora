@@ -62,7 +62,7 @@ export class DetalleComponent {
       width: '400px',
       data:{animales: this.abrirVentanaEmergente, contexto: 'galeria'}
     });
-
+  }
 
   info: boolean = false;
   openInfo() {
@@ -75,8 +75,6 @@ export class DetalleComponent {
   boolToWord(bool: boolean): string {
     return bool ? 'Si' : 'No';
   }
-
-
 
 }
 
