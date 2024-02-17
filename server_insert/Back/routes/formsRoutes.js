@@ -7,7 +7,6 @@ const {
     deleteForm,
 } = require('../controllers/forms.controller');
 
-const {isAuth} = require('../middleware/auth');
 //---------------------------------INPUT---------------------------------
 const router = express.Router();
 

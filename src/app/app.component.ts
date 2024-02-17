@@ -1,3 +1,4 @@
+import { UserComponent } from './user/user.component';
 import { FormAdComponent } from './Pages/form-ad/form-ad.component';
 import { User } from './interface/user';
 import { Component, inject } from '@angular/core';
@@ -18,8 +19,8 @@ import { DetalleComponent } from './Pages/detalle/detalle.component';
 import { AuthServiceService } from './servicios/auth.service.service';
 import { HttpClient } from '@angular/common/http';
 
-import { AdopcionEstadoComponent } from './adopcion-estado/adopcion-estado.component';
-
+import { AdopcionEstadoComponent } from './Pages/adopcion-estado/adopcion-estado.component';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @Component({
   selector: 'app-root',
@@ -39,9 +40,16 @@ import { AdopcionEstadoComponent } from './adopcion-estado/adopcion-estado.compo
     MatDialogModule,
     MatIconModule,
     DetalleComponent,
-    FormAdComponent,
 
+
+
+    AdopcionEstadoComponent,
+    MatNativeDateModule,
+
+    FormAdComponent,
+    UserComponent,
     AdopcionEstadoComponent
+
   ],
 
   templateUrl: './app.component.html',
