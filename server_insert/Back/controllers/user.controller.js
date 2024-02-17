@@ -7,12 +7,14 @@ const {generateSign} = require('../jwt/jwt');
 
 const register = async(req, res, next) => {
     try {
-        const newUser = new User(req.body);
+
+        const newUser = new User(req.body.user);
+
         if(!validationEmail(newUser.email)){
             res.status(400).send({code:400, message:'Invalid Email'})
             return next();
         }
-        if(!validationPassword(newUser.password)){
+        if(!(newUser.password)){
             res.status(400).send({code:400, message:'Invalid password'})
             return next();
         }
@@ -26,27 +28,42 @@ const register = async(req, res, next) => {
         const createdUser = await newUser.save();
         return res.status(200).json(createdUser);
     } catch (error) {
-        return res.status(500).json(error);
+        return res.status(500).json("prooobando" +error);
     }
 }
 
 const login = async(req, res, next) => {
-    // console.log(req.body);
-    try {
-        const myUser = await User.findOne({email: req.body.email}).populate("pets favPets inProcessPets");
-        if(bcrypt.compareSync(req.body.password, myUser.password)){
-            console.log('mi usuario',myUser);
-            const token = generateSign(myUser._id, myUser.email)
-            console.log('este es el token', myUser.email);
-            return res.status(200).json({myUser, token});
-        }else{
-            res.status(400).send({code:400, message:'Password Error'})
-            return next()
-        }
-    } catch (error) {
-        return res.status(500).json(error);
-    }
-}
+
+    const data = req.body.user;
+ 
+     try {
+         const user = await User.findOne({email: data.email}).populate("pets favPets inProcessPets");
+ 
+         if(user==null){
+             console.log("usuario no encontrado");
+             return res.status(500).json({"errCode":503,"error": "usuario no encontrado"});
+         }
+ 
+         if(bcrypt.compareSync(data.password, user.password)){
+             console.log('mi usuario',user);
+             var token = null;
+             try{
+                  token = generateSign(user._id, user.email);
+             }catch (errSign)
+             {
+                 console.log('errSign',errSign);
+             }
+ 
+             console.log('este es el token', token);
+             return res.status(200).json({user, token});
+         }else{
+             res.status(400).send({code:400, message:'Password Error'})
+             return next()
+         }
+     } catch (error) {
+         return res.status(500).json(error);
+     }
+ }
 
 
 const checkSession =(req, res, next) => {

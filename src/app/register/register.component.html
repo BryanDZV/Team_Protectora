@@ -5,7 +5,7 @@
 <form (ngSubmit)="onSubmit()" [formGroup]="contactForm">
   <fieldset>
     <label class="block">
-      <input type="text"  placeholder="Nombre" />
+      <input type="text" formControlName="name" placeholder="Nombre" />
     </label>
     <label class="block">
       <input type="text" formControlName="email" placeholder="Email" />
