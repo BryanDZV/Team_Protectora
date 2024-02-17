@@ -46,6 +46,8 @@ export const routes: Routes = [
   { path: 'adopciondetalle', component: AdopcionDetalleComponent },
 
   { path: 'favoritos', component: FavoritosComponent },
+  
+
 ];
 
 export class AppRoutingModule {}
