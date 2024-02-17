@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon'
 import { ApiService } from '../../servicios/api.service';
+
 import { ActivatedRoute, RouterLink } from '@angular/router';
+
 import { PopUpComponent } from '../../pop-up/pop-up.component';
 import {MatDialog, MatDialogModule,} from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
@@ -61,7 +63,6 @@ export class DetalleComponent {
       data:{animales: this.abrirVentanaEmergente, contexto: 'galeria'}
     });
 
-  }
 
 }
 

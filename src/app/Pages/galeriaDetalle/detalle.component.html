@@ -1,17 +1,10 @@
 
-<button routerLink="/gallery">VOLVER</button>
-
-<div *ngIf="animals">
-<div className="cabeceraImg">
-  <div><img className="cabeceraImg-foto" src={{animals.image}} alt="" ></div>
-  <div className="cabeceraImg-name"></div>
 </div>
 </div>
 <div className="cajaCabecera">
   <div className='cajaCabecera2'>
     <div *ngIf="animals">
-    <div className="cajaCabecera2-gender"> {{animals.sexo}} === "Macho" ? <img src="../../../assets/primary_icons/genre_square/genre_male_square/male@3x.png" alt="" /> : <img src="../../../assets/primary_icons/genre_square/genre_female_square/female@3x.png" alt="" /></div>
-    <div className="cajaCabecera2-city"><p>{{animals.nombre}}</p> <p>{{animals.ciudad}}</p></div>
+Cabecera2-city"><p>{{animals.nombre}}</p> <p>{{animals.ciudad}}</p></div>
   </div>
   </div>
 
@@ -80,12 +73,7 @@
         <div className="imagen.filtro">
             <div className='detail2'>
               <div *ngIf="animals">
-              <div className="detail2-line"> <div><img src="../../../assets/primary_icons/listStyle_icon/pawprint@3x.png" alt="" /> <span>Vacunado</span></div> <div><span>{{animals.vacunado}}</span></div> </div>
-              <div className="detail2-line"> <div><img src="../../../assets/primary_icons/listStyle_icon/pawprint@3x.png" alt="" /> <span>Desparasitado</span></div> <div><span>{{animals.desparasitado}}</span></div> </div>
-              <div className="detail2-line"> <div><img src="../../../assets/primary_icons/listStyle_icon/pawprint@3x.png" alt="" /> <span>Sano</span></div> <div><span>{{animals.sano}}</span></div> </div>
-              <div className="detail2-line"> <div><img src="../../../assets/primary_icons/listStyle_icon/pawprint@3x.png" alt="" /> <span>Esterilizado</span></div> <div><span>{{animals.esterilizado}}</span></div> </div>
-              <div className="detail2-line"> <div><img src="../../../assets/primary_icons/listStyle_icon/pawprint@3x.png" alt="" /> <span>Identificado</span></div> <div><span>{{animals.identificado}}</span></div> </div>
-              <div className="detail2-line"> <div><img src="../../../assets/primary_icons/listStyle_icon/pawprint@3x.png" alt="" /> <span>Microchip</span></div> <div><span>{{animals.microchip}}</span></div> </div>
+
             </div>
             </div>
             <div className="detail4">
@@ -109,12 +97,6 @@
               </div>
             </div>
 
-            <div className="detail4">
-              <div className='detail4-title'><span>Tasa de adopción</span> <img onClick="" src="../../../assets/primary_icons/little_icons_standOut/help_little_standOut/ayuda@3x.png" alt="" /></div>
-              <div className='detail4-text'>
-                <p>{{animals.tasaAdopcion}}</p>
-              </div>
-            </div>
 
             <div className="detail4">
               <div className='detail4-title'><p>¿Se envía a otra ciudad?</p></div>
