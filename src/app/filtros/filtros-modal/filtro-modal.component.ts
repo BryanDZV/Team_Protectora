@@ -3,11 +3,12 @@ import {MAT_DIALOG_DATA, MatDialogModule, MatDialogRef} from '@angular/material/
 import { FormsModule,} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-filtro-modal',
   standalone: true,
-  imports: [MatDialogModule,CommonModule,FormsModule,MatIconModule],
+  imports: [MatDialogModule,CommonModule,FormsModule,MatIconModule,RouterLink],
   templateUrl:'./filtro-modal.component.html',
   styleUrl: './filtro-modal.component.scss'
 })
@@ -47,7 +48,9 @@ especieSeleccionada: string = ''
     ) {
       //puedo cambiar el tamaño del modal
       dialogRef.updateSize('100%', '100%');
-      this.contexto = data.contexto; // Asigna el valor del contexto recibido
+
+      this.contexto = data.contexto; // paso los datos del valor del contexto recibido
+      //guardo los animales aqui para usar
     }
 //FUNCIONES PARA CONTRROLAR las SELECCIONES
     selectEspecie(especie: string): void {
@@ -90,22 +93,21 @@ console.log('Contenido de this.data:', this.data);
     });
 
     // visibilidad del mensaje sI no hay animal
-    this.noResultados = resultadosFiltrados.length === 0;
+    this.noResultados = resultadosFiltrados.length == 0;
 
-    // Cierra el modal y devuelve los resultados filtrados si hay resultados
+    // DESPUES DE APLICAR FILTRO --->Cierra el modal y devuelve los resultados filtrados si hay resultados
     if (resultadosFiltrados.length > 0) {
       //USO EL CLOSE DEL MODAL
       this.dialogRef.close(resultadosFiltrados);
       this.mensaje1
       console.log("hay filtros");
 
-
-
     } else {
       this.mensaje
-      // Si no hay resultados, muestra el mensaje
+      // Si no hay resultados QUIERO Q ME muestra el mensaje NO ANIMALES
 
-    };
+    }
+
 
 
 }
@@ -121,16 +123,16 @@ console.log('Contenido de this.data:', this.data);
     this.estadoAdopcion = '';
 
 
+
   }
 
   cerrarModal(): void {
-    if (this.noResultados) {
-      this.dialogRef.close(this.data.animales);
-
+    // EL BOTON CERRAR DENTRO DE MODAL Cierra el modal y devuelve todos los animales si no hay resultados
+    this.dialogRef.close(!this.noResultados ? this.data.animales : "");
   }
 
 
-}
+
 }
 
 
