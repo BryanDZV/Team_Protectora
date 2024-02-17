@@ -50,7 +50,7 @@ export class LoginComponent {
   onSubmit(): void {
     this.isSubmitted = true;
     this.http
-      .post<{ user: User }>('https://api.realworld.io/api/users/login', {
+      .post<{ user: User }>('http://localhost:5002/user/login', {
         user: this.contactForm.getRawValue(),
       })
       .subscribe((response) => {
