@@ -1,79 +1,118 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import Animal from '../../../animal.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 //mi servicio
 export class ApiService {
-  public baseUrl: string = 'https://rickandmortyapi.com/api'; //funciones que quiero que exista en toda mi api
-  public animalesUrl: string = `${this.baseUrl}/character`; //endpoint
+  public baseUrl: string = 'http://localhost:5002';
+  public animalesUrl: string = `${this.baseUrl}/animales`;
 
+  public formUrl: string = `${this.baseUrl}/form`;
+  public userUrl: string = `${this.baseUrl}/form`;
+
+  private animalesFavoritos: Animal[] = []; //PARA GUARDAR LOS NIMALES FAVORITOS Y PASARLOS AL COMPONENTE
   constructor(private http: HttpClient) {}
-  //por filtro, genero
-  public filtrarAnimalesPorGenero(gender: string) {
-    return this.http.get(`${this.animalesUrl}/?gender=${gender}`);
+
+  //PARA COMPONENTE FAVORITOSSSSS
+  //  obtener los animales favoritos
+  public obtenerAnimalesFavoritos(): Animal[] {
+    return this.animalesFavoritos;
   }
-  //por edad
-  public filtrarAnimalesPorEdad(edad: string) {
-    return this.http.get(`${this.animalesUrl}/?edad=${edad}`);
+  // agregar un animal a la lista de favoritos
+  public agregarAnimalFavorito(animal: Animal): void {
+    this.animalesFavoritos.push(animal);
   }
-  //por ciudad
-  public filtrarAnimalesPorCiudad(Ciudad: string) {
-    return this.http.get(`${this.animalesUrl}/?Ciudad=${Ciudad}`);
-  }
-  //por especie
-  public filtrarAnimalesPorEspecie(species: string) {
-    return this.http.get(`${this.animalesUrl}/?species=${species}`);
-  }
-  //por Tamaño
-  public filtrarAnimalesPorSize(size: string) {
-    return this.http.get(`${this.animalesUrl}/?size=${size}`);
+  // eliminar un animal de la lista de favoritos
+  public eliminarAnimalFavorito(animal: Animal): void {
+    const index = this.animalesFavoritos.findIndex(a => a._id === animal._id);
+    if (index !== -1) {
+      this.animalesFavoritos.splice(index, 1);
+    }
   }
 
 
-  //lista
+
+  //para subir imagenes
+  SubirImagen(imageFile: File) {
+    const imagenCliente = new FormData();
+    imagenCliente.append('image', imageFile, imageFile.name);
+    return this.http.post(`${this.baseUrl}`, imagenCliente);
+  }
+
+
+  //me creo una funcion para recoger los datos de imagenes y cheking y cuando pulse enviar los envie estan guardados en data
+  enviarDatos(data: any) {
+    return this.http.post(`${this.baseUrl}/aqui tengo q pone mi base da datos el edppoint q le de en db.js`, data);
+  }
+
+
+
+
+
+  //CRUD PARA INTERACTUAR CON BASE DE DATOS
+  getAnimalesConURL(url: string) {
+    return this.http.get(url);
+  }
+
+
+
   public getAnimales() {
     return this.http.get(this.animalesUrl);
   }
-  //por id
-  public getAnimalbyId(id: string) {
-    return this.http.get(`${this.animalesUrl}/${id}`);
+  public getAnimalbyId(_id: any) {
+    return this.http.get(`${this.animalesUrl}/${_id}`);
   }
-  public postAnimal(Animal: any) {
-    return this.http.post(this.animalesUrl, Animal);
+  public postAnimal(animal: any) {
+    return this.http.post(this.animalesUrl, animal);
   }
-  putAnimal(id: string, animal: any) {
+  public putAnimal(id: string, animal: any) {
     return this.http.put(`${this.animalesUrl}/${id}`, animal);
   }
-
   public borrarAnimal(id: string) {
     return this.http.delete(`${this.animalesUrl}/${id}`);
   }
+
+ //form
+getFormConURL(url: string) {
+  return this.http.get(url);
+}
+public getform() {
+  return this.http.get(this.formUrl);
+}
+public getFormById(_id: any) {
+  return this.http.get(`${this.formUrl}/${_id}`);
+}
+public postForm(form: any) {
+  return this.http.post(this.formUrl, form);
+}
+public putForm(id: string, form: any) {
+  return this.http.put(`${this.formUrl}/${id}`, form);
+}
+public borrarForm(id: string) {
+  return this.http.delete(`${this.formUrl}/${id}`);
 }
 
+//user
+getUserConURL(url: string) {
+  return this.http.get(url);
+}
+public getUser() {
+  return this.http.get(this.userUrl);
+}
+public getUserById(_id: any) {
+  return this.http.get(`${this.userUrl}/${_id}`);
+}
+public postUser(User: any) {
+  return this.http.post(this.userUrl, User);
+}
+public putUser(id: string, User: any) {
+  return this.http.put(`${this.userUrl}/${id}`, User);
+}
+public borrarUser(id: string) {
+  return this.http.delete(`${this.userUrl}/${id}`);
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//por paginado
-  //  public getAnimalesP(page: number, limit: number = 10){
-  //    const apiUrl = `${this.animalesUrl}?page=${page}&limit=${limit}`;
-  //    console.log('API URL:', apiUrl);
-  //    return this.http.get(apiUrl)
-  //  }
+}

@@ -1,66 +1,97 @@
-
-import { BuscadorComponent } from '../../filtros/buscador/buscador.component';
 import { ApiService } from './../../servicios/api.service';
-import { Component } from '@angular/core';
-import { FiltroModalComponent } from '../../filtros/filtro-modal/filtro-modal.component';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { FiltroModalComponent } from '../../filtros/filtros-modal/filtro-modal.component';
 import { CommonModule } from '@angular/common';
-import {MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
+
+import Animal from '../../../../animal.interface';
+import { MatIconModule } from '@angular/material/icon';
 
 
-
+import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
 
 
 @Component({
   selector: 'app-galeria',
   standalone: true,
-  imports: [BuscadorComponent,CommonModule,MatDialogModule],
+
+
+  imports: [
+    CommonModule,
+    MatDialogModule,
+    FiltroModalComponent,
+    FormsModule,
+    RouterLink,
+    NavBarComponent,
+    MatIconModule,
+  ],
+
   templateUrl: './galeria.component.html',
-  styleUrl: './galeria.component.scss'
+  styleUrl: './galeria.component.scss',
 })
 export class GaleriaComponent {
-  //los datos que reciba los voy a guardar aqui array
-  public animalesLista:any[]=[]
-  //  public filteredAnimals: any[] = [];
-  public filteredResults: any[] = [];
-  public dialogRef!: MatDialogRef<FiltroModalComponent>;
+  public animalesBase: any[] = []; //para guardar mis datos base
+  public resultados: any[] = []; //lo uso para el resultado el buscador guardar sus resutlados o mostrar los animales base
+  public textoBusqueda = ''; //inicar el buscador con 0
 
-// llammo mi servicio
-  constructor(private servicio:ApiService,public dialog: MatDialog){}
+
+  constructor(private apiService: ApiService, private dialog: MatDialog) {}
 
 
   ngOnInit(): void {
-    this.servicio.getAnimales().subscribe((data: any) => {
-      this.animalesLista = data.results;
-      this.filteredResults = [...this.animalesLista]; // Inicializamos los resultados filtrados
+    this.apiService.getAnimales().subscribe((data: any) => {
 
-      // Abre el modal y se suscribe al evento filtersApplied
-      this.openFilter();
+      console.log("soy data en galeria",data);
+      this.resultados = data;
+      this.animalesBase=this.resultados
+
+
+      // Recuperar los animales favoritos y actualizar el estado de favorito en la galería
+      const animalesFavoritos = this.apiService.obtenerAnimalesFavoritos();
+      this.resultados.forEach(animal => {
+        animal.favorito = animalesFavoritos.some(favorito => favorito._id === animal._id);
+      });
     });
   }
-
-  openFilter() {
-    this.dialogRef = this.dialog.open(FiltroModalComponent, {
-      width: '100%',
-      height: '100%',
-      data: this.filteredResults
+  //BUSCADOR
+  buscar(texto: string): any {
+    this.resultados = this.animalesBase.filter((animal) =>
+      animal.nombre.toLowerCase().includes(texto.toLowerCase())
+    );
+  }
+  //INTERACTUAR CON EL MODAL
+  abrirModal(): void {
+    //DIALOG.OPEN FUNCIONALIDAD QUE TE DA EL MODAL
+    const dialogRef = this.dialog.open(FiltroModalComponent, {
+      width: '400px',
+      data: { animales: this.animalesBase, contexto: 'galeria' }, // Pasar todos los animales para aplicar filtros sobre ellos LE PASO A FILTRO MODAL
     });
 
-    this.dialogRef.componentInstance.filtersApplied.subscribe((filtersAplicados: any[]) => {
-      if (filtersAplicados && filtersAplicados.length > 0) {
-        this.aplicarFiltros(filtersAplicados);
-      } else {
-        this.filteredResults = [...this.animalesLista]; // Restauramos la lista original si no hay filtros aplicados
+    // Actualizar la lista de resultados con los filtrados GALERIA RECIBE LOS DATOS YA FILTRADOS DE MODAL
+    dialogRef.afterClosed().subscribe((resultados: any[]) => {
+      //afterclose para hacer algo al cerrar el modal en este caso :
+      console.log('soy resultadosen galeria', resultados);
+
+      if (resultados && resultados.length > 0) {
+        this.resultados = resultados;
       }
     });
   }
 
-  aplicarFiltros(filtersAplicados: any[]) {
-    // Aplicar los filtros y actualizar los resultados filtrados
-    // Aquí deberías implementar la lógica para aplicar los filtros según tus requerimientos
-    this.filteredResults =filtersAplicados
+
+  marcarFavorito(animal: Animal): void {
+
+
+    animal.favorito = !animal.favorito;
+    if (animal.favorito) {
+      console.log("estas marcado animal");
+      this.apiService.agregarAnimalFavorito(animal);
+    } else {
+      this.apiService.eliminarAnimalFavorito(animal);
+      console.log("estas quitando animal");
+    }
   }
 
-  showFilteredBuscador(filteredBuscador: any[]) {
-    this.filteredResults = filteredBuscador;
-  }
 }
