@@ -18,6 +18,7 @@ import { AdopcionEstadoComponent } from './Pages/adopcion-estado/adopcion-estado
 import { AdopcionDetalleComponent } from './Pages/adopcion-detalle/adopcion-detalle.component';
 
 import { FormAdComponent } from './Pages/form-ad/form-ad.component';
+import { FavoritosComponent } from './Pages/favoritos/favoritos.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'portada', pathMatch: 'full' },
@@ -43,6 +44,8 @@ export const routes: Routes = [
 
   { path: 'adopcion', component: AdopcionEstadoComponent },
   { path: 'adopciondetalle', component: AdopcionDetalleComponent },
+
+  { path: 'favoritos', component: FavoritosComponent },
 ];
 
 export class AppRoutingModule {}

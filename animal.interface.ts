@@ -1,6 +1,5 @@
 interface Animal {
   _id: string;
-  id: number;
   especie: string;
   edad: number;
   genero: string;
@@ -8,6 +7,7 @@ interface Animal {
   ciudad: string;
   nombre: string;
   tamaño: string;
+  favorito?: boolean;
 }
 
 
