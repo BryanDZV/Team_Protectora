@@ -1,7 +1,7 @@
 <section class="profContainer">
   <ul class="container-list">
     <li class="list-item">
-      <a [routerLink]="['#']"
+      <a [routerLink]="['/maps']"
         ><div class="list-item-icon">
           <img
             src="../../../assets/primary_icons/little_icons_primary/protectora_little/protectora@3x.png"
@@ -13,7 +13,7 @@
       >
     </li>
     <li class="list-item">
-      <a [routerLink]="['/direcciones']"
+      <a [routerLink]="['/maps']"
         ><div class="list-item-icon">
           <img
             src="../../../assets/primary_icons/little_icons_primary/eventos_little/eventos@3x.png"
@@ -25,7 +25,7 @@
       >
     </li>
     <li class="list-item">
-      <a [routerLink]="['/favoritos']"
+      <a [routerLink]="['/home']"
         ><div class="list-item-icon">
           <img
             src="../../../assets/primary_icons/little_icons_primary/blog_little/blogCopy@3x.png"
@@ -64,17 +64,7 @@
   <!-- Separación semántica -->
   <ul class="container-list">
     <li class="list-item">
-      <button (click)="logout()">Cerrar sesión</button>
-      <!-- <a [routerLink]="['#']"
-        ><div class="list-item-icon">
-          <img
-            src="../../../assets/primary_icons/little_icons_primary/out_little_cambiar/salir@3x.png"
-            alt="icono"
-          />
-        </div>
-        <p class="list-item-text">Cerrar sesión</p>
-        <p>></p></a
-      > -->
+      <button (click)="logout()" class="list-item-btn">Cerrar sesión</button>
     </li>
   </ul>
   <app-nav-bar></app-nav-bar>

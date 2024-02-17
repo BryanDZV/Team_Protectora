@@ -33,7 +33,7 @@ export class LoginComponent {
       password: ['', [Validators.required, Validators.minLength(8)]],
     });
   }
-  register(){
+  register() {
     this.router.navigate(['/register']);
   }
   showPassword(): void {
@@ -57,7 +57,7 @@ export class LoginComponent {
         console.log('response', response);
         localStorage.setItem('token', response.user.token);
         this.authService.currentUserSig.set(response.user);
-        this.router.navigateByUrl('/perfil');
+        this.router.navigateByUrl('/home');
       });
   }
 }
