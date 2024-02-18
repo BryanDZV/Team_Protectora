@@ -105,10 +105,12 @@
 
 .tituloF {
   display: flex;
-  justify-content: flex-start
+  align-items:center;
 }
 
 .input_buscador{
+  top: 12px;
+  position: relative;
   border: none;
   outline: none;
   justify-content: flex-end;
