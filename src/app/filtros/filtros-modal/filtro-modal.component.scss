@@ -1,4 +1,4 @@
-/* Estilos CSS para el modal */
+//ESTILOS FILTRO GALERIA
 .modal-content {
   background-color: #f9f9f9;
   border-radius: 10px;
@@ -45,7 +45,7 @@ button img {
   margin-top: 10px;
 }
 
-/* Estilos específicos para cada sección */
+//  Estilos específicos para cada sección ataca
 .ciudad,
 .especie,
 .edad,
@@ -115,7 +115,9 @@ button img {
   }
 }
 
-/// COMIENZA ESTILOS  ADOPCION
+
+
+/// COMIENZA ESTILOS  en ADOPCION
 
 .contenedorModal {
   background-color: #f9f9f9;
@@ -125,8 +127,39 @@ button img {
   justify-content: center;
   padding: 1px;
   text-align: center;
+  left: 0px;
+    top: 0px;
+    height: min-content;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente */
+}
+.buttonsDetalles {
+
+  margin-top: 20px;
 }
 
+.buttonsDetalles button {
+  gap: 20px;
+  margin: 0 10px;
+  padding: 10px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(250, 156, 147);
+  /* Color RGB */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+
+
+
+
+//ESTILOS EN ADOPCION DETALLE
 
 .contenedorImg img {
   max-width: 100%;
@@ -136,28 +169,56 @@ button img {
 
 }
 
+
+.parrafo {
+  font-weight: bold;
+  line-height: 25px;
+  font-size: 15px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+
+}
+
+
+.contenedorProcesos {
+  gap: 20px;
+  display: flex;
+}
+
+
+
+//MEDIAS QUERYS
 @media (min-width: 200px) {
   .contenedorImg {
     max-width: 200px;
     height: auto;
     border-radius: 10px;
-  }
-
-  .conten-modal2 {
     display: contents;
   }
-
-  .contenedorModal {
-    left: 0px;
-    top: 0px;
-    height: min-content;
-    position: fixed;
+.contenedorProcesos {
+    gap: 20px;
     display: flex;
-    justify-content: center;
-    /* Centra horizontalmente */
-    align-items: center;
-    /* Centra verticalmente */
   }
+  .contenedorModal {
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    //align-items: center;
+    justify-content: center;
+    padding: 1px;
+    text-align: center;
+    left: 20px;
+      top:50px;
+      height: min-content;
+      position: fixed;
+      display: flex;
+      justify-content: center;
+      /* Centra horizontalmente */
+      align-items: center;
+      /* Centra verticalmente */
+      border-radius: 3%;
+  }
+
 }
 
 //para patanllas grandes
@@ -174,13 +235,4 @@ button img {
     height: min-content;
     position: relative;
   }
-}
-
-.parrafo {
-  font-weight: bold;
-  line-height: 25px;
-  font-size: 15px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-
-
 }
