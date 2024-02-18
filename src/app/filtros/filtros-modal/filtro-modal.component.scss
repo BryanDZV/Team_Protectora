@@ -1,5 +1,3 @@
-
-
 /* Estilos CSS para el modal */
 .modal-content {
   background-color: #f9f9f9;
@@ -17,7 +15,8 @@ label {
   font-weight: bold;
 }
 
-input, select {
+input,
+select {
   width: 100%;
   padding: 8px;
   margin: 5px 0 20px;
@@ -47,22 +46,28 @@ button img {
 }
 
 /* Estilos específicos para cada sección */
-.ciudad, .especie, .edad, .genero, .size {
+.ciudad,
+.especie,
+.edad,
+.genero,
+.size {
   margin-bottom: 20px;
 }
 
 /* Estilos para los botones de filtro */
 .filtro-seleccionado {
-  background-color: rgba(203, 163, 52, 0.713); /* Rojo con transparencia */
+  background-color: rgba(203, 163, 52, 0.713);
+  /* Rojo con transparencia */
 
 }
 
-.genero{
+.genero {
 
   display: flex;
   flex-direction: column;
 
 }
+
 .buttons {
   display: flex;
   justify-content: center;
@@ -74,14 +79,16 @@ button img {
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  background-color: rgb(250, 156, 147); /* Color RGB */
+  background-color: rgb(250, 156, 147);
+  /* Color RGB */
   color: white;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .buttons button:hover {
-  background-color: rgba(250, 156, 147, 0.8); /* Color RGB con transparencia */
+  background-color: rgba(250, 156, 147, 0.8);
+  /* Color RGB con transparencia */
 }
 
 //para pantallas se aplica
@@ -89,31 +96,26 @@ button img {
 // estilos dentro de esta regla se aplicarán
 //cuando el ancho de la ventana del navegador
 // sea de al menos 200 píxeles.
- @media (min-width: 200px) {
-   .modal-content {
+@media (min-width: 200px) {
+  .modal-content {
     left: 0px;
     top: 0px;
     height: min-content;
     position: fixed;
-   }
- }
+  }
+}
 
- //para patanllas grandes
- @media (min-width: 992px) {
-   .modal-content {
+//para patanllas grandes
+@media (min-width: 992px) {
+  .modal-content {
     left: 0px;
     top: 0px;
     height: min-content;
     position: fixed;
-   }
- }
-
-
-
-
+  }
+}
 
 /// COMIENZA ESTILOS  ADOPCION
-
 
 .contenedorModal {
   background-color: #f9f9f9;
@@ -126,58 +128,55 @@ button img {
 }
 
 
-
 .contenedorImg img {
   max-width: 100%;
   height: auto;
-  border-radius: 10px; /* Ajusta el radio según tu preferencia */
-
-}
-@media (min-width: 200px) {
-  .contenedorImg{
-    max-width: 200px;
-  height: auto;
   border-radius: 10px;
+  /* Ajusta el radio según tu preferencia */
 
+}
+
+@media (min-width: 200px) {
+  .contenedorImg {
+    max-width: 200px;
+    height: auto;
+    border-radius: 10px;
   }
 
-  .conten-modal2{
+  .conten-modal2 {
     display: contents;
+  }
 
-
-}
   .contenedorModal {
-
-
-   left: 0px;
-   top: 0px;
-   height: min-content;
-   position: fixed;
+    left: 0px;
+    top: 0px;
+    height: min-content;
+    position: fixed;
     display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente */
   }
 }
-
 
 //para patanllas grandes
 @media (min-width: 800px) {
-  .contenedorImg{
-
+  .contenedorImg {
     max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-
+    height: auto;
+    border-radius: 10px;
   }
+
   .contenedorModal {
-   left: 0px;
-   top: 0px;
-   height: min-content;
-   position: relative;
+    left: 0px;
+    top: 0px;
+    height: min-content;
+    position: relative;
   }
 }
 
-.parrafo{
+.parrafo {
   font-weight: bold;
   line-height: 25px;
   font-size: 15px;

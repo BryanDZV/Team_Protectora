@@ -1,0 +1,79 @@
+h3 {
+  color: rgb(1 116 142)
+}
+
+button {
+  background-color: rgb(250 156 147);
+  color: white;
+}
+
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+legend {
+  font-size: 1.5em;
+  padding: 0 10px;
+  color: rgb(1 116 142);
+}
+
+.form-grupo {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.radio-options {
+  display: inline-block;
+}
+
+input[type="submit"] {
+  background-color: rgb(250 156 147);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+#other-animals-question {
+  display: none;
+}
+
+
+h1 {
+  padding: 20px;
+  color: rgb(1 116 142)
+}
+
+.form-question {
+  padding: 10px;
+}
+
+.form-question label {
+  display: inline-block;
+  width: 200px;
+}
+
+.form-question input {
+  margin-left: 10px;
+}
+
+.button-container {
+  text-align: center;
+  padding: 20px;
+}
