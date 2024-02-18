@@ -1,65 +1,17 @@
-<!-- <p>adopcion-estado works!</p>
 
-<button routerLink="/perfil">VOLVER</button>
-<div>
-  <input
-    type="text"
-    [(ngModel)]="textoBusqueda"
-    (input)="buscar(textoBusqueda)"
-    placeholder="Buscar..."
-  />
-</div>
-<div>
-  <button mat-button (click)="abrirModal()">Abrir Filtro</button>
-</div>
-
-
-@if (resultados.length > 0) {
-  <div>
-  @for (animal of resultados; track $index) {
-    <div  class="animal-item">
-    <div>
-      <div>
-        <h1>Adopcion de {{ animal.nombre }}</h1>
-      </div>
-      <div>
-        <p>{{ animal.adoptionState }}</p>
-      </div>
-    </div>
-    <div>
-      <div class="imagen-container">
-        <img class="imagen" src="{{ animal.foto }}" alt="foto" routerLink="/adopcion/{{animal._id}}" />
-      </div>
-
-      <div>
-        <p>Nombre:{{ animal.nombre }}</p>
-        <p>Ciudad:{{ animal.ciudad }}</p>
-        <p>Sexo:{{ animal.genero }}</p>
-      </div>
-    </div>
-  </div>
-  }
-
-
-@if (resultados.length === 0) {
-  <div >
-    <p>No se encontraron resultados.</p>
-  </div>}
-
-</div>} -->
 
 <p>adopcion-estado works!</p>
+
+<div class="contenedorGeneral">
+<div class="tituloF">
 <div class="botones">
   <button mat-icon-button routerLink="/perfil">
     <mat-icon>arrow_back</mat-icon>
   </button>
 </div>
 
-<div class="tituloF">
-
-  <div class="buscador">
   <input  class="input_buscador" type="text" [(ngModel)]="textoBusqueda"  (input)="buscar(textoBusqueda)" placeholder="Busca tu Animal...">
-</div>
+
 
 <div>
   <button mat-icon-button (click)="abrirModal()" class="modalAbrir">
@@ -88,10 +40,10 @@
               }
             </div>
           </div>
-          <div>
-            <div class="imagen-container">
+          <div class="contenedorImgName">
+
               <img class="imagen" src="{{ animal.foto }}" alt="foto" routerLink="/adopcion/{{animal._id}}" />
-            </div>
+
 
             <div>
               <p>Nombre:{{ animal.nombre }}</p>
@@ -109,3 +61,4 @@
       <p>No se encontraron resultados.</p>
     </div>
   }
+</div>
