@@ -1,64 +1,238 @@
-.popup-background {
-    position: fixed;
-    top: 0;
-    left: 0;
+.detContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.cabeceraImg {
+  width: 100%;
+  max-width: 600px;
+  height: 240px;
+  margin: 0 auto;
+
+  position: relative;
+
+  button {
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    border: none;
+    background-color: transparent;
+    color: var(--color-stand-out-red);
+    font-weight: 400;
+    font-size: 40px;
+  }
+
+  img {
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
-    z-index: 999; /* Asegura que esté por encima de todo */
+    object-fit: cover;
   }
-  
-  .popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    z-index: 1000; /* Asegura que esté por encima del fondo */
+}
 
-  }
-
-  .popup-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+.card {
+  &-cabecera {
     display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    z-index: 1000; /* asegura que la ventana emergente esté en la parte superior */
-  }
-  
-  .popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* fondo oscurecido */
-    z-index: 999; /* asegura que el fondo oscurecido esté detrás de la ventana emergente */
-  }
-  
-  .popup-content {
-    background-color: #fff;
+    width: 60%;
+    height: 50px;
+    margin: 0 auto;
+    padding: 0 10px 0 10px;
+    background-color: var(--color-bg-white);
+    transform: translate(0, -20px);
+    border: 0 transparent var(--color-bg-white);
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    padding: 20px;
-    z-index: 1000; /* asegura que la ventana emergente esté en la parte superior */
+
+    &-gender {
+      width: 25px;
+      height: 25px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    &-data {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding-top: 10px;
+      padding-right: 40px;
+      line-height: 0.5;
+
+      .nombre {
+        // padding-top: 15px;
+        font-size: 16px;
+      }
+      .ciudad {
+        // padding-bottom: 15px;
+        font-size: 10px;
+      }
+    }
+
+    &-button {
+      width: 30px;
+      height: 30px;
+      border: 0;
+      background-color: transparent;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
   }
-  
-  .popup-header {
-    text-align: center;
+}
+
+.Datos {
+  max-width: 600px;
+}
+
+.imagen-filtro {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+
+  .detail2 {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
   }
-  
-  .popup-footer {
-    text-align: center;
-    margin-top: 20px;
+
+  .detail2-line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+      width: 25px;
+      height: 25px;
+      margin-right: 10px;
+    }
   }
-  
+
+  .detail3 {
+    padding: 20px 0 0 0;
+
+    &-title {
+      color: var(--color-primary-blue);
+      font-weight: 600;
+      margin: 10px 0;
+    }
+
+    &-father {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 15px;
+      // margin: 5px;
+      padding: 5px;
+
+      &-personality {
+        color: var(--color-bg-white);
+        background-color: var(--color-primary-blue);
+        padding: 3px 1rem;
+        border: 0 transparent;
+        border-radius: 8px;
+      }
+    }
+  }
+
+  .detail4 {
+    margin: 30px 0 20px 0;
+
+    padding: 0 6px;
+    border: 1px solid var(--color-primary-lightblue);
+    border-radius: 5px;
+
+    img {
+      margin-left: 10px;
+      width: 25px;
+      height: 25px;
+    }
+
+    &-title {
+      color: var(--color-primary-blue);
+      font-weight: 600;
+      margin: 10px 0;
+    }
+  }
+}
+
+// Empiezan los pop-up
+.popup-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  z-index: 999; /* Asegura que esté por encima de todo */
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  z-index: 1000; /* Asegura que esté por encima del fondo */
+}
+
+.popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* asegura que la ventana emergente esté en la parte superior */
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* fondo oscurecido */
+  z-index: 999; /* asegura que el fondo oscurecido esté detrás de la ventana emergente */
+}
+
+.popup-content {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  z-index: 1000; /* asegura que la ventana emergente esté en la parte superior */
+}
+
+.popup-header {
+  text-align: center;
+}
+
+.popup-footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 25px;
+
   .cancel-button {
     background-color: #dc3545;
     color: #fff;
@@ -66,17 +240,21 @@
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
+    box-shadow: 0px -3px 5px 1px rgba(184, 184, 184, 0.221);
   }
-  
+
   .open-popup-button {
-    background-color: #007bff;
-    color: #fff;
+    background-color: var(--color-primary-blue);
+    color: var(--color-bg-white);
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
+    box-shadow: 0px -3px 5px 1px rgba(184, 184, 184, 0.221);
   }
-  
+
   .open-popup-button:hover {
-    background-color: #0056b3;
+    transform: translateY(-2px);
+    background-color: var(--color-primary-lightblue);
   }
+}
