@@ -1,4 +1,5 @@
 .home {
+  position: relative;
   width: 100%;
   top: 0;
   display: flex;
@@ -78,7 +79,8 @@
   flex-direction: column;
   height: 60px;
 }
-.info-text-container h3 {
+
+HEAD .info-text-container h3 {
   margin-bottom: 4px;
   color: var(--color-primary-blue);
 }

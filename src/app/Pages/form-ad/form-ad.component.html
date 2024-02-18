@@ -1,152 +1,203 @@
 <!-- /pagina 1/ -->
+<h1>Formulario de adopción</h1>
 <div *ngIf="currentPage === 'datos'">
+  <h3>Tus datos</h3>
+  <div class="form-group">
+    <input
+      type="text"
+      id="name"
+      name="name"
+      required
+      placeholder="Nombre y apellidos"
+    />
+  </div>
 
-    <h3>Tus datos</h3>
-    <div class="form-group">
-        <input type="text" id="name" name="name" required placeholder="Nombre y apellidos">
-    </div>
+  <div class="form-group">
+    <input type="email" id="email" name="email" required placeholder="Email" />
+  </div>
 
-    <div class="form-group">
-        <input type="email" id="email" name="email" required placeholder="Email">
-    </div>
+  <div class="form-group">
+    <input type="tel" id="phone" name="phone" required placeholder="Teléfono" />
+  </div>
 
-    <div class="form-group">
-        <input type="tel" id="phone" name="phone" required placeholder="Teléfono">
-    </div>
+  <div class="form-group">
+    <input type="text" id="dni" name="dni" required placeholder="DNI" />
+  </div>
 
-    <div class="form-group">
-        <input type="text" id="dni" name="dni" required placeholder="DNI">
-    </div>
+  <h3>Dirección</h3>
 
-    <h3>Dirección</h3>
+  <div class="form-group">
+    <input
+      type="text"
+      id="address"
+      name="address"
+      required
+      placeholder="Calle, número, piso"
+    />
+  </div>
 
-    <div class="form-group">
-        <input type="text" id="address" name="address" required placeholder="Calle, número, piso">
-    </div>
+  <div class="form-group">
+    <input
+      type="text"
+      id="postalCode"
+      name="postalCode"
+      required
+      placeholder="Código postal"
+    />
+  </div>
 
-    <div class="form-group">
-        <input type="text" id="postalCode" name="postalCode" required placeholder="Código postal">
-    </div>
+  <div class="form-group">
+    <input type="text" id="city" name="city" required placeholder="Ciudad" />
+  </div>
 
-    <div class="form-group">
-        <input type="text" id="city" name="city" required placeholder="Ciudad">
-    </div>
-
-    <div class="form-group">
-        <input type="checkbox" id="terms" name="terms" required>
-        <label for="terms">Acepto los términos y condiciones de la adopción</label>
-    </div>
-    <button (click)="goToPage('mascotas')">Continuar</button>
+  <div class="form-group">
+    <input type="checkbox" id="terms" name="terms" required />
+    <label for="terms">Acepto los términos y condiciones de la adopción</label>
+  </div>
+  <button (click)="goToPage('mascotas')">Continuar</button>
 </div>
-
 
 <!-- /pagina 2/ -->
-<form id="adoption-form">
-    <fieldset>
-        <legend>Sobre las mascotas</legend>
-
-        <div class="form-grupo">
-            <label for="other-animals">¿Tienes otros animales?</label>
-            <div class="radio-options">
-                <input type="radio" id="other-animals-yes" name="other-animals" value="yes" checked>
-                <label for="other-animals-yes">Sí</label>
-                <input type="radio" id="other-animals-no" name="other-animals" value="no">
-                <label for="other-animals-no">No</label>
-
-                <p>¿Cuáles?</p>
-                <P>¿Se lleva bien con otros animales?</P>
-            </div>
-
-            <div>
-                <p>¿Por qué has elegido adoptar?</p>
-                <p>¿Conoces las necesidades del animal?</p>
-                <p>¿Conoces sus gastos?</p>
-                <p>¿Conoces su alimentación?</p>
-            </div>
-        </div>
-
-
-<!-- Add more form elements here -->
-        <div class="form-group">
-            <input type="submit" value="Continuar">
-        </div>
-    </fieldset>
-</form>
-
-
-
 <div *ngIf="currentPage === 'mascotas'">
-    <h1>Sobre las mascotas</h1>
-    <!-- Formulario y contenido relacionado -->
-    <button (click)="goToPage('hogar')">Siguiente</button>
-    <button (click)="goToPage('datos')">Anterior</button>
+  <form id="adoption-form">
+    <fieldset>
+      <legend>Sobre las mascotas</legend>
+
+      <div class="form-grupo">
+        <label for="other-animals">¿Tienes otros animales?</label>
+        <div class="radio-options">
+          <input
+            type="radio"
+            id="other-animals-yes"
+            name="other-animals"
+            value="yes"
+            checked
+          />
+          <label for="other-animals-yes">Sí</label>
+          <input
+            type="radio"
+            id="other-animals-no"
+            name="other-animals"
+            value="no"
+          />
+          <label for="other-animals-no">No</label>
+          <br />
+
+          <p>¿Cuáles?</p>
+          <input type="text" name="name" required />
+          <P>¿Se lleva bien con otros animales?</P
+          ><input type="text" name="name" required />
+        </div>
+
+        <div>
+          <p>¿Por qué has elegido adoptar?</p>
+          <input type="text" name="name" required />
+          <p>¿Conoces las necesidades del animal?</p>
+          <input type="text" name="name" required />
+          <p>¿Conoces sus gastos?</p>
+          <input type="text" name="name" required />
+          <p>¿Conoces su alimentación?</p>
+          <input type="text" name="name" required />
+        </div>
+      </div>
+    </fieldset>
+    <button (click)="goToPage('mascotas')">Anterior</button>
+    <button (click)="goToPages('hogar')">Continuar</button>
+  </form>
 </div>
 
-
-<!-- /pagina 3/ -->
-<h1>Familia y hogar</h1>
-    <form>
-      <div class="form-question">
-        <label for="houseType">¿Dónde vives?</label>
-        <input type="text" id="houseType" name="houseType" placeholder="Piso, casa, chalet..."/>
-      </div>
-      <div class="form-question">
-        <label for="renting">¿Vives de alquiler?</label>
-        <input type="radio" id="rentingYes" name="renting" value="true" />
-        <label for="rentingYes">Sí</label>
-        <input type="radio" id="rentingNo" name="renting" value="false" />
-        <label for="rentingNo">No</label>
-      </div>
-      <div class="form-question">
-        <label for="landlordAllowsAnimals">¿Tu casero permite animales?</label>
-        <input type="radio" id="landlordAllowsAnimalsYes" name="landlordAllowsAnimals" value="true" />
-        <label for="landlordAllowsAnimalsYes">Sí</label>
-        <input type="radio" id="landlordAllowsAnimalsNo" name="landlordAllowsAnimals" value="false" />
-        <label for="landlordAllowsAnimalsNo">No</label>
-      </div>
-      <div class="form-question">
-        <label for="movingSoon">¿Crees que podrías mudarte pronto?</label>
-        <input type="radio" id="movingSoonYes" name="movingSoon" value="true" />
-        <label for="movingSoonYes">Sí</label>
-        <input type="radio" id="movingSoonNo" name="movingSoon" value="false" />
-        <label for="movingSoonNo">No</label>
-      </div>
-      <div class="form-question">
-        <label for="garden">¿Tiene jardín?</label>
-        <input type="radio" id="gardenYes" name="garden" value="true" />
-        <label for="gardenYes">Sí</label>
-        <input type="radio" id="gardenNo" name="garden" value="false" />
-        <label for="gardenNo">No</label>
-      </div>
-      <div class="form-question">
-        <label for="livingWithOthers">¿Vives con otras personas?</label>
-        <input type="radio" id="gardenYes" name="garden" value="true" />
-        <label for="gardenYes">Sí</label>
-        <input type="radio" id="gardenNo" name="garden" value="false" />
-        <label for="gardenNo">No</label>
-       
-      </div>
-      <div class="form-question">
-        <label for="everyoneAgrees">¿Están todos de acuerdo con la adopción?</label>
-        <input type="radio" id="everyoneAgreesYes" name="everyoneAgrees" value="true" />
-        <label for="everyoneAgreesYes">Sí</label>
-        <input type="radio" id="everyoneAgreesNo" name="everyoneAgrees" value="false" />
-        <label for="everyoneAgreesNo">No</label>
-      </div>
-      <div class="form-question">
-        <label for="homeVisit">¿Estás de acuerdo con que visitemos tu casa?</label>
-        <input type="radio" id="everyoneAgreesYes" name="everyoneAgrees" value="true" />
-        <label for="everyoneAgreesYes">Sí</label>
-        <input type="radio" id="everyoneAgreesNo" name="everyoneAgrees" value="false" />
-        <label for="everyoneAgreesNo">No</label>
-
-        <div class="button-container">
-            <input type="submit" value="Enviar" />
-          </div>
-
-
 <div *ngIf="currentPage === 'hogar'">
-    <h1>Familia y hogar</h1>
-    <!-- Formulario y contenido relacionado -->
-    <button (click)="goToPage('mascotas')">Anterior</button>
+  <h1>Familia y hogar</h1>
+  <form>
+    <div class="form-question">
+      <label for="houseType">¿Dónde vives?</label>
+      <input
+        type="text"
+        id="houseType"
+        name="houseType"
+        placeholder="Piso, casa, chalet..."
+      />
+    </div>
+    <div class="form-question">
+      <label for="renting">¿Vives de alquiler?</label>
+      <input type="radio" id="rentingYes" name="renting" value="true" />
+      <label for="rentingYes">Sí</label>
+      <input type="radio" id="rentingNo" name="renting" value="false" />
+      <label for="rentingNo">No</label>
+    </div>
+    <div class="form-question">
+      <label for="landlordAllowsAnimals">¿Tu casero permite animales?</label>
+      <input
+        type="radio"
+        id="landlordAllowsAnimalsYes"
+        name="landlordAllowsAnimals"
+        value="true"
+      />
+      <label for="landlordAllowsAnimalsYes">Sí</label>
+      <input
+        type="radio"
+        id="landlordAllowsAnimalsNo"
+        name="landlordAllowsAnimals"
+        value="false"
+      />
+      <label for="landlordAllowsAnimalsNo">No</label>
+    </div>
+    <div class="form-question">
+      <label for="movingSoon">¿Crees que podrías mudarte pronto?</label>
+      <input type="radio" id="movingSoonYes" name="movingSoon" value="true" />
+      <label for="movingSoonYes">Sí</label>
+      <input type="radio" id="movingSoonNo" name="movingSoon" value="false" />
+      <label for="movingSoonNo">No</label>
+    </div>
+    <div class="form-question">
+      <label for="garden">¿Tiene jardín?</label>
+      <input type="radio" id="gardenYes" name="garden" value="true" />
+      <label for="gardenYes">Sí</label>
+      <input type="radio" id="gardenNo" name="garden" value="false" />
+      <label for="gardenNo">No</label>
+    </div>
+    <div class="form-question">
+      <label for="livingWithOthers">¿Vives con otras personas?</label>
+      <input type="radio" id="otherYes" name="other" value="true" />
+      <label for="otherYes">Sí</label>
+      <input type="radio" id="otherNo" name="other" value="false" />
+      <label for="otherNo">No</label>
+    </div>
+    <div class="form-question">
+      <label for="everyoneAgrees"
+        >¿Están todos de acuerdo con la adopción?</label
+      >
+      <input
+        type="radio"
+        id="everyoneAgreesYes"
+        name="everyoneAgrees"
+        value="true"
+      />
+      <label for="everyoneAgreesYes">Sí</label>
+      <input
+        type="radio"
+        id="everyoneAgreesNo"
+        name="everyoneAgrees"
+        value="false"
+      />
+      <label for="everyoneAgreesNo">No</label>
+    </div>
+    <div class="form-question">
+      <label for="homeVisit"
+        >¿Estás de acuerdo con que visitemos tu casa?</label
+      >
+      <input type="radio" id="homeYes" name="home" value="true" />
+      <label for="homeYes">Sí</label>
+      <input type="radio" id="homeNo" name="home" value="false" />
+      <label for="homeNo">No</label>
+
+      <div class="button-container">
+        <button class="open-popup-button" (click)="abrirVentanaEmergente()">
+          Enviar
+        </button>
+      </div>
+
+      <button (click)="goToPage('mascotas')">Anterior</button>
+    </div>
+  </form>
 </div>

@@ -92,4 +92,8 @@
   <app-nav-bar></app-nav-bar>
 </section>
 
-<p *ngIf="authService.currentUserSig() === null">No estas logado</p>
+<div *ngIf="authService.currentUserSig() === null" class="no-logeado">
+<h1>No estas logado</h1>
+<button class="btn-login" routerLink="/login">Iniciar sesión</button>
+</div>
+

@@ -12,11 +12,12 @@ const connect = async () => {
     console.log("hemos tenido un error al conectar a la BBDD", error);
   }
 
+  //solo para verificar q me encutra la colecciond entor de la base de datos no necesario
   // Animal.find({})
   // .then(animales => {
   //   // console.log("Animales encontrados:", animales);
   // })
-  
+
   // .catch(err => {
   //   console.error("Error al obtener datoso:", err);
   // });
