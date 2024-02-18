@@ -1,6 +1,6 @@
+<!-- CUALQUIER ESTILO PARA LOS FILTROS ATACAR AQUI -->
 
-
-
+<!-- ME PINTA LOS FILTROS GALERIA -->
 @if (contexto==='galeria'){
 
 <div>
@@ -128,44 +128,41 @@
     </div>
 
     <div class="sizeContenedor">
-
       <div class="tituloSize">
-<label for="size">Tamaño:</label>
+        <label for="size">Tamaño:</label>
       </div>
       <div class="botonSize">
-
-       <button
-        mat-icon-button
-        (click)="selectSize('Pequeño')"
-        [ngClass]="size === 'Pequeño' ? 'filtro-seleccionado' : ''"
-      >
-        <img
-          src="../../../assets/primary_icons/size_square_primary/size_small_square/group@3x.png"
-          alt="Pequeño"
-        />
-      </button>
-      <button
-        mat-icon-button
-        (click)="selectSize('Mediano')"
-        [ngClass]="size === 'Mediano' ? 'filtro-seleccionado' : ''"
-      >
-        <img
-          src="../../../assets/primary_icons/size_square_primary/size_medium_square/groupCopy@3x.png"
-          alt="Pequeño"
-        />
-      </button>
-      <button
-        mat-icon-button
-        (click)="selectSize('Grande')"
-        [ngClass]="size === 'Grande' ? 'filtro-seleccionado' : ''"
-      >
-        <img
-          src="../../../assets/primary_icons/size_square_primary/size_big_square/groupCopy2@3x.png"
-          alt="Pequeño"
-        />
-      </button>
+        <button
+          mat-icon-button
+          (click)="selectSize('Pequeño')"
+          [ngClass]="size === 'Pequeño' ? 'filtro-seleccionado' : ''"
+        >
+          <img
+            src="../../../assets/primary_icons/size_square_primary/size_small_square/group@3x.png"
+            alt="Pequeño"
+          />
+        </button>
+        <button
+          mat-icon-button
+          (click)="selectSize('Mediano')"
+          [ngClass]="size === 'Mediano' ? 'filtro-seleccionado' : ''"
+        >
+          <img
+            src="../../../assets/primary_icons/size_square_primary/size_medium_square/groupCopy@3x.png"
+            alt="Pequeño"
+          />
+        </button>
+        <button
+          mat-icon-button
+          (click)="selectSize('Grande')"
+          [ngClass]="size === 'Grande' ? 'filtro-seleccionado' : ''"
+        >
+          <img
+            src="../../../assets/primary_icons/size_square_primary/size_big_square/groupCopy2@3x.png"
+            alt="Pequeño"
+          />
+        </button>
       </div>
-
     </div>
 
     @if (noResultados) {
@@ -182,42 +179,21 @@
   </div>
 </div>
 
-
-
-
-
-
-
 }
 
-
-
+<!-- ME PINTA LOS FILTROS adopcion  PROCESO -->
 @if (contexto === 'adopcion') {
 
 <div class="contenedorModal">
-  <div class="conten-modal2">
-    <div class="parrafo">
-      <h1 class="parrafo">
-        Ya hemos enviado toda la información a la protectora Recuerdas que puedes
-        ponerte en contacto con ellos en cualquier momento si necesitas cambiar
-        algo
-      </h1>
-    </div>
-
-    <div class="contenedorImg">
-      <div>
-        <img
-        src="https://i.etsystatic.com/44524775/r/il/2fae0a/5215313589/il_794xN.5215313589_tgtw.jpg"
-        alt=""
-      />
-      </div>
-
-    </div>
+  <h1 class="parrafo">Filtros</h1>
 
 
-  </div>
-  <div class="estado">
-    <label for="adoptionState">Estado:</label>
+<div class="contenedorProcesos">
+
+
+
+
+  <div>
     <button
       mat-icon-button
       (click)="selectEstadoAdopcion('Completo')"
@@ -228,6 +204,8 @@
         alt="Pequeño"
       />
     </button>
+  </div>
+  <div>
     <button
       mat-icon-button
       (click)="selectEstadoAdopcion('Proceso')"
@@ -238,6 +216,8 @@
         alt="Pequeño"
       />
     </button>
+  </div>
+  <div>
     <button
       mat-icon-button
       (click)="selectEstadoAdopcion('Rechazado')"
@@ -247,98 +227,46 @@
         src="../../../assets/primary_icons/process_square_primary/process_cross_square/group@3x.png"
         alt="Pequeño"
       />
-
     </button>
-
-
-
-
-
+  </div>
+  <div>
     @if (noResultados) {
     <div class="no-results">
       <p>No hay animales con esos filtros.</p>
     </div>
     }
-    <div class="buttons">
-      <button mat-button (click)="aplicarFiltros()">Aplicar Filtros</button>
-      <button mat-button (click)="borrarFiltros()">Borrar Filtros</button>
-      <button mat-button (click)="cerrarModal()">Cerrar</button>
-    </div>
   </div>
+
 </div>
+  <div class="buttonsDetalles">
+    <button mat-button (click)="aplicarFiltros()">Aplicar Filtros</button>
+    <button mat-button (click)="borrarFiltros()">Borrar Filtros</button>
+    <button mat-button (click)="cerrarModal()">Cerrar</button>
+  </div>
+
+
+</div>
+
 }
 
-
-
-
-
+<!-- PARA LA VENTANA/INFO ADICIONAL ENVIADO // -->
 @if (contexto === 'adopcionDetalle') {
 
-  <div class="contenedorModal">
-    <div class="conten-modal2">
-      <div class="parrafo">
-        <h1 class="parrafo">
-          Ya hemos enviado toda la información a la protectora Recuerdas que puedes
-          ponerte en contacto con ellos en cualquier momento si necesitas cambiar
-          algoasdkjlasjdasjdsajdañsojdñoip
-        </h1>
-      </div>
-
-      <div class="contenedorImg">
-        <div>
-          <img
-          src="https://i.etsystatic.com/44524775/r/il/2fae0a/5215313589/il_794xN.5215313589_tgtw.jpg"
-          alt=""
-        />
-        </div>
-
-      </div>
-
-
+<div class="contenedorModal">
+  <div class="contenedorImagenbuttAplicar">
+    <div class="parrafo">
+      <h1 class="parrafo">
+        Ya hemos enviado toda la información a la protectora Recuerdas que
+        puedes ponerte en contacto con ellos en cualquier momento si necesitas
+        cambiar algo.
+      </h1>
     </div>
-    <div class="estado">
-      <label for="adoptionState">Estado:</label>
-      <button
-        mat-icon-button
-        (click)="selectEstadoAdopcion('Completo')"
-        [ngClass]="estadoAdopcion === 'Completo' ? 'filtro-seleccionado' : ''"
-      >
-        <img
-          src="../../../assets/primary_icons/process_square_primary/process_tic_square/group@3x.png"
-          alt="Pequeño"
-        />
-      </button>
-      <button
-        mat-icon-button
-        (click)="selectEstadoAdopcion('Proceso')"
-        [ngClass]="estadoAdopcion === 'Proceso' ? 'filtro-seleccionado' : ''"
-      >
-        <img
-          src="../../../assets/primary_icons/process_square_primary/process_settings_square/group@3x.png"
-          alt="Pequeño"
-        />
-      </button>
-      <button
-        mat-icon-button
-        (click)="selectEstadoAdopcion('Rechazado')"
-        [ngClass]="estadoAdopcion === 'Rechazado' ? 'filtro-seleccionado' : ''"
-      >
-        <img
-          src="../../../assets/primary_icons/process_square_primary/process_cross_square/group@3x.png"
-          alt="Pequeño"
-        />
 
-      </button>
-
-
-
-
-
-      @if (noResultados) {
-      <div class="no-results">
-        <p>No hay animales con esos filtros.</p>
+    <div class="contenedorImg">
+      <div>
+        <img src="../../../assets/filtros/undrawNatureFunN9Lv1@3x.png" alt="" />
       </div>
-      }
+
       <div class="buttons">
         <button mat-button (click)="aplicarFiltros()">Aplicar Filtros</button>
         <button mat-button (click)="borrarFiltros()">Borrar Filtros</button>
@@ -346,4 +274,5 @@
       </div>
     </div>
   </div>
-  }
+</div>
+}
