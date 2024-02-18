@@ -62,21 +62,20 @@ export class DetalleComponent {
       width: '400px',
       data:{animales: this.abrirVentanaEmergente, contexto: 'galeria'}
     });
+  }
+  info: boolean = false;
+  openInfo() {
+    this.info = true;
+  }
+  closeInfo() {
+    this.info = false;
+  }
+
+  boolToWord(bool: boolean): string {
+    return bool ? 'Si' : 'No';
+  }
 
 
-  // info: boolean = false;
-  // openInfo() {
-  //   this.info = true;
-  // }
-  // closeInfo() {
-  //   this.info = false;
-  // }
-
-  // boolToWord(bool: boolean): string {
-  //   return bool ? 'Si' : 'No';
-  // }
 
 
-
-}
 }
