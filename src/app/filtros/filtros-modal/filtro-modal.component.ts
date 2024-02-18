@@ -131,7 +131,31 @@ console.log('Contenido de this.data:', this.data);
     this.dialogRef.close(!this.noResultados ? this.data.animales : "");
   }
 
+  obtenerIconoYColor(estado: string): {icono: string, color: string} {
+    let icono = '';
+    let color = '';
 
+    switch (estado) {
+      case 'Proceso':
+        icono = 'hourglass_empty';
+        color = 'orange';
+        break;
+      case 'Rechazo':
+        icono = 'highlight_off';
+        color = 'red';
+        break;
+      case 'Completado':
+        icono = 'check_circle';
+        color = 'green';
+        break;
+      default:
+        icono = '';
+        color = '';
+        break;
+    }
+
+    return { icono, color };
+  }
 
 }
 

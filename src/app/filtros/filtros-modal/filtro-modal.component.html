@@ -188,9 +188,34 @@
 
 
 
-} @if (contexto === 'adopcion') {
+}
 
-<div>
+
+
+@if (contexto === 'adopcion') {
+
+<div class="contenedorModal">
+  <div class="conten-modal2">
+    <div class="parrafo">
+      <h1 class="parrafo">
+        Ya hemos enviado toda la información a la protectora Recuerdas que puedes
+        ponerte en contacto con ellos en cualquier momento si necesitas cambiar
+        algo
+      </h1>
+    </div>
+
+    <div class="contenedorImg">
+      <div>
+        <img
+        src="https://i.etsystatic.com/44524775/r/il/2fae0a/5215313589/il_794xN.5215313589_tgtw.jpg"
+        alt=""
+      />
+      </div>
+
+    </div>
+
+
+  </div>
   <div class="estado">
     <label for="adoptionState">Estado:</label>
     <button
@@ -222,13 +247,19 @@
         src="../../../assets/primary_icons/process_square_primary/process_cross_square/group@3x.png"
         alt="Pequeño"
       />
+
     </button>
+
+
+
+
+
     @if (noResultados) {
     <div class="no-results">
       <p>No hay animales con esos filtros.</p>
     </div>
     }
-    <div class="buttons.estado">
+    <div class="buttons">
       <button mat-button (click)="aplicarFiltros()">Aplicar Filtros</button>
       <button mat-button (click)="borrarFiltros()">Borrar Filtros</button>
       <button mat-button (click)="cerrarModal()">Cerrar</button>
@@ -236,3 +267,83 @@
   </div>
 </div>
 }
+
+
+
+
+
+@if (contexto === 'adopcionDetalle') {
+
+  <div class="contenedorModal">
+    <div class="conten-modal2">
+      <div class="parrafo">
+        <h1 class="parrafo">
+          Ya hemos enviado toda la información a la protectora Recuerdas que puedes
+          ponerte en contacto con ellos en cualquier momento si necesitas cambiar
+          algoasdkjlasjdasjdsajdañsojdñoip
+        </h1>
+      </div>
+
+      <div class="contenedorImg">
+        <div>
+          <img
+          src="https://i.etsystatic.com/44524775/r/il/2fae0a/5215313589/il_794xN.5215313589_tgtw.jpg"
+          alt=""
+        />
+        </div>
+
+      </div>
+
+
+    </div>
+    <div class="estado">
+      <label for="adoptionState">Estado:</label>
+      <button
+        mat-icon-button
+        (click)="selectEstadoAdopcion('Completo')"
+        [ngClass]="estadoAdopcion === 'Completo' ? 'filtro-seleccionado' : ''"
+      >
+        <img
+          src="../../../assets/primary_icons/process_square_primary/process_tic_square/group@3x.png"
+          alt="Pequeño"
+        />
+      </button>
+      <button
+        mat-icon-button
+        (click)="selectEstadoAdopcion('Proceso')"
+        [ngClass]="estadoAdopcion === 'Proceso' ? 'filtro-seleccionado' : ''"
+      >
+        <img
+          src="../../../assets/primary_icons/process_square_primary/process_settings_square/group@3x.png"
+          alt="Pequeño"
+        />
+      </button>
+      <button
+        mat-icon-button
+        (click)="selectEstadoAdopcion('Rechazado')"
+        [ngClass]="estadoAdopcion === 'Rechazado' ? 'filtro-seleccionado' : ''"
+      >
+        <img
+          src="../../../assets/primary_icons/process_square_primary/process_cross_square/group@3x.png"
+          alt="Pequeño"
+        />
+
+      </button>
+
+
+
+
+
+      @if (noResultados) {
+      <div class="no-results">
+        <p>No hay animales con esos filtros.</p>
+      </div>
+      }
+      <div class="buttons">
+        <button mat-button (click)="aplicarFiltros()">Aplicar Filtros</button>
+        <button mat-button (click)="borrarFiltros()">Borrar Filtros</button>
+        <button mat-button (click)="cerrarModal()">Cerrar</button>
+      </div>
+    </div>
+  </div>
+  }

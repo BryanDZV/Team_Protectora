@@ -80,7 +80,7 @@
 
 .tituloF{
   display: flex;
-  justify-content: center
+  justify-content: flex-start
 
 
 }
@@ -96,6 +96,7 @@
   border-radius: 50px; /* Ajusta el valor según lo necesites para lograr el efecto deseado */
   padding: 5px; /* Ajusta el relleno según sea necesario */
   width:50%;
+
 }
 .modalAbrir{
 
@@ -104,6 +105,12 @@
   background: transparent;
   color: #e91c1c;
   border: none;
+}
+
+.nombreProceso{
+  display: flex;
+  justify-content: space-between;
+
 }
 
 

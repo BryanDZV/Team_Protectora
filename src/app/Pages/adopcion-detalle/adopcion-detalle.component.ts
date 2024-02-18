@@ -12,7 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AdopcionModalComponent } from '../../filtros/adopcion-modal/adopcion-modal.component';
+import { FiltroModalComponent } from '../../filtros/filtros-modal/filtro-modal.component';
 @Component({
   selector: 'app-adopcion-detalle',
   standalone: true,
@@ -98,14 +98,18 @@ this.servicio.enviarDatos(data).subscribe({
   }
 
 
-  ///empiezo de LOGICA ADOPCION MODAL
+  ///empiezo de LOGICA ADOPCION ventanita enviar
 
   //1
-  abrirModal() {
-    this.dialog.open(AdopcionModalComponent, {
-      width: '50%',
-      data: {}, // En este caso no paso datos
+  abrirVentanita(): void {
+    const dialogRef = this.dialog.open(FiltroModalComponent, {
+      width: '400px',
+      data: { contexto: 'adopcionDetalle' }
     });
-    //2
   }
+
+  //this.dialog.open() es el componente que deseas abrir en el cuadro de
+  //diálogo. El segundo parámetro es una configuración opcional, donde puedes
+  //especificar propiedades como el ancho (width), la altura (height), los datos
+  // que deseas pasar al componente modal (data), entre otros.
 }
