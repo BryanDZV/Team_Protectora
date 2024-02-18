@@ -58,7 +58,7 @@ export class ApiService {
   }
 
 
-
+//animales
   public getAnimales() {
     return this.http.get(this.animalesUrl);
   }

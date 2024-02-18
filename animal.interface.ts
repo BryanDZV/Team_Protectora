@@ -7,7 +7,11 @@ interface Animal {
   ciudad: string;
   nombre: string;
   tamaño: string;
+  esterilizado:boolean;
+  microchip:boolean;
   favorito?: boolean;
+  peso:number;
+  vacunado:boolean;
 }
 
 

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // .gallery {
 //   width: 100%;
 //   height: 100%;
@@ -30,14 +31,21 @@
 /* Estilos para la galería de animales */
 
 
+=======
+>>>>>>> 158da44a93a2c10266284a33738e89c3d17d3247
 :host {
   color: rgb(1, 116, 142);
 }
-.animAdop{
+.animAdop {
   border-radius: 5%;
 }
-
+.contenedorAnimales {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 /// para cada imagen  DEL BUCLE GALERIA
+<<<<<<< HEAD
 .animal {
   display: inline-block;
   position: relative;
@@ -54,16 +62,24 @@
 .imagen {
   width: 400px; /* Tamaño mediano */
   height: 250px; /* Tamaño mediano */
+=======
+
+.imagen {
+  display: block; // Elimina el espacio adicional que puede agregar el elemento img
+  width: 100%; // Ajusta la imagen al ancho del contenedor
+  height: auto; // Permite que la imagen mantenga su relación de aspecto
+>>>>>>> 158da44a93a2c10266284a33738e89c3d17d3247
 }
 
 .favorito-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+  position: absolute; // Posiciona el botón de favorito en relación con el contenedor de la imagen
+  top: 5px;
+  right: 5px;
   background: transparent;
-  color: #e91c1c;
   border: none;
+
 }
+<<<<<<< HEAD
  .animal {
    border: 2px solid #3cc1c360;
    border-radius: 10px;
@@ -102,26 +118,83 @@
 .tituloF{
   display: flex;
   justify-content: space-between;
+=======
+
+.animal {
+  border: 2px solid #3cc1c360;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  width: 350px;
+  margin-bottom: 12px;
 }
 
-.input_buscador{
-  width: 50%;
-border: none;
+//contenedor de los botnoes
+.botones {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+//ataca a los botoness
+.botones button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.mat-icon {
+  color:#FA9C92; /* Cambia el color del ícono */
 
+
+
+
+>>>>>>> 158da44a93a2c10266284a33738e89c3d17d3247
+}
+///HASTA AQUI BUCLE GALERIA
+
+.estadoA {
+  display: flex;
+  margin-top: 20px;
+
+  margin-bottom: 20px;
+
+  justify-content: center;
+
+  border-radius: 5px;
+  border: 0.3px solid rgba(189, 210, 214, 0.3);
+}
+
+.tituloF {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input_buscador {
+  width: 50%;
+  border: none;
+  outline: none; // Esto quita la marca al escribir
 }
 .buscador {
-  border: 2px solid #3cc1c360;
-  border-radius: 50px; /* Ajusta el valor según lo necesites para lograr el efecto deseado */
-  padding: 5px; /* Ajusta el relleno según sea necesario */
-  width:70%;
+  width: 113px;
+  height: 25px;
+  border-radius: 5px;
+  border: 0.3px solid rgba(189, 210, 214, 0.3);
 }
+<<<<<<< HEAD
 .modalAbrir{
+=======
+.buscador:focus-within {
+  border-color: rgb(
+    32,
+    174,
+    84
+  ); //feed paa el usuario para que sepa q esta en el input
+}
+.modalAbrir {
+>>>>>>> 158da44a93a2c10266284a33738e89c3d17d3247
   top: 10px;
   right: 10px;
   background: transparent;
   color: #e91c1c;
   border: none;
 }
-
-
-

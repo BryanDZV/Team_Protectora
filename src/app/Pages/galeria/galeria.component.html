@@ -1,11 +1,18 @@
+<<<<<<< HEAD
 <div class="botones">
+=======
+
+
+<!-- //para poder VER DESDE GALERIA FAVORITOS SOLO PARA PINTAR  -->
+<!-- <div class="botones">
+>>>>>>> 158da44a93a2c10266284a33738e89c3d17d3247
   <button mat-icon-button routerLink="/perfil">
     <mat-icon>arrow_back</mat-icon>
   </button>
   <button mat-icon-button routerLink="/favoritos">
     <mat-icon>favorite</mat-icon>
   </button>
-</div>
+</div> -->
 
 
 <div class="buscador">
@@ -31,21 +38,19 @@
 
 
 @if (resultados.length > 0) {
-  <div class="image-container">
+  <div class="contenedorAnimales">
 
       @for (animal of resultados; track $index) {
         <div class="animal">
-
           <div class="imagen-container">
-            <img class="imagen" src="{{ animal.foto }}" alt="foto" routerLink="/gallery/{{animal._id}}" />
+            <img src="{{ animal.foto }}" alt="foto" routerLink="/gallery/{{animal._id}}" class="imagen" />
             <button mat-icon-button class="favorito-button" (click)="marcarFavorito(animal)">
               <mat-icon>{{ animal.favorito ? 'favorite' : 'favorite_border' }}</mat-icon>
             </button>
-            <h1>{{ animal.nombre }}</h1>
           </div>
-
+          <h1>{{ animal.nombre }}</h1>
         </div>
-      }
+        }
 
   </div>
 }

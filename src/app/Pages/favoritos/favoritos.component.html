@@ -1,20 +1,43 @@
 <p>favoritos works!</p>
+<div class="botones">
+  <button mat-icon-button routerLink="/gallery">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+</div>
 
-<button routerLink="/gallery">VOVLER A GALLERY </button>
-<div>
-  <h1>Animales Favoritos</h1>
+<div class="contenedorFavoritos">
+
+    <h1>Animales Favoritos</h1>
+
+
   @if (animalesFavoritos.length > 0;) {
-  <div>
+  <div class="contenedorBucle">
     @for (animal of animalesFavoritos; track $index) {
-    <div>
-      <h2>{{ animal.nombre }}</h2>
+    <div class="animal">
+      <!-- para aplciar borde azula todo abajo -->
       <div class="imagen-container">
-        <img
-          class="imagen"
-          [src]="animal.foto"
-          alt="foto"
-          routerLink="/gallery/ animal._id"
-        />
+        <!-- para plicar solo a la imagen abajo -->
+        <div class="imagen-container">
+          <img
+            class="imagen"
+            [src]="animal.foto"
+            alt="foto"
+            routerLink="/gallery/ animal._id"
+          />
+        </div>
+
+        <div class="contenedorPropiedades">
+          <div>
+            <h2><p class="propiedaes"></p><p>{{ animal.nombre }}</p></h2>
+            <h2><p></p><p>{{ animal.ciudad }}</p></h2>
+            <h2><p>Esterelizado:</p><p>{{ animal.esterilizado }}</p></h2>
+          </div>
+          <div>
+            <h2><p></p><p>{{ animal.peso }}kg</p></h2>
+            <h2><p>Microchip:</p><p>{{ animal.microchip }}</p></h2>
+            <h2><p>Vacunado:</p><p>{{ animal.vacunado }}</p></h2>
+          </div>
+        </div>
       </div>
     </div>
 
