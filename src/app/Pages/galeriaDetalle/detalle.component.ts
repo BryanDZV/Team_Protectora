@@ -2,9 +2,7 @@ import { Component } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon'
 import { ApiService } from '../../servicios/api.service';
-
 import { ActivatedRoute, RouterLink } from '@angular/router';
-
 import { PopUpComponent } from '../../pop-up/pop-up.component';
 import {MatDialog, MatDialogModule,} from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
@@ -22,7 +20,17 @@ import { CommonModule } from '@angular/common';
 export class DetalleComponent {
   id!:any;
   animals!:any;
-  constructor(private servicio: ApiService, private rutaActivada: ActivatedRoute, private dialog: MatDialog) { }
+  personalidades: string[][] = []; 
+  constructor(private servicio: ApiService, private rutaActivada: ActivatedRoute, private dialog: MatDialog) {
+    const animalesConPersonalidades: { personalidad: string[] }[] = [
+      { personalidad: ["Amigable", "Leal"] },
+      { personalidad: ["Independiente", "Cariñoso"] },
+      // Otros animales...
+    ];
+
+    // Mapea los datos de la base de datos para obtener solo las personalidades
+    this.personalidades = animalesConPersonalidades.map(animal => animal.personalidad);
+   }
 
   ngOnInit(): void {
     this.rutaActivada.paramMap.subscribe(params => {
@@ -63,6 +71,7 @@ export class DetalleComponent {
       data:{animales: this.abrirVentanaEmergente, contexto: 'galeria'}
     });
   }
+
   info: boolean = false;
   openInfo() {
     this.info = true;
@@ -75,7 +84,13 @@ export class DetalleComponent {
     return bool ? 'Si' : 'No';
   }
 
-
-
-
+  apadrinar: boolean = false; // Inicializamos apadrinar como false para que el popup esté oculto al principio
+  openApadrinar() {
+    this.apadrinar = true; // Cambiamos el valor de apadrinar a true cuando queremos mostrar el popup
+  }
+  closeApadrinar() {
+    this.apadrinar = false; // Cambiamos el valor de apadrinar a false cuando queremos ocultar el popup
+  }
+  
+  
 }
