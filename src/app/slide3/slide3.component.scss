@@ -4,6 +4,7 @@ button {
     outline: none;
     cursor: pointer;
 }
+
 .background-slide3 {
     position: relative;
     height: 100vh; 
@@ -13,6 +14,7 @@ button {
     width: clamp(200px, 90vw, 600px);
     margin: 0 auto;
 }
+
 .container-slide3 {
     text-align: center;
 }
@@ -31,13 +33,13 @@ h3 {
     text-size-adjust:  100%;
     color: var(--color-primary-blue);
 }
+
 .anterior,
 .siguiente {
     display: inline-block; 
     margin-top: 35px; 
     margin-right: 20px; 
     margin-left: 20px;
-
     color: var(--color-stand-out-red);
 }
 

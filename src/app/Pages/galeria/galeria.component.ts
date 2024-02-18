@@ -5,18 +5,14 @@ import { CommonModule } from '@angular/common';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-
 import Animal from '../../../../animal.interface';
 import { MatIconModule } from '@angular/material/icon';
-
-
 import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
 
 
 @Component({
   selector: 'app-galeria',
   standalone: true,
-
 
   imports: [
     CommonModule,
@@ -36,17 +32,14 @@ export class GaleriaComponent {
   public resultados: any[] = []; //lo uso para el resultado el buscador guardar sus resutlados o mostrar los animales base
   public textoBusqueda = ''; //inicar el buscador con 0
 
-
   constructor(private apiService: ApiService, private dialog: MatDialog) {}
 
 
   ngOnInit(): void {
     this.apiService.getAnimales().subscribe((data: any) => {
-
       console.log("soy data en galeria",data);
       this.resultados = data;
       this.animalesBase=this.resultados
-
 
       // Recuperar los animales favoritos y actualizar el estado de favorito en la galería
       const animalesFavoritos = this.apiService.obtenerAnimalesFavoritos();
@@ -80,9 +73,7 @@ export class GaleriaComponent {
     });
   }
 
-
   marcarFavorito(animal: Animal): void {
-
 
     animal.favorito = !animal.favorito;
     if (animal.favorito) {

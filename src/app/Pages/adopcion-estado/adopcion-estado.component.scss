@@ -1,11 +1,8 @@
-
 :host {
   color: rgb(1, 116, 142);
 }
 .animAdop{
   border-radius: 5%;
-
-
 }
 
 /// para cada imagen  DEL BUCLE GALERIA
@@ -13,23 +10,18 @@
   display: inline-block;
   position: relative;
   margin: 8px; /* Espacio  los div contenedores entre animales */
-
 }
 
 .imagen-container {
   position: relative;
   overflow: hidden;
   display: inline-block; /* Hace que el contenedor ocupe solo el ancho necesario */
-
   border: none;
 }
 
 .imagen {
   width: 400px; /* Tamaño mediano */
   height: 250px; /* Tamaño mediano */
-
-
-
 }
 
 .favorito-button {
@@ -45,8 +37,6 @@
    border-radius: 10px;
    overflow: hidden;
  }
-
-
 
 //contenedor de los botnoes
  .botones {
@@ -67,26 +57,19 @@
  }
 ///HASTA AQUI BUCLE GALERIA
 
-
-
 .estadoA{
   display: flex;
   margin-top: 20px;
   border: 2px solid #3cc1c360;
   margin-bottom: 20px;
-
-
 }
 
 .tituloF{
   display: flex;
   justify-content: flex-start
-
-
 }
 
 .input_buscador{
-
   border: none;
   outline: none;
 
@@ -99,7 +82,6 @@
 
 }
 .modalAbrir{
-
   top: 10px;
   right: 10px;
   background: transparent;
