@@ -13,6 +13,7 @@ import { PopUp2Component } from '../../pop-up2/pop-up2.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCommonModule } from '@angular/material/core';
+import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
 
 @Component({
   selector: 'app-form-ad',
@@ -24,6 +25,7 @@ import { MatCommonModule } from '@angular/material/core';
     MatDialogModule,
     FormsModule,
     CommonModule,
+    NavBarComponent,
   ],
   templateUrl: './form-ad.component.html',
   styleUrl: './form-ad.component.scss',
