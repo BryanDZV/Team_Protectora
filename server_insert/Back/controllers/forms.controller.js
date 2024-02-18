@@ -25,8 +25,8 @@ const getFormById = async(req, res) => {
 
 const postForm = async (req,res) => {
     try {
-        console.log(req);
-        const newForm = req.body;
+        // console.log(req);
+        const newForm = req.body.form;
         console.log("new form",newForm);
         const newforms = new Forms(newForm);
         console.log("new formos",newforms);

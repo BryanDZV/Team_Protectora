@@ -9,6 +9,7 @@ import {
   FormGroup,
   FormsModule,
   Validators,
+  ReactiveFormsModule,
 } from '@angular/forms';
 import { FiltroModalComponent } from '../../filtros/filtros-modal/filtro-modal.component';
 import { PopUp2Component } from '../../pop-up2/pop-up2.component';
@@ -28,9 +29,8 @@ import { Router } from '@angular/router';
     MatTabsModule,
     MatDialogModule,
     FormsModule,
-    CommonModule,
+    CommonModule,ReactiveFormsModule,
     NavBarComponent,
-    
   ],
   templateUrl: './form-ad.component.html',
   styleUrl: './form-ad.component.scss',
@@ -100,36 +100,31 @@ export class FormAdComponent {
   }
 
   // intento de llamada al servidor y "formulario"
-  
+
     onSubmit() {
 
     }
 
   abrirVentanaEmergente(): void {
-    this.servicio.getFormById("adoption-form").subscribe((data: any) => {
-      console.log('Soy datos', data);
-      this.animalDetalle = data;
-    });
+
     const dialogRef = this.dialog.open(PopUp2Component, {
       width: '400px',
       data: { animales: this.abrirVentanaEmergente, contexto: 'galeria' },
     });
-    if (this.adoptForm.valid) {
+
       const personalDate = this.adoptForm.value;
       // Aquí puedes realizar cualquier acción con los datos del formulario, como enviarlos a un servicio
       this.http
       .post<{ Form : Form }>('http://localhost:5002/form/register/', {
-        form: this.animalDetalle,
+        form: this.adoptForm.getRawValue(),
       })
       .subscribe((response) => {
         console.log('response', response);
         this.router.navigateByUrl('/login');
         alert('Usuario registrado correctamente');
       });
-      
-      console.log('Datos del formulario:', personalDate);
-    } else {
-      console.error('El formulario no es válido.');
-    }
+
+      console.log('Datos del formulario:', this.adoptForm.getRawValue());
+
   }
 }
