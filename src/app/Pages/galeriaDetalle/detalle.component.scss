@@ -1,54 +1,46 @@
-<<<<<<< HEAD
 .popup-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
-    z-index: 999; /* Asegura que esté por encima de todo */
-  }
-  
-  .popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    z-index: 1000; /* Asegura que esté por encima del fondo */
-=======
-.detContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  z-index: 999; /* Asegura que esté por encima de todo */
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  z-index: 1000; /* Asegura que esté por encima del fondo */
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .cabeceraImg {
-  width: 100%;
-  max-width: 600px;
-  height: 240px;
-  margin: 0 auto;
-
   position: relative;
-
   button {
-    cursor: pointer;
     position: absolute;
-    top: 20px;
-    left: 25px;
-    border: none;
-    background-color: transparent;
-    color: var(--color-stand-out-red);
-    font-weight: 400;
-    font-size: 40px;
->>>>>>> 158da44a93a2c10266284a33738e89c3d17d3247
-  }
+    top: 0;
+    left: 0;
+    margin: 15px;
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    background-color: transparent;
+    border: 0;
+    color: var(--color-stand-out-red);
+    font-size: 2.5rem;
+
+    &:hover {
+      font-size: 2rem;
+    }
   }
 }
 

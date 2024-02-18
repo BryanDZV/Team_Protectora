@@ -1,145 +1,166 @@
-<button routerLink="/adopcion">VOLVER</button>
-
-<mat-tab-group>
-  <mat-tab label="Resumen">
-    <div >
-      @if (animalEstado) {
-
-      <div>
-        <h1>Adopcion de: {{animalEstado.nombre}}</h1>
-      </div>
-      <div>
+<section>
+  <div class="container-title">
+    <button routerLink="/adopcion"><</button>
+    <h2>Adopcion de {{ animalEstado.nombre }}</h2>
+  </div>
+  <div class="main-container">
+    <mat-tab-group class="main-group">
+      <mat-tab label="Resumen">
         <div>
-          <img src="{{animalEstado.foto}}" alt="">
-        </div>
-        <div>
-          <p>Nombre:{{animalEstado.nombre}}</p>
-          <p>Ciudad:{{animalEstado.ciudad}}</p>
-          <p>Sexo:{{animalEstado.genero}}</p>
-        </div>
-      </div>
+          @if (animalEstado) {
 
-      <div>
-        <div>
-          <div>
-            <img src="../../../assets/imagenesAdopcion/Captura de pantalla 2024-02-16 111838.png" alt="">
-          </div>
-
-          <div>
-            <h1>Asociacion Protectora Lara</h1>
-            <p>Calle eraso</p>
-          </div>
-
-        </div>
-
-        <div>
-          <div>
-            <img src="../../../assets/imagenesAdopcion/Captura de pantalla 2024-02-16 112638.png" alt="">
-          </div>
-          <div>
-            <div>
-             <p>Contacta con nosotros</p>
+          <div class="card">
+            <div class="card-img">
+              <img src="{{ animalEstado.foto }}" alt="" />
             </div>
-            <div>
-              <img src="../../../assets/imagenesAdopcion/Captura de pantalla 2024-02-16 112340.png" alt="">
-              <img src="../../../assets/imagenesAdopcion/Captura de pantalla 2024-02-16 112356.png" alt="">
+            <div class="card-data">
+              <p><span>Nombre </span> {{ animalEstado.nombre }}</p>
+              <p><span> Ciudad </span>{{ animalEstado.ciudad }}</p>
+              <p><span>Sexo </span> {{ animalEstado.genero }}</p>
+            </div>
+          </div>
+
+          <div class="containerInfo">
+            <div class="info">
+              <div class="info-img">
+                <img
+                  src="../../../assets/imagenesAdopcion/Captura de pantalla 2024-02-16 111838.png"
+                  alt=""
+                />
+              </div>
+
+              <h4 class="info-data">Asoc.Protectora Lara</h4>
             </div>
 
+            <div class="containerContact">
+              <div class="containerContact-maps">
+                <img
+                  src="../../../assets/imagenesAdopcion/Captura de pantalla 2024-02-16 112638.png"
+                  alt=""
+                />
+              </div>
+              <div class="containerContact-contact">
+                <p>Contacta con nosotros</p>
+                <div>
+                  <img
+                    src="../../../assets/imagenesAdopcion/Captura de pantalla 2024-02-16 112340.png"
+                    alt=""
+                  />
+                  <img
+                    src="../../../assets/imagenesAdopcion/Captura de pantalla 2024-02-16 112356.png"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          }
+        </div>
+      </mat-tab>
+
+      <mat-tab label="Info Adicional">
+        <div class="infoad-container">
+          <div>
+            <h2>Subir Imágenes</h2>
+            <p>
+              Necesitamos que nos subas algunas fotos de dónde va vivir tu nueva
+              mascota pra poder echarte una mano si necesitas algo más de
+              información
+            </p>
+          </div>
+
+          <div>
+            <input type="file" (change)="seleccionarFoto1($event)" />
+          </div>
+          <div>
+            <input type="file" (change)="seleccionarFoto2($event)" />
+          </div>
+          <div>
+            <input type="file" (change)="seleccionarFoto3($event)" />
+          </div>
+
+          <div>
+            <div>
+              <h2>¿Como quieres pagar las tasas?</h2>
+              <p>
+                Para pagar las tasas de adopción puedes elegir o pagarlo
+                mediante la app con un pago único o poniéndose en contacto con
+                la protectora para fraccionar el pago
+              </p>
+            </div>
+            <div>
+              <mat-form-field>
+                <mat-label>125 $ Desglosar Tasas</mat-label>
+                <mat-select [(value)]="seleccionarOpcion">
+                  @for(opcion of opciones; track $index){
+                  <mat-option>
+                    {{ opcion }}
+                  </mat-option>
+                  }
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div>
+              <div>
+                <mat-checkbox
+                  [checked]="checkedvisto1"
+                  (change)="checkedvisto1 = !checkedvisto1"
+                  >Texto 1</mat-checkbox
+                >
+                <mat-checkbox
+                  [checked]="checkedvisto2"
+                  (change)="checkedvisto2 = !checkedvisto2"
+                  >Texto 2</mat-checkbox
+                >
+              </div>
+            </div>
+
+            <button (click)="subir()">ENVIAR</button>
           </div>
         </div>
+      </mat-tab>
 
-      </div>
-    }
-
-    </div>
-
-  </mat-tab>
-
-  <mat-tab label="Info Adicional">
-    <div>
-      <div><h1>Subir Imágenes</h1><p>Necesitamos que nos subas algunas fotos de dónde va vivir tu nueva mascota pra poder echarte una mano si necesitas algo más de información</p></div>
-    </div>
-
-    <div>
-      <input type="file" (change)="seleccionarFoto1($event)">
-
-    </div>
-    <div>
-      <input type="file" (change)="seleccionarFoto2($event)">
-
-    </div>
-    <div>
-      <input type="file" (change)="seleccionarFoto3($event)">
-
-    </div>
-    <div>
-      <div>
-        <h1>¿Como quieres pagar las tasas?</h1>
-        <p>Para pagar las tasas de adopción puedes elegir o pagarlo mediante la app con un pago único o poniéndose en contacto con la protectora para fraccionar el pago</p>
-      </div>
-      <div>
-        <mat-form-field>
-        <mat-label>125 $ Desglosar Tasas</mat-label>
-        <mat-select [(value)]="seleccionarOpcion">
-
-            @for(opcion of opciones; track $index){
-            <mat-option>
-          {{ opcion }}
-          </mat-option>
-        }
-
-        </mat-select>
-      </mat-form-field>
-
-      </div>
-      <div>
-        <div >
-          <mat-checkbox [checked]="checkedvisto1" (change)="checkedvisto1 = !checkedvisto1">Texto 1</mat-checkbox>
-    <mat-checkbox [checked]="checkedvisto2" (change)="checkedvisto2 = !checkedvisto2">Texto 2</mat-checkbox>
-
+      <mat-tab label="Adopcion">
+        <div class="adopContainer">
+          <div class="adopContainer-title">
+            <h2>Asociacion Protectora Lara</h2>
+            <div class="adopContainer-img">
+              <img
+                src="../../../assets/imagenesAdopcion/Captura de pantalla 2024-02-16 112638.png"
+                alt=""
+              />
+            </div>
+          </div>
+          <div>
+            <mat-form-field>
+              <mat-label>Choose a date</mat-label>
+              <input matInput [matDatepicker]="picker" />
+              <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+              <mat-datepicker-toggle
+                matIconSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div>
+            <label>
+              <div>
+                <label for="textInput"></label>
+                <input
+                  type="text"
+                  id="textInput"
+                  [(ngModel)]="inputText"
+                  placeholder="¿A que hora puedes venir?"
+                />
+              </div>
+            </label>
+            <div>
+              <button mat-button (click)="abrirVentanita()">Enviar</button>
+            </div>
+          </div>
         </div>
-
-      </div>
-
-      <button (click)="subir()">ENVIAR</button>
-    </div>
-
-  </mat-tab>
-
-  <mat-tab label="Adopcion">
-    <div>
-      <div>
-        <h1>Asociacion Protectora Lara</h1>
-        <p>Calle eraso</p>
-      </div>
-      <div>
-        <div>
-          <img src="../../../assets/imagenesAdopcion/Captura de pantalla 2024-02-16 112638.png" alt="">
-        </div>
-      </div>
-    </div>
-    <div>
-      <mat-form-field>
-        <mat-label>Choose a date</mat-label>
-        <input matInput [matDatepicker]="picker">
-        <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
-    </div>
-    <div>
-      <label>
-        <h1>Hora</h1>
-
-        <div>
-          <label for="textInput"></label>
-          <input type="text" id="textInput" [(ngModel)]="inputText" placeholder="¿A que hora puedes venir?">
-        </div>
-      </label>
-      <div>
-        <button mat-button (click)="abrirVentanita()">Enviar</button>
-      </div>
-
-    </div>
-  </mat-tab>
-</mat-tab-group>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</section>
