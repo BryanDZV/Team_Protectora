@@ -1,63 +1,71 @@
-
-
-<p>adopcion-estado works!</p>
-
 <div class="contenedorGeneral">
-<div class="tituloF">
-<div class="botones">
-  <button mat-icon-button routerLink="/perfil">
-    <mat-icon>arrow_back</mat-icon>
-  </button>
-</div>
+  <div class="tituloF">
+    <div class="botones">
+      <button mat-icon-button routerLink="/perfil">
+        <mat-icon><</mat-icon>
+      </button>
+    </div>
 
-  <input  class="input_buscador" type="text" [(ngModel)]="textoBusqueda"  (input)="buscar(textoBusqueda)" placeholder="Busca tu Animal...">
+    <input
+      class="input_buscador"
+      type="text"
+      [(ngModel)]="textoBusqueda"
+      (input)="buscar(textoBusqueda)"
+      placeholder="Busca tu Animal..."
+    />
 
-
-<div>
-  <button mat-icon-button (click)="abrirModal()" class="modalAbrir">
-    <mat-icon>filter_list</mat-icon>
-  </button>
-</div>
-</div>
-
+    <div>
+      <button mat-icon-button (click)="abrirModal()" class="modalAbrir">
+        <mat-icon>filter_list</mat-icon>
+      </button>
+    </div>
+  </div>
 
   @if (resultados.length > 0) {
-    <div class="image-container">
-      @for (animal of resultados; track $index) {
-        <div  class="animal">
-          <div class="nombreProceso">
-            <div>
-              <h1>Adopcion de {{ animal.nombre }}</h1>
-            </div>
-            <div>
-              @if (animal.adoptionState === 'Completo') {
-              <mat-icon class="icono-completado" style="color: green">check_circle</mat-icon>
-              }@if (animal.adoptionState === 'Proceso') {
-                <mat-icon class="icono-proceso" style="color: rgb(0, 17, 255)">hourglass_empty</mat-icon>
-              }@if (animal.adoptionState === 'Rechazado') {
-                <mat-icon class="icono-rechazado" style="color: red">highlight_off</mat-icon>
-              }
-            </div>
-          </div>
-          <div class="contenedorImgName">
-
-              <img class="imagen" src="{{ animal.foto }}" alt="foto" routerLink="/adopcion/{{animal._id}}" />
-
-
-            <div>
-              <p>Nombre:{{ animal.nombre }}</p>
-              <p>Ciudad:{{ animal.ciudad }}</p>
-              <p>Sexo:{{ animal.genero }}</p>
-            </div>
-          </div>
+  <div class="image-container">
+    @for (animal of resultados; track $index) {
+    <div class="animal">
+      <div class="nombreProceso">
+        <div>
+          <h2>Adopcion de {{ animal.nombre }}</h2>
         </div>
-      }
-    </div>
-  }
+        <div>
+          @if (animal.adoptionState === 'Completo') {
+          <mat-icon class="icono-completado" style="color: green"
+            >check_circle</mat-icon
+          >
+          }@if (animal.adoptionState === 'Proceso') {
+          <mat-icon class="icono-proceso" style="color: rgb(0, 17, 255)"
+            >hourglass_empty</mat-icon
+          >
+          }@if (animal.adoptionState === 'Rechazado') {
+          <mat-icon class="icono-rechazado" style="color: red"
+            >highlight_off</mat-icon
+          >
+          }
+        </div>
+      </div>
+      <div class="contenedorImgName">
+        <img
+          class="imagen"
+          src="{{ animal.foto }}"
+          alt="foto"
+          routerLink="/adopcion/{{ animal._id }}"
+        />
 
-  @if (resultados.length === 0) {
-    <div >
-      <p>No se encontraron resultados.</p>
+        <div>
+          <p><span>Nombre: </span> {{ animal.nombre }}</p>
+          <p><span>Ciudad: </span> {{ animal.ciudad }}</p>
+          <p><span>Sexo: </span> {{ animal.genero }}</p>
+        </div>
+      </div>
     </div>
+    }
+  </div>
+  } @if (resultados.length === 0) {
+  <div>
+    <p>No se encontraron resultados.</p>
+  </div>
   }
 </div>
+<app-nav-bar></app-nav-bar>
