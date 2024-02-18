@@ -74,12 +74,18 @@
     <div class="image-container">
       @for (animal of resultados; track $index) {
         <div  class="animal">
-          <div>
+          <div class="nombreProceso">
             <div>
               <h1>Adopcion de {{ animal.nombre }}</h1>
             </div>
             <div>
-              <p>{{ animal.adoptionState }}</p>
+              @if (animal.adoptionState === 'Completo') {
+              <mat-icon class="icono-completado" style="color: green">check_circle</mat-icon>
+              }@if (animal.adoptionState === 'Proceso') {
+                <mat-icon class="icono-proceso" style="color: rgb(0, 17, 255)">hourglass_empty</mat-icon>
+              }@if (animal.adoptionState === 'Rechazado') {
+                <mat-icon class="icono-rechazado" style="color: red">highlight_off</mat-icon>
+              }
             </div>
           </div>
           <div>
