@@ -109,6 +109,7 @@ this.servicio.enviarDatos(data).subscribe({
   }
 
 
+
 //alerta en BOTON SUBIR IMAGENES/en info adicional
 
 openSnackBar(message: string, action: string) {
@@ -119,13 +120,11 @@ openSnackBar(message: string, action: string) {
 }
 
 
-
   ///empiezo de LOGICA ADOPCION ventanita enviar
 
   //1
   abrirVentanita(): void {
     const dialogRef = this.dialog.open(FiltroModalComponent, {
-      width: '400px',
       data: { contexto: 'adopcionDetalle' }
     });
   }

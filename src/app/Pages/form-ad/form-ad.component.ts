@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { ApiService } from '../../servicios/api.service';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FiltroModalComponent } from '../../filtros/filtros-modal/filtro-modal.component';
 
 @Component({
   selector: 'app-form-ad',
@@ -42,6 +43,7 @@ currentPage: string = 'datos'; // Página inicial
 goToPage(page: string) {
   this.currentPage = page; // Cambia la página actual
 }
+
 
 
 //intento de llamada al servidor y "formulario"
