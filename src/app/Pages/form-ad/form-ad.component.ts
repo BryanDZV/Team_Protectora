@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ApiService } from '../../servicios/api.service';
 import { ActivatedRoute } from '@angular/router';
@@ -5,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-form-ad',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './form-ad.component.html',
   styleUrl: './form-ad.component.scss'
 })
@@ -25,5 +26,11 @@ export class FormAdComponent {
       console.log("Soy datos",data);
       this.animalDetalle=data
     })
+}
+
+currentPage: string = 'datos'; // Página inicial
+
+goToPage(page: string) {
+  this.currentPage = page; // Cambia la página actual
 }
 }

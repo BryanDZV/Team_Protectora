@@ -43,6 +43,7 @@ export class DetalleComponent {
       console.log("Soy datos",data);
       this.animals=data
     })
+
   }
 
   handleShareClick() {
