@@ -1,5 +1,7 @@
+import { Form } from './../../interface/form';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Component, inject } from '@angular/core';
 import { ApiService } from '../../servicios/api.service';
 import { ActivatedRoute } from '@angular/router';
 import {
@@ -14,6 +16,8 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCommonModule } from '@angular/material/core';
 import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-form-ad',
@@ -26,6 +30,7 @@ import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
     FormsModule,
     CommonModule,
     NavBarComponent,
+    
   ],
   templateUrl: './form-ad.component.html',
   styleUrl: './form-ad.component.scss',
@@ -34,17 +39,40 @@ export class FormAdComponent {
   id!: any;
   forms!: any;
   animalDetalle!: any;
+  adoptForm!: FormGroup;
+  fb = inject(FormBuilder);
+  http = inject(HttpClient);
+  router = inject(Router);
   constructor(
     private servicio: ApiService,
     private rutaActivada: ActivatedRoute,
-    formBuilder: FormBuilder,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private formBuilder: FormBuilder,
   ) {
-    //intento de llamada al servidor y "formulario"
-    //   this.personalDateForm = this.formBuilder.group({
-    //     name: ['', Validators.required]
-    //     // Otros campos del formulario...
-    //   });
+    this.adoptForm = this.formBuilder.group({
+    name: [''],
+    email: [''],
+    telf: [''],
+    dni: [''],
+    direction: [''],
+    postal: [''],
+    city: [''],
+    conditions: [''],
+    pets: [''],
+    which: [''],
+    petfrienly: [''],
+    needs: [''],
+    expenses: [''],
+    food: [''],
+    home: [''],
+    rental: [''],
+    casero: [''],
+    removal: [''],
+    garden: [''],
+    family: [''],
+    agreement: [''],
+    visit: [''],
+    });
   }
 
   ngOnInit(): void {
@@ -71,22 +99,37 @@ export class FormAdComponent {
     this.currentPage = page; // Cambia la página actual
   }
 
-  //intento de llamada al servidor y "formulario"
-  // personalDateForm: FormGroup;
-  //   onSubmit() {
-  //     if (this.personalDateForm.valid) {
-  //       const personalDate = this.personalDateForm.value;
-  //       // Aquí puedes realizar cualquier acción con los datos del formulario, como enviarlos a un servicio
-  //       console.log('Datos del formulario:', personalDate);
-  //     } else {
-  //       console.error('El formulario no es válido.');
-  //     }
-  //   }
+  // intento de llamada al servidor y "formulario"
+  
+    onSubmit() {
+
+    }
 
   abrirVentanaEmergente(): void {
+    this.servicio.getFormById("adoption-form").subscribe((data: any) => {
+      console.log('Soy datos', data);
+      this.animalDetalle = data;
+    });
     const dialogRef = this.dialog.open(PopUp2Component, {
       width: '400px',
       data: { animales: this.abrirVentanaEmergente, contexto: 'galeria' },
     });
+    if (this.adoptForm.valid) {
+      const personalDate = this.adoptForm.value;
+      // Aquí puedes realizar cualquier acción con los datos del formulario, como enviarlos a un servicio
+      this.http
+      .post<{ Form : Form }>('http://localhost:5002/form/register/', {
+        form: this.animalDetalle,
+      })
+      .subscribe((response) => {
+        console.log('response', response);
+        this.router.navigateByUrl('/login');
+        alert('Usuario registrado correctamente');
+      });
+      
+      console.log('Datos del formulario:', personalDate);
+    } else {
+      console.error('El formulario no es válido.');
+    }
   }
 }
