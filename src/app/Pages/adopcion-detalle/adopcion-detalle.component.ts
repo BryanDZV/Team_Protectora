@@ -99,24 +99,24 @@ export class AdopcionDetalleComponent {
       visto2: this.checkedvisto2,
     };
 // me suscribo a la funcion DE MI SERVICIO para enviar datos a mi data base
-this.servicio.enviarDatos(data).subscribe({
-
-  error: (error: any) => {
+// Suscripción para enviar datos a la base de datos
+this.servicio.enviarDatos(data).subscribe(
+  (response: any) => {
+    console.log('Datos enviados correctamente:', response);
+    this.mostrarSnackBar('Subido al servidor con éxito'); // Mostrar mensaje de éxito
+  },
+  (error: any) => {
     console.error('No se ha enviado datos desde adopcion-Modal:', error);
+    this.mostrarSnackBar('Error al subir al servidor'); // Mostrar mensaje de error
   }
+);
+}
+
+// Método para mostrar un mensaje de Snackbar
+mostrarSnackBar(mensaje: string) {
+this.snackBar.open(mensaje, 'Cerrar', {
+  duration: 3000, // Duración del mensaje en milisegundos
 });
-
-  }
-
-
-
-//alerta en BOTON SUBIR IMAGENES/en info adicional
-
-openSnackBar(message: string, action: string) {
-  //1argumento mensaje 2 accion 3 tiempo
-  this.snackBar.open('holaa', 'cerrar', {
-    duration: 2000, // Duración de la alerta en milisegundos
-  });
 }
 
 
@@ -124,7 +124,7 @@ openSnackBar(message: string, action: string) {
 
   //1
   abrirVentanita(): void {
-    const dialogRef = this.dialog.open(FiltroModalComponent, {
+   this.dialog.open(FiltroModalComponent, {
       data: { contexto: 'adopcionDetalle' }
     });
   }

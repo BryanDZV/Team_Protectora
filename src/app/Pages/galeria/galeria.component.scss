@@ -41,23 +41,16 @@
   align-items: center;
 }
 /// para cada imagen  DEL BUCLE GALERIA
-.animal {
-  display: inline-block;
-  position: relative;
-  margin: 8px; /* Espacio  los div contenedores entre animales */
-}
+
 
 .imagen-container {
   position: relative;
   overflow: hidden;
-  display: inline-block; /* Hace que el contenedor ocupe solo el ancho necesario */
+   /* Hace que el contenedor ocupe solo el ancho necesario */
   border: none;
 }
 
-.imagen {
-  width: 400px; /* Tamaño mediano */
-  height: 250px; /* Tamaño mediano */
-}
+
 .imagen {
   display: block; // Elimina el espacio adicional que puede agregar el elemento img
   width: 100%; // Ajusta la imagen al ancho del contenedor
@@ -72,9 +65,14 @@
   border: none;
 }
 .animal {
+
+  margin: 8px;
   border: 2px solid #3cc1c360;
   border-radius: 10px;
   overflow: hidden;
+  position: relative;
+  width: 350px;
+  margin-bottom: 12px;
 }
 
 //contenedor de los botnoes
@@ -109,13 +107,9 @@
   display: flex;
   justify-content: space-between;
 }
-.animal {
-  border: 2px solid #3cc1c360;
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-  width: 350px;
-  margin-bottom: 12px;
+.modalAbrir {
+background: transparent;
+border: none;
 }
 
 //contenedor de los botnoes
@@ -133,6 +127,10 @@
 }
 .mat-icon {
   color: #fa9c92; /* Cambia el color del ícono */
+  background: transparent;
+}
+.filter_list{
+  background: transparent;
 }
 ///HASTA AQUI BUCLE GALERIA
 
@@ -159,10 +157,17 @@
   outline: none; // Esto quita la marca al escribir
 }
 .buscador {
-  width: 113px;
+
+  display: flex;
+  justify-content: space-between;
+  width: 220px;
   height: 25px;
   border-radius: 5px;
-  border: 0.3px solid rgba(189, 210, 214, 0.3);
+  border: 2px solid rgba(106, 184, 200, 0.3);
+}
+.favoritos{
+  border: none;
+  background: transparent;
 }
 .modalAbrir {
   .buscador:focus-within {

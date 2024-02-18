@@ -3,12 +3,12 @@
   <button mat-icon-button routerLink="/perfil">
     <mat-icon>arrow_back</mat-icon>
   </button>
-  <button mat-icon-button routerLink="/favoritos">
-    <mat-icon>favorite</mat-icon>
-  </button>
+
 </div> -->
 
 <div class="buscador">
+
+
   <input
     class="input_buscador"
     type="text"
@@ -16,6 +16,11 @@
     (input)="buscar(textoBusqueda)"
     placeholder="Busca tu Animal..."
   />
+
+
+  <button class="favoritos" mat-icon-button routerLink="/favoritos">
+    <mat-icon >favorite</mat-icon>
+  </button>
 </div>
 
 <div class="estadoA" routerLink="/adopcion">
@@ -28,7 +33,7 @@
   </div>
   <div>
     <button mat-icon-button (click)="abrirModal()" class="modalAbrir">
-      <mat-icon>filter_list</mat-icon>
+      <mat-icon class="filter_list">filter_list</mat-icon>
     </button>
   </div>
 </div>
